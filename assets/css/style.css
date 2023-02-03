@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none !important;
+    text-decoration: none !important;
+}
+
+h1 { font-size: 2em; }
+h2 { font-size: 1.5em; }
+h3 { font-size: 1.3em; }
+h4 { font-size: 1em; }
+h5 { font-size: 0.8em; }
+h6 { font-size: 0.7em; }
+
+h1,h2,h3,h4,h5,h6 {
+    font-weight: normal;
+    font-style: normal;
+}
+
+header h1 {
+    padding-top: 1rem;
+}
+
+body {
+    font-size: 1rem;
+    font-family: "Poppins", sans-serif;
+}
+
+.table > tbody > tr > td {
+    vertical-align: middle;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 4rem;
+    background-color: aliceblue;
+    text-align: center;
+}
+
+.sidebar a {
+    color: white;
+    display: block;
+    padding: 1rem 0;
+}
+
+.sidebar a:hover {
+    color: white;
+    background-color: gray;
+}
+
+@media only screen and (max-width: 600px) {
+    .sidebar {
+        max-width: 3rem;
+    }
+}
+
+/* Utilities */
+.grid-ish {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.grid-ish > * {
+    flex: 1 1 30em;
+}
+
+/* Containers */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.main-content {
+    margin-left: 4rem;
+}
+
+@media only screen and (max-width: 600px) {
+    .main-content {
+        margin-left: 3rem;
+    }
+}
+
+.datatable-container {
+    display: flex;
+    flex-flow: row;
+}
+
+.datatable-container form {
+    padding: 1.5em;
+    width: 100%;
+    max-width: 25rem;
+    margin: 0 1em 0 0;
+    height:max-content;
+}
+
+@media only screen and (max-width: 992px) {
+    .datatable-container {
+        display: flex;
+        flex-flow: column;
+    }
+
+    .datatable-container form {
+        padding: 1em;
+        margin: 0 0 1em 0;
+    }
+}
+
+/* Panels */
+.box {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    max-width: 25rem;
+    width: 100%;
+    margin: 0 1rem;
+}
+
+.box .login-content {
+    padding: 2em;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.box .login-content * {
+    margin: 0.5em 0;
+}
+
+.box .login-content a {
+    text-align: center;
+}
+
+.grid-box {
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 0.3em;
+    -webkit-border-radius: 0.3em;
+    -moz-border-radius: 0.3em;
+    -ms-border-radius: 0.3em;
+    -o-border-radius: 0.3em;
+}
+
+.grid-box .content {
+    display: block;
+}
