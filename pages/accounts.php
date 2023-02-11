@@ -39,8 +39,7 @@ privateAccess();
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
+                                <th>Name</th>
                                 <th>Email</th>
                                 <th>Contact No.</th>
                                 <th>Creation Date</th>

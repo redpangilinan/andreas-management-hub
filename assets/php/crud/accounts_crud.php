@@ -1,26 +1,30 @@
 <?php
 // Displays the data table with enabled search functionality
-if(isset($_POST['input'])) {
+if (isset($_POST['input'])) {
     include '../connection.php';
     $input = $_POST['input'];
-    $sql =
-        "SELECT account_id, username, password, email, creation_date, account_type
+    $sql = `
+    SELECT account_id, firstname, lastname, password, email, contact_no, creation_date, account_type
     FROM tb_accounts
     WHERE account_type = 'User'
     AND (account_id LIKE '{$input}%'
-    OR username LIKE '{$input}%'
+    OR firstname LIKE '{$input}%'
+    OR lastname LIKE '{$input}%'
     OR password LIKE '{$input}%'
     OR email LIKE '{$input}%'
+    OR contact_no LIKE '{$input}%'
     OR creation_date LIKE '{$input}%'
     OR account_type LIKE '{$input}%')
-    ORDER BY account_id";
+    ORDER BY account_id
+    `;
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
+    $fullname = $row["firstname"] + " " + $row["lastname"];
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-        ?>
+?>
         <tr>
             <td><?php echo $row["account_id"] ?></td>
-            <td><?php echo $row["username"] ?></td>
+            <td><?php echo $row["fullname"] ?></td>
             <td><?php echo $row["password"] ?></td>
             <td><?php echo $row["email"] ?></td>
             <td><?php echo $row["creation_date"] ?></td>
@@ -30,23 +34,25 @@ if(isset($_POST['input'])) {
                 <button data-id="<?php echo $row["account_id"] ?>" class="delete-data btn btn-danger"><i class="fas fa-trash"></i></button>
             </td>
         </tr>
-        <?php
+    <?php
     }
     if (($count) == 0) {
-        ?>
+    ?>
         <tr>
             <td colspan='7'>There are no records.</td>
         </tr>
-        <?php
+<?php
     }
     mysqli_close($conn);
 }
 
 // Inserts a new data
-if (isset($_POST['username'])
-&& isset($_POST['email'])
-&& isset($_POST['password'])
-&& isset($_POST['confirm_password'])) {
+if (
+    isset($_POST['username'])
+    && isset($_POST['email'])
+    && isset($_POST['password'])
+    && isset($_POST['confirm_password'])
+) {
     include '../connection.php';
     $username = $_POST['username'];
     $email = $_POST['email'];
@@ -66,10 +72,12 @@ if (isset($_POST['username'])
 }
 
 // Updates an existing data
-if (isset($_POST['primary_id'])
-&& isset($_POST['edit_username'])
-&& isset($_POST['edit_email'])
-&& isset($_POST['edit_password'])) {
+if (
+    isset($_POST['primary_id'])
+    && isset($_POST['edit_username'])
+    && isset($_POST['edit_email'])
+    && isset($_POST['edit_password'])
+) {
     include '../connection.php';
     $primary_id = $_POST['primary_id'];
     $edit_username = $_POST['edit_username'];
