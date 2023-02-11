@@ -3,30 +3,36 @@
 if (isset($_POST['input'])) {
     include '../connection.php';
     $input = $_POST['input'];
-    $sql = `
-    SELECT account_id, firstname, lastname, password, email, contact_no, creation_date, account_type
+    $sql = "
+    SELECT account_id, firstname, lastname, email, contact_no, creation_date, account_type
     FROM tb_accounts
-    WHERE account_type = 'User'
-    AND (account_id LIKE '{$input}%'
+    WHERE (account_id LIKE '{$input}%'
     OR firstname LIKE '{$input}%'
     OR lastname LIKE '{$input}%'
-    OR password LIKE '{$input}%'
     OR email LIKE '{$input}%'
     OR contact_no LIKE '{$input}%'
     OR creation_date LIKE '{$input}%'
     OR account_type LIKE '{$input}%')
     ORDER BY account_id
-    `;
+    ";
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
-    $fullname = $row["firstname"] + " " + $row["lastname"];
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 ?>
         <tr>
             <td><?php echo $row["account_id"] ?></td>
-            <td><?php echo $row["fullname"] ?></td>
-            <td><?php echo $row["password"] ?></td>
+            <td><?php echo $row["firstname"] ?></td>
+            <td><?php echo $row["lastname"] ?></td>
             <td><?php echo $row["email"] ?></td>
+            <td>
+                <?php
+                if ($row["contact_no"] == "") {
+                    echo "N/A";
+                } else {
+                    echo $row["contact_no"];
+                }
+                ?>
+            </td>
             <td><?php echo $row["creation_date"] ?></td>
             <td><?php echo $row["account_type"] ?></td>
             <td>
@@ -39,7 +45,7 @@ if (isset($_POST['input'])) {
     if (($count) == 0) {
     ?>
         <tr>
-            <td colspan='7'>There are no records.</td>
+            <td colspan='8'>There are no records.</td>
         </tr>
 <?php
     }
@@ -48,18 +54,21 @@ if (isset($_POST['input'])) {
 
 // Inserts a new data
 if (
-    isset($_POST['username'])
+    isset($_POST['firstname'])
+    && isset($_POST['lastname'])
     && isset($_POST['email'])
     && isset($_POST['password'])
     && isset($_POST['confirm_password'])
 ) {
     include '../connection.php';
-    $username = $_POST['username'];
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
     $email = $_POST['email'];
+    $contact_no = $_POST['contact_no'];
     $password = mysqli_real_escape_string($conn, $_POST['password']);
     $confirm_password = mysqli_real_escape_string($conn, $_POST['confirm_password']);
     if ($password == $confirm_password) {
-        $sql = "INSERT INTO tb_accounts VALUES (null, '$username', '$password', '$email', CURDATE(), 'User')";
+        $sql = "INSERT INTO tb_accounts VALUES (null, '$firstname', '$lastname', '$password', '$email', '$contact_no', CURDATE(), 'User')";
         if (mysqli_query($conn, $sql)) {
             echo "success";
         } else {
@@ -74,20 +83,23 @@ if (
 // Updates an existing data
 if (
     isset($_POST['primary_id'])
-    && isset($_POST['edit_username'])
+    && isset($_POST['edit_firstname'])
+    && isset($_POST['edit_lastname'])
     && isset($_POST['edit_email'])
     && isset($_POST['edit_password'])
 ) {
     include '../connection.php';
     $primary_id = $_POST['primary_id'];
-    $edit_username = $_POST['edit_username'];
+    $edit_firstname = $_POST['edit_firstname'];
+    $edit_lastname = $_POST['edit_lastname'];
     $edit_email = $_POST['edit_email'];
+    $edit_contact_no = $_POST['edit_contact_no'];
     $edit_password = mysqli_real_escape_string($conn, $_POST['edit_password']);
-    $sql = "UPDATE tb_accounts SET username='$edit_username', password='$edit_password', email='$edit_email' WHERE account_id='$primary_id'";
+    $sql = "UPDATE tb_accounts SET firstname='$edit_firstname', lastname='$edit_lastname', password='$edit_password', email='$edit_email', contact_no='$edit_contact_no' WHERE account_id='$primary_id'";
     if (mysqli_query($conn, $sql)) {
         echo "success";
     } else {
-        echo "error";
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
     mysqli_close($conn);
 }

@@ -34,7 +34,7 @@ $(document).ready(function () {
 const displayTable = () => {
     let input = $("#search_records").val();
     $.ajax({
-        url: "./assets/php/crud/accounts_crud.php",
+        url: "../assets/php/crud/accounts_crud.php",
         method: "POST",
         data: {
             input: input
@@ -48,7 +48,7 @@ const displayTable = () => {
 // Displays data in edit modal
 const displayEdit = (primary_id) => {
     $.ajax({
-        url: "./assets/php/modals/accounts_modal.php",
+        url: "../assets/php/modals/accounts_modal.php",
         method: "POST",
         data: {
             primary_id: primary_id
@@ -66,7 +66,7 @@ const insertData = () => {
     let password = $("#password").val();
     let confirm_password = $("#confirm_password").val();
     $.ajax({
-        url: "./assets/php/crud/accounts_crud.php",
+        url: "../assets/php/crud/accounts_crud.php",
         method: "POST",
         data: {
             username: username,
@@ -83,7 +83,7 @@ const insertData = () => {
             } else if (data == "error_confirm") {
                 $('#password').val("");
                 $('#confirm_password').val("");
-                passwordConfirmAlert();  
+                passwordConfirmAlert();
             } else {
                 $('#form_add')[0].reset();
                 errorAlert();
@@ -95,16 +95,20 @@ const insertData = () => {
 // Updates the data
 const updateData = () => {
     let primary_id = $("#primary_id").val();
-    let edit_username = $("#edit_username").val();
+    let edit_firstname = $("#edit_firstname").val();
+    let edit_lastname = $("#edit_lastname").val();
     let edit_email = $("#edit_email").val();
+    let edit_contact_no = $("#edit_contact_no").val();
     let edit_password = $("#edit_password").val();
     $.ajax({
-        url: "./assets/php/crud/accounts_crud.php",
+        url: "../assets/php/crud/accounts_crud.php",
         method: "POST",
         data: {
             primary_id: primary_id,
-            edit_username: edit_username,
+            edit_firstname: edit_firstname,
+            edit_lastname: edit_lastname,
             edit_email: edit_email,
+            edit_contact_no: edit_contact_no,
             edit_password: edit_password
         },
         success: function (data) {
@@ -114,6 +118,7 @@ const updateData = () => {
             if (data == "success") {
                 editAlert();
             } else {
+                console.log(data);
                 errorAlert();
             }
         }
@@ -123,7 +128,7 @@ const updateData = () => {
 // Deletes a data
 const deleteData = (delete_id) => {
     $.ajax({
-        url: "./assets/php/crud/accounts_crud.php",
+        url: "../assets/php/crud/accounts_crud.php",
         method: "POST",
         data: {
             delete_id: delete_id
