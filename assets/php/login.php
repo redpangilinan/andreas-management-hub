@@ -23,9 +23,9 @@ if (isset($_POST['login'])) {
         $_SESSION['account_type'] = $account_type;
 
         // Change the cookies names and link accordingly
-        setcookie("ID", $_SESSION['account_id'], time() + 86400, "/", "http://localhost/Projects/github/php-scrud-with-login-authentication");
-        setcookie("Email", $_SESSION['email'], time() + 86400, "/", "http://localhost/Projects/github/php-scrud-with-login-authentication");
-        setcookie("Password", $_SESSION['password'], time() + 86400, "/", "http://localhost/Projects/github/php-scrud-with-login-authentication");
+        setcookie("ID", $_SESSION['account_id'], time() + 86400, "/", "https://andreasfreshandgreens.elementfx.com/");
+        setcookie("Email", $_SESSION['email'], time() + 86400, "/", "https://andreasfreshandgreens.elementfx.com/");
+        setcookie("Password", $_SESSION['password'], time() + 86400, "/", "https://andreasfreshandgreens.elementfx.com/");
 
         header("Location: dashboard.php");
     } else {
