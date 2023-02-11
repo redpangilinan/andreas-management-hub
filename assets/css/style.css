@@ -168,14 +168,13 @@ body {
         padding: 30px;
         height: 30%;
     }
-    
     .navbar {
         border-top-right-radius: 30px;
         border-top-left-radius: 30px;
         background:#D9F8C4;
         bottom: 0;
         position: fixed;
-        height: 100px;
+        min-height: 50px;
         width: 100%;
         box-shadow: rgba(99, 99, 99, 0.2) 0px 1px 8px 0px;
         }
@@ -186,7 +185,6 @@ body {
         border-top-right-radius: 30px;
         border-top-left-radius: 30px;
         height: 70%;
-        position: absolute;
         padding: 20px;
         right: 0;
         left: 0;
