@@ -17,7 +17,7 @@ $(document).ready(function () {
 const displayProfile = () => {
     let profile_info = "";
     $.ajax({
-        url: "./assets/php/crud/profile_crud.php",
+        url: "../assets/php/crud/profile_crud.php",
         method: "POST",
         data: {
             profile_info: profile_info
@@ -31,7 +31,7 @@ const displayProfile = () => {
 // Displays data in edit modal
 const displayEdit = (primary_id) => {
     $.ajax({
-        url: "./assets/php/modals/profile_modal.php",
+        url: "../assets/php/modals/profile_modal.php",
         method: "POST",
         data: {
             primary_id: primary_id
@@ -45,17 +45,21 @@ const displayEdit = (primary_id) => {
 // Updates the data
 const updateData = () => {
     let primary_id = $("#primary_id").val();
-    let edit_username = $("#edit_username").val();
+    let edit_firstname = $("#edit_firstname").val();
+    let edit_lastname = $("#edit_lastname").val();
     let edit_email = $("#edit_email").val();
+    let edit_contact_no = $("#edit_contact_no").val();
     let edit_password = $("#edit_password").val();
     let edit_confirm_password = $("#edit_confirm_password").val();
     $.ajax({
-        url: "./assets/php/crud/profile_crud.php",
+        url: "../assets/php/crud/profile_crud.php",
         method: "POST",
         data: {
             primary_id: primary_id,
-            edit_username: edit_username,
+            edit_firstname: edit_firstname,
+            edit_lastname: edit_lastname,
             edit_email: edit_email,
+            edit_contact_no: edit_contact_no,
             edit_password: edit_password,
             edit_confirm_password: edit_confirm_password
         },
@@ -68,8 +72,9 @@ const updateData = () => {
             } else if (data == "error_confirm") {
                 $('#edit_password').val("");
                 $('#edit_confirm_password').val("");
-                passwordConfirmAlert();  
+                passwordConfirmAlert();
             } else {
+                console.log(data);
                 $('#form_edit')[0].reset();
                 errorAlert();
             }
