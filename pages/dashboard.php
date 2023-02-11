@@ -1,8 +1,8 @@
 <?php
 session_start();
-include "./assets/php/login_validation.php";
-include "./assets/php/logout.php";
-include "./assets/php/dashboard_counter.php";
+include "../assets/php/login_validation.php";
+include "../assets/php/logout.php";
+include "../assets/php/dashboard_counter.php";
 validateSession();
 ?>
 
@@ -13,7 +13,7 @@ validateSession();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"></script>
@@ -21,7 +21,7 @@ validateSession();
 </head>
 
 <body>
-    <?php include "./assets/php/extensions/sidebar.php" ?>
+    <?php include "../assets/php/extensions/sidebar.php" ?>
     <main>
         <!-- Main Content -->
         <div class="main-content">
@@ -29,7 +29,7 @@ validateSession();
                 <!-- Header -->
                 <header>
                     <h1>Dashboard</h3>
-                    <hr>
+                        <hr>
                 </header>
                 <p style="font-size: 1.5rem;">Welcome, <?php echo $_SESSION["username"] ?>!</p>
                 <div class="grid-ish">

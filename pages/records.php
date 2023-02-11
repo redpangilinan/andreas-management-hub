@@ -1,7 +1,7 @@
 <?php
 session_start();
-include "./assets/php/login_validation.php";
-include "./assets/php/logout.php";
+include "../assets/php/login_validation.php";
+include "../assets/php/logout.php";
 validateSession();
 privateAccess();
 ?>
@@ -13,7 +13,7 @@ privateAccess();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"></script>
@@ -91,8 +91,8 @@ privateAccess();
         </div>
     </div>
 
-    <script src="./assets/js/alerts.js"></script>
-    <script src="./assets/js/ajax/records_data.js"></script>
+    <script src="../assets/js/alerts.js"></script>
+    <script src="../assets/js/ajax/records_data.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
 </body>
 
