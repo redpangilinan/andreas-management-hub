@@ -79,7 +79,7 @@ body {
     height: 100vh;
 }
 .login-container button {
-    background-image: linear-gradient(#FFCE45, #BB371A );
+    background-image: linear-gradient(to right, #FFCE45, #BB371A );
 }
 
 .main-content {
