@@ -21,14 +21,14 @@ autoLogin();
 
 <body class="bg-secondary">
     <!-- Sign In -->
-    <form action="index.php" method="post">
+    <form action="admin.php" method="post">
         <div class="login-container">
             <div class="box">
                 <div class="login-content bg-white rounded-1">
                     <h1>Sign in</h1>
-                    <input type="text" name="username" placeholder="Username" class="form-control">
+                    <input type="text" name="email" placeholder="Email" class="form-control">
                     <input type="password" name="password" placeholder="Password" class="form-control">
-                    <span class="text-center text-danger"><?php include "./assets/php/login.php" ?></span>
+                    <span class="text-center text-danger"><?php include "../assets/php/login.php" ?></span>
                     <button type="submit" class="btn btn-dark" name="login">Sign in</button>
                     <a href="#" data-bs-toggle="modal" data-bs-target="#addModal">Sign up now!</a>
                 </div>
@@ -47,8 +47,9 @@ autoLogin();
                 <!-- Sign Up Form -->
                 <form id="form_add">
                     <div class="modal-body">
-                        <div class="mb-3">
-                            <input type="text" class="form-control" id="username" placeholder="Username" required>
+                        <div class="mb-3 d-flex">
+                            <input type="text" class="form-control" id="firstname" placeholder="First Name" required>
+                            <input type="text" class="form-control" id="lastname" placeholder="Last Name" required>
                         </div>
                         <div class="mb-3">
                             <input type="email" class="form-control" id="email" placeholder="Email" required>
