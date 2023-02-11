@@ -61,16 +61,20 @@ const displayEdit = (primary_id) => {
 
 // Adds a new data
 const insertData = () => {
-    let username = $("#username").val();
+    let firstname = $("#firstname").val();
+    let lastname = $("#lastname").val();
     let email = $("#email").val();
+    let contact_no = $("#contact_no").val();
     let password = $("#password").val();
     let confirm_password = $("#confirm_password").val();
     $.ajax({
         url: "../assets/php/crud/accounts_crud.php",
         method: "POST",
         data: {
-            username: username,
+            firstname: firstname,
+            lastname: lastname,
             email: email,
+            contact_no: contact_no,
             password: password,
             confirm_password: confirm_password
         },
@@ -86,6 +90,7 @@ const insertData = () => {
                 passwordConfirmAlert();
             } else {
                 $('#form_add')[0].reset();
+                console.log(data);
                 errorAlert();
             }
         }

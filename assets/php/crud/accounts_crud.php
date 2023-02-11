@@ -57,6 +57,7 @@ if (
     isset($_POST['firstname'])
     && isset($_POST['lastname'])
     && isset($_POST['email'])
+    && isset($_POST['contact_no'])
     && isset($_POST['password'])
     && isset($_POST['confirm_password'])
 ) {
@@ -72,7 +73,7 @@ if (
         if (mysqli_query($conn, $sql)) {
             echo "success";
         } else {
-            echo "error";
+            echo "Error: " . $sql . " " . mysqli_error($conn);
         }
     } else {
         echo "error_confirm";
@@ -99,7 +100,7 @@ if (
     if (mysqli_query($conn, $sql)) {
         echo "success";
     } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        echo "Error: " . $sql . " " . mysqli_error($conn);
     }
     mysqli_close($conn);
 }

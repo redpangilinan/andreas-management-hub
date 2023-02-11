@@ -49,10 +49,13 @@ autoLogin();
                     <div class="modal-body">
                         <div class="mb-3 d-flex">
                             <input type="text" class="form-control" id="firstname" placeholder="First Name" required>
-                            <input type="text" class="form-control" id="lastname" placeholder="Last Name" required>
+                            <input type="text" class="form-control ms-2" id="lastname" placeholder="Last Name" required>
                         </div>
                         <div class="mb-3">
                             <input type="email" class="form-control" id="email" placeholder="Email" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="number" class="form-control" id="contact_no" placeholder="Contact No." required>
                         </div>
                         <div class="mb-3">
                             <input type="password" class="form-control" id="password" placeholder="Password" required>
