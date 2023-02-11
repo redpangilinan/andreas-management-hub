@@ -16,7 +16,7 @@
     <header>
         <div class ="header-container">
 			<div class="logo">
-				<img src="" alt="logo" width="">
+				<img src="../assets/images/andreas background.jpg" alt="logo" width="100%">
 				<h2>Andrea' s Fresh & Greens</h2>
 			</div>
 		</div>
