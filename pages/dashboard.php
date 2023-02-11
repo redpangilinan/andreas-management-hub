@@ -31,7 +31,7 @@ validateSession();
                     <h1>Dashboard</h3>
                         <hr>
                 </header>
-                <p style="font-size: 1.5rem;">Welcome, <?php echo $_SESSION["username"] ?>!</p>
+                <p style="font-size: 1.5rem;">Welcome, <?php echo $_SESSION["fullname"] ?>!</p>
                 <div class="grid-ish">
                     <!-- Shows total users -->
                     <div class="grid-box">
