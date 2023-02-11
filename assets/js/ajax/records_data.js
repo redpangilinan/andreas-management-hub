@@ -34,7 +34,7 @@ $(document).ready(function () {
 const displayTable = () => {
     let input = $("#search_records").val();
     $.ajax({
-        url: "./assets/php/crud/records_crud.php",
+        url: "../assets/php/crud/records_crud.php",
         method: "POST",
         data: {
             input: input
@@ -48,7 +48,7 @@ const displayTable = () => {
 // Displays data in edit modal
 const displayEdit = (primary_id) => {
     $.ajax({
-        url: "./assets/php/modals/records_modal.php",
+        url: "../assets/php/modals/records_modal.php",
         method: "POST",
         data: {
             primary_id: primary_id
@@ -64,7 +64,7 @@ const insertData = () => {
     let record = $("#record").val();
     let details = $("#details").val();
     $.ajax({
-        url: "./assets/php/crud/records_crud.php",
+        url: "../assets/php/crud/records_crud.php",
         method: "POST",
         data: {
             record: record,
@@ -88,7 +88,7 @@ const updateData = () => {
     let edit_record = $("#edit_record").val();
     let edit_details = $("#edit_details").val();
     $.ajax({
-        url: "./assets/php/crud/records_crud.php",
+        url: "../assets/php/crud/records_crud.php",
         method: "POST",
         data: {
             primary_id: primary_id,
@@ -111,7 +111,7 @@ const updateData = () => {
 // Deletes a data
 const deleteData = (delete_id) => {
     $.ajax({
-        url: "./assets/php/crud/records_crud.php",
+        url: "../assets/php/crud/records_crud.php",
         method: "POST",
         data: {
             delete_id: delete_id

@@ -1,7 +1,7 @@
 <?php
 session_start();
-include "./assets/php/login_validation.php";
-include "./assets/php/logout.php";
+include "../assets/php/login_validation.php";
+include "../assets/php/logout.php";
 validateSession();
 privateAccess();
 ?>
@@ -39,7 +39,8 @@ privateAccess();
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Name</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
                                 <th>Email</th>
                                 <th>Contact No.</th>
                                 <th>Creation Date</th>

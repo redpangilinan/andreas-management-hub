@@ -22,7 +22,7 @@ privateAccess();
 </head>
 
 <body>
-    <?php include "./assets/php/extensions/sidebar.php" ?>
+    <?php include "../assets/php/extensions/sidebar.php" ?>
     <main>
         <!-- Main Content -->
         <div class="main-content">
