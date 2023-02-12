@@ -15,8 +15,7 @@
 <body>
     <header>
         <div class ="header-container">
-			<div class="logo">
-				<img src="../assets/images/andreas background.jpg" alt="logo" width="100%">
+			<div class="header-image">
 				<h2>Andrea' s Fresh & Greens</h2>
 			</div>
 		</div>
@@ -41,9 +40,9 @@
 					<h3>Kani & Shrimp Spring Rolls</h3>
 				</div>		
 			</div>
+			<div class="bot-navi"></div>
 		</div>
-        <div class="navbar">
-		</div>
+        
     </main>
     <footer></footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
