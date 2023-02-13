@@ -52,6 +52,15 @@ function passwordConfirmAlert() {
     });
 }
 
+// Alert when password is not strong enough
+function passwordWeakAlert() {
+    Swal.fire({
+        icon: 'error',
+        title: 'Weak password!',
+        text: 'Password should be at least 6 characters in length and should include at least one upper case letter, one number, and one special character.',
+    });
+}
+
 // Confirm first before deleting data
 function deleteConfirmation(delete_id) {
     Swal.fire({
