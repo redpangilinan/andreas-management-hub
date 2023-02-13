@@ -54,26 +54,35 @@ if (isset($_POST['input'])) {
 
 // Inserts a new data
 if (
-    isset($_POST['firstname'])
-    && isset($_POST['lastname'])
-    && isset($_POST['email'])
-    && isset($_POST['contact_no'])
-    && isset($_POST['password'])
-    && isset($_POST['confirm_password'])
+    isset($_POST['firstname']) &&
+    isset($_POST['lastname']) &&
+    isset($_POST['email']) &&
+    isset($_POST['contact_no']) &&
+    isset($_POST['password']) &&
+    isset($_POST['confirm_password'])
 ) {
     include '../connection.php';
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
     $email = $_POST['email'];
     $contact_no = $_POST['contact_no'];
-    $password = mysqli_real_escape_string($conn, $_POST['password']);
-    $confirm_password = mysqli_real_escape_string($conn, $_POST['confirm_password']);
+    $password = $_POST['password'];
+    $confirm_password = $_POST['confirm_password'];
     if ($password == $confirm_password) {
-        $sql = "INSERT INTO tb_accounts VALUES (null, '$firstname', '$lastname', '$password', '$email', '$contact_no', CURDATE(), 'User')";
-        if (mysqli_query($conn, $sql)) {
-            echo "success";
+        // Check if the password is strong
+        include "../password_validation.php";
+        if ($password_check) {
+            // Hash the password before inserting
+            $hashed_password = mysqli_real_escape_string($conn, hash('sha256', $password));
+            // Insert the data to database
+            $sql = "INSERT INTO tb_accounts VALUES (null, '$firstname', '$lastname', '$hashed_password', '$email', '$contact_no', CURDATE(), 'User')";
+            if (mysqli_query($conn, $sql)) {
+                echo "success";
+            } else {
+                echo "Error: " . $sql . " " . mysqli_error($conn);
+            }
         } else {
-            echo "Error: " . $sql . " " . mysqli_error($conn);
+            echo "weak_password";
         }
     } else {
         echo "error_confirm";
@@ -83,11 +92,11 @@ if (
 
 // Updates an existing data
 if (
-    isset($_POST['primary_id'])
-    && isset($_POST['edit_firstname'])
-    && isset($_POST['edit_lastname'])
-    && isset($_POST['edit_email'])
-    && isset($_POST['edit_password'])
+    isset($_POST['primary_id']) &&
+    isset($_POST['edit_firstname']) &&
+    isset($_POST['edit_lastname']) &&
+    isset($_POST['edit_email']) &&
+    isset($_POST['edit_password'])
 ) {
     include '../connection.php';
     $primary_id = $_POST['primary_id'];

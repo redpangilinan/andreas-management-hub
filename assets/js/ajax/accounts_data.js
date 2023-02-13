@@ -88,6 +88,10 @@ const insertData = () => {
                 $('#password').val("");
                 $('#confirm_password').val("");
                 passwordConfirmAlert();
+            } else if (data == "weak_password") {
+                $('#password').val("");
+                $('#confirm_password').val("");
+                passwordWeakAlert();
             } else {
                 $('#form_add')[0].reset();
                 console.log(data);
