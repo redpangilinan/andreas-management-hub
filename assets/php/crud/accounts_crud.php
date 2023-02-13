@@ -71,9 +71,9 @@ if (
     if ($password == $confirm_password) {
         // Check if the password is strong
         include "../password_validation.php";
-        if ($password_check) {
+        if (validatePassword($password)) {
             // Hash the password before inserting
-            $hashed_password = mysqli_real_escape_string($conn, hash('sha256', $password));
+            $hashed_password = mysqli_real_escape_string($conn, password_hash($password, PASSWORD_DEFAULT));
             // Insert the data to database
             $sql = "INSERT INTO tb_accounts VALUES (null, '$firstname', '$lastname', '$hashed_password', '$email', '$contact_no', CURDATE(), 'User')";
             if (mysqli_query($conn, $sql)) {
@@ -96,7 +96,8 @@ if (
     isset($_POST['edit_firstname']) &&
     isset($_POST['edit_lastname']) &&
     isset($_POST['edit_email']) &&
-    isset($_POST['edit_password'])
+    isset($_POST['edit_password']) &&
+    isset($_POST['edit_confirm_password'])
 ) {
     include '../connection.php';
     $primary_id = $_POST['primary_id'];
@@ -104,12 +105,26 @@ if (
     $edit_lastname = $_POST['edit_lastname'];
     $edit_email = $_POST['edit_email'];
     $edit_contact_no = $_POST['edit_contact_no'];
-    $edit_password = mysqli_real_escape_string($conn, $_POST['edit_password']);
-    $sql = "UPDATE tb_accounts SET firstname='$edit_firstname', lastname='$edit_lastname', password='$edit_password', email='$edit_email', contact_no='$edit_contact_no' WHERE account_id='$primary_id'";
-    if (mysqli_query($conn, $sql)) {
-        echo "success";
+    $edit_password = $_POST['edit_password'];
+    $edit_confirm_password = $_POST['edit_confirm_password'];
+    if ($edit_password == $edit_confirm_password) {
+        // Check if the password is strong
+        include "../password_validation.php";
+        if (validatePassword($edit_password)) {
+            // Hash the password before updating
+            $hashed_password = mysqli_real_escape_string($conn, password_hash($edit_password, PASSWORD_DEFAULT));
+            // Update the selected data
+            $sql = "UPDATE tb_accounts SET firstname='$edit_firstname', lastname='$edit_lastname', password='$hashed_password', email='$edit_email', contact_no='$edit_contact_no' WHERE account_id='$primary_id'";
+            if (mysqli_query($conn, $sql)) {
+                echo "success";
+            } else {
+                echo "Error: " . $sql . " " . mysqli_error($conn);
+            }
+        } else {
+            echo "weak_password";
+        }
     } else {
-        echo "Error: " . $sql . " " . mysqli_error($conn);
+        echo "error_confirm";
     }
     mysqli_close($conn);
 }
