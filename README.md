@@ -27,18 +27,6 @@ Easy to use PHP CRUD with login authentication, live search and data tables usin
 - Live Search with AJAX
 - Responsive UI
 
-### Screenshots
-
-![](./screenshots/index.png)
-
-![](./screenshots/dashboard.png)
-
-![](./screenshots/profile.png)
-
-![](./screenshots/accounts.png)
-
-![](./screenshots/records.png)
-
 ### File Structure
 
 ```
@@ -99,19 +87,6 @@ php-ajax-crud-with-login-authentication/
 - [JQuery](https://jquery.com/)
 - [Bootstrap](https://getbootstrap.com/)
 - [SweetAlert2](https://sweetalert2.github.io/)
-
-## Getting Started
-
-### Installing
-
-* Source code will be available once purchased
-
-### How to use
-
-* Simply open the source code with your preferred IDE
-* Import all the .sql files from the data folder or use your own database
-* Change connection.php to match your database configuration
-* Start developing your project
 
 ## Author
 
