@@ -37,17 +37,26 @@ if (
     $edit_lastname = $_POST['edit_lastname'];
     $edit_email = $_POST['edit_email'];
     $edit_contact_no = $_POST['edit_contact_no'];
-    $edit_password = mysqli_real_escape_string($conn, $_POST['edit_password']);
-    $edit_confirm_password = mysqli_real_escape_string($conn, $_POST['edit_confirm_password']);
+    $edit_password = $_POST['edit_password'];
+    $edit_confirm_password = $_POST['edit_confirm_password'];
     if ($edit_password == $edit_confirm_password) {
-        $sql = "UPDATE tb_accounts SET firstname='$edit_firstname', lastname='$edit_lastname', password='$edit_password', email='$edit_email', contact_no='$edit_contact_no' WHERE account_id='$primary_id'";
-        if (mysqli_query($conn, $sql)) {
-            $_SESSION['email'] = $edit_email;
-            $_SESSION['fullname'] = "$edit_firstname $edit_lastname";
-            $_SESSION['password'] = $edit_password;
-            echo "success";
+        // Check if the password is strong
+        include "../password_validation.php";
+        if (validatePassword($edit_password)) {
+            // Hash the password before updating
+            $hashed_password = mysqli_real_escape_string($conn, password_hash($edit_password, PASSWORD_DEFAULT));
+            // Update the selected data
+            $sql = "UPDATE tb_accounts SET firstname='$edit_firstname', lastname='$edit_lastname', password='$hashed_password', email='$edit_email', contact_no='$edit_contact_no' WHERE account_id='$primary_id'";
+            if (mysqli_query($conn, $sql)) {
+                $_SESSION['email'] = $edit_email;
+                $_SESSION['fullname'] = "$edit_firstname $edit_lastname";
+                $_SESSION['password'] = $edit_password;
+                echo "success";
+            } else {
+                echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+            }
         } else {
-            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+            echo "weak_password";
         }
     } else {
         echo "error_confirm";

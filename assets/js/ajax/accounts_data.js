@@ -88,6 +88,10 @@ const insertData = () => {
                 $('#password').val("");
                 $('#confirm_password').val("");
                 passwordConfirmAlert();
+            } else if (data == "weak_password") {
+                $('#password').val("");
+                $('#confirm_password').val("");
+                passwordWeakAlert();
             } else {
                 $('#form_add')[0].reset();
                 console.log(data);
@@ -105,6 +109,7 @@ const updateData = () => {
     let edit_email = $("#edit_email").val();
     let edit_contact_no = $("#edit_contact_no").val();
     let edit_password = $("#edit_password").val();
+    let edit_confirm_password = $("#edit_confirm_password").val();
     $.ajax({
         url: "../assets/php/crud/accounts_crud.php",
         method: "POST",
@@ -114,7 +119,8 @@ const updateData = () => {
             edit_lastname: edit_lastname,
             edit_email: edit_email,
             edit_contact_no: edit_contact_no,
-            edit_password: edit_password
+            edit_password: edit_password,
+            edit_confirm_password: edit_confirm_password
         },
         success: function (data) {
             displayTable();
@@ -122,6 +128,10 @@ const updateData = () => {
             $('#form_edit')[0].reset();
             if (data == "success") {
                 editAlert();
+            } else if (data == "error_confirm") {
+                passwordConfirmAlert();
+            } else if (data == "weak_password") {
+                passwordWeakAlert();
             } else {
                 console.log(data);
                 errorAlert();

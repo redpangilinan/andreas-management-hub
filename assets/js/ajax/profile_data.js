@@ -73,6 +73,10 @@ const updateData = () => {
                 $('#edit_password').val("");
                 $('#edit_confirm_password').val("");
                 passwordConfirmAlert();
+            } else if (data == "weak_password") {
+                $('#edit_password').val("");
+                $('#edit_confirm_password').val("");
+                passwordWeakAlert();
             } else {
                 console.log(data);
                 $('#form_edit')[0].reset();

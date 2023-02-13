@@ -29,7 +29,11 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
     </div>
     <div class="mb-3">
         <label for="edit_password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="edit_password" placeholder="Password" value="<?php echo $row['password'] ?>" required>
+        <input type="password" class="form-control" id="edit_password" placeholder="Password" required>
+    </div>
+    <div class="mb-3">
+        <label for="edit_confirm_password" class="form-label">Confirm Password</label>
+        <input type="password" class="form-control" id="edit_confirm_password" placeholder="Confirm Password">
     </div>
 <?php
 }
