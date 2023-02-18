@@ -46,8 +46,8 @@ validateSession();
                     <!-- Shows total records -->
                     <div class="grid-box">
                         <div class="content">
-                            <p style="font-size: 2rem;"><?php recordCount() ?></p>
-                            <p>Records</p>
+                            <p style="font-size: 2rem;"><?php productCount() ?></p>
+                            <p>Products</p>
                         </div>
                         <div class="content">
                             <i class="fa-solid fa-table-list fa-4x"></i>
