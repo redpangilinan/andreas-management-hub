@@ -1,5 +1,3 @@
-// No changes are required in this part when copying this code for other tables/pages
-// The only changes required are the file names for php crud and id values for adding and updating data
 $(document).ready(function () {
     // Calls the respective constants when necessary
     displayTable();
