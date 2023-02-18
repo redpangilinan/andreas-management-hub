@@ -15,8 +15,8 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
             <input type="text" class="form-control" id="edit_product" placeholder="Product" value="<?php echo $row['product'] ?>" required>
         </div>
         <div class="w-100 ms-2">
-            <label for="edit_product" class="form-label">Price</label>
-            <input type="number" class="form-control" id="edit_product" placeholder="Product" value="<?php echo $row['product'] ?>" required>
+            <label for="edit_price" class="form-label">Price</label>
+            <input type="number" class="form-control" id="edit_price" placeholder="Price" value="<?php echo $row['price'] ?>" required>
         </div>
     </div>
     <div class="mb-3">

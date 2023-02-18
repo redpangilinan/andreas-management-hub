@@ -32,19 +32,29 @@ privateAccess();
                     <h1>Products</h3>
                         <hr>
                 </header>
-                <!-- Add Form -->
                 <div class="datatable-container">
+                    <!-- Add Form -->
                     <form class="card" id="form_add">
                         <h1 class="fs-4">Add Products</h1>
-                        <div class="mb-3">
-                            <label for="product" class="form-label">Product</label>
-                            <input type="text" class="form-control" id="product" placeholder="Product" required>
+                        <div class="mb-3 d-flex">
+                            <div class="w-100">
+                                <label for="product" class="form-label">Product</label>
+                                <input type="text" class="form-control" id="product" placeholder="Product" required>
+                            </div>
+                            <div class="w-100 ms-2">
+                                <label for="price" class="form-label">Price</label>
+                                <input type="number" class="form-control" id="price" placeholder="Price" required>
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="details">Details</label>
                             <textarea class="form-control" id="details" rows="3" placeholder="Details" required></textarea>
                         </div>
-                        <button type="submit" class="add-confirm btn btn-primary">Confirm</button>
+                        <div class="mb-3">
+                            <label for="product_image" class="form-label">Product Image</label>
+                            <input class="form-control" type="file" id="product_image">
+                        </div>
+                        <button type="submit" class="add-confirm btn btn-primary">Add Product</button>
                     </form>
                     <!-- Data Table w/ Search -->
                     <div class="w-100">

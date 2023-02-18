@@ -49,11 +49,11 @@ if (
     $product = mysqli_real_escape_string($conn, $_POST['product']);
     $details = mysqli_real_escape_string($conn, $_POST['details']);
     $price = $_POST['price'];
-    $sql = "INSERT INTO tb_products VALUES (null, '$product', '$details', $price)";
+    $sql = "INSERT INTO tb_products VALUES (null, '$product', '$details', $price, 'default.png')";
     if (mysqli_query($conn, $sql)) {
         echo "success";
     } else {
-        echo "error";
+        echo "Error: " . $sql . " " . mysqli_error($conn);
     }
     mysqli_close($conn);
 }
@@ -75,7 +75,7 @@ if (
     if (mysqli_query($conn, $sql)) {
         echo "success";
     } else {
-        echo "error";
+        echo "Error: " . $sql . " " . mysqli_error($conn);
     }
     mysqli_close($conn);
 }
@@ -88,7 +88,7 @@ if (isset($_POST['delete_id'])) {
     if (mysqli_query($conn, $sql)) {
         echo "success";
     } else {
-        echo "error";
+        echo "Error: " . $sql . " " . mysqli_error($conn);
     }
     mysqli_close($conn);
 }

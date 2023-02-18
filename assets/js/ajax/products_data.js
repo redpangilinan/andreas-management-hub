@@ -61,12 +61,14 @@ const displayEdit = (primary_id) => {
 const insertData = () => {
     let product = $("#product").val();
     let details = $("#details").val();
+    let price = $("#price").val();
     $.ajax({
         url: "../assets/php/crud/products_crud.php",
         method: "POST",
         data: {
             product: product,
-            details: details
+            details: details,
+            price: price
         },
         success: function (data) {
             displayTable();
@@ -74,6 +76,7 @@ const insertData = () => {
                 $('#form_add')[0].reset();
                 addAlert();
             } else {
+                console.log(data);
                 errorAlert();
             }
         }
@@ -85,13 +88,15 @@ const updateData = () => {
     let primary_id = $("#primary_id").val();
     let edit_product = $("#edit_product").val();
     let edit_details = $("#edit_details").val();
+    let edit_price = $("#edit_price").val();
     $.ajax({
         url: "../assets/php/crud/products_crud.php",
         method: "POST",
         data: {
             primary_id: primary_id,
             edit_product: edit_product,
-            edit_details: edit_details
+            edit_details: edit_details,
+            edit_price: edit_price
         },
         success: function (data) {
             displayTable();
@@ -100,6 +105,7 @@ const updateData = () => {
             if (data == "success") {
                 editAlert();
             } else {
+                console.log(data);
                 errorAlert();
             }
         }
@@ -119,6 +125,7 @@ const deleteData = (delete_id) => {
             if (data == "success") {
                 deleteAlert();
             } else {
+                console.log(data);
                 errorAlert();
             }
         }
