@@ -217,9 +217,8 @@ body {
 	}
 	.product-container {
 		display: grid;
-  		grid-template-columns: repeat(auto-fill, 11.25rem);
+  		grid-template-columns: repeat(auto-fill, minmax(11.25rem, 12.5rem));
   		justify-content: space-around;
-  		grid-gap: 20px;
 		padding-bottom: 1.25rem;
 	}
 	.product {
