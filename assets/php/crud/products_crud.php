@@ -6,10 +6,10 @@ if (isset($_POST['input'])) {
     $sql =
         "SELECT product_id, product, details, price, image
     FROM tb_products
-    WHERE product_id LIKE '{$input}%'
+    WHERE (product_id LIKE '{$input}%'
     OR product LIKE '{$input}%'
     OR details LIKE '{$input}%'
-    OR price LIKE '{$input}%'
+    OR price LIKE '{$input}%')
     ORDER BY product_id";
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
@@ -20,7 +20,7 @@ if (isset($_POST['input'])) {
             <td><?php echo $row["image"] ?></td>
             <td><?php echo $row["product"] ?></td>
             <td><?php echo $row["details"] ?></td>
-            <td><?php echo $row["price"] ?></td>
+            <td><?php echo "₱" . $row["price"] ?></td>
             <td>
                 <button data-id="<?php echo $row["product_id"] ?>" class="edit-data btn btn-success" data-bs-toggle="modal" data-bs-target="#editModal"><i class="fas fa-edit"></i></button>
                 <button data-id="<?php echo $row["product_id"] ?>" class="delete-data btn btn-danger"><i class="fas fa-trash"></i></button>
