@@ -173,7 +173,7 @@ body {
 	}
 	.header-container .header-image::before{
 		content: '';
-		background: url('img/an.jpg');
+		background: url('../images/andreas background.jpg');
       	background-repeat: no-repeat;
   		background-size: 100% 100%;
 		opacity: 0.4;
@@ -216,20 +216,17 @@ body {
 		margin: 0.938rem 0 1.25rem 0;
 	}
 	.product-container {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-around;
+		display: grid;
+  		grid-template-columns: repeat(auto-fill, 11.25rem);
+  		justify-content: space-around;
+  		grid-gap: 20px;
 		padding-bottom: 1.25rem;
-	}
-	.product-container::after {
-		height: 0;
-		width: 12.5rem;
-		content: "";
 	}
 	.product {
 		position: relative;
-		width: 20%;
-		min-width: 12.5rem;
+		width: 100%;
+		min-width: 11.25rem;
+      	max-width: 12.5rem;
 		padding: 0.625rem 0.75rem;
 		background-color: #ffffff;
 		border-radius: 25px;
