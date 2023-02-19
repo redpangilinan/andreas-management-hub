@@ -3,8 +3,8 @@
 if (isset($_POST['input'])) {
     include '../connection.php';
     $input = $_POST['input'];
-    $sql = "
-    SELECT account_id, firstname, lastname, email, contact_no, creation_date, account_type
+    $sql =
+        "SELECT account_id, firstname, lastname, email, contact_no, creation_date, account_type
     FROM tb_accounts
     WHERE (account_id LIKE '{$input}%'
     OR firstname LIKE '{$input}%'
@@ -13,8 +13,7 @@ if (isset($_POST['input'])) {
     OR contact_no LIKE '{$input}%'
     OR creation_date LIKE '{$input}%'
     OR account_type LIKE '{$input}%')
-    ORDER BY account_id
-    ";
+    ORDER BY account_id";
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
