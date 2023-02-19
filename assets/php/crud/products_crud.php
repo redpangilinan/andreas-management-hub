@@ -17,13 +17,17 @@ if (isset($_POST['input'])) {
 ?>
         <tr>
             <td><?php echo $row["product_id"] ?></td>
-            <td><?php echo $row["image"] ?></td>
+            <td>
+                <img src="../assets/images/products/<?php echo $row["image"] ?>" class="img img-fluid rounded shadow" alt="">
+            </td>
             <td><?php echo $row["product"] ?></td>
             <td><?php echo $row["details"] ?></td>
             <td><?php echo "₱" . $row["price"] ?></td>
             <td>
-                <button data-id="<?php echo $row["product_id"] ?>" class="edit-data btn btn-success" data-bs-toggle="modal" data-bs-target="#editModal"><i class="fas fa-edit"></i></button>
-                <button data-id="<?php echo $row["product_id"] ?>" class="delete-data btn btn-danger"><i class="fas fa-trash"></i></button>
+                <div class="btn-group" role="group" aria-label="modify">
+                    <button data-id="<?php echo $row["product_id"] ?>" class="edit-data btn btn-success" data-bs-toggle="modal" data-bs-target="#editModal"><i class="fas fa-edit"></i></button>
+                    <button data-id="<?php echo $row["product_id"] ?>" class="delete-data btn btn-danger"><i class="fas fa-trash"></i></button>
+                </div>
             </td>
         </tr>
     <?php
@@ -49,7 +53,7 @@ if (
     $product = mysqli_real_escape_string($conn, $_POST['product']);
     $details = mysqli_real_escape_string($conn, $_POST['details']);
     $price = $_POST['price'];
-    $sql = "INSERT INTO tb_products VALUES (null, '$product', '$details', $price, 'default.png')";
+    $sql = "INSERT INTO tb_products VALUES (null, '$product', '$details', $price, 'default.jpg')";
     if (mysqli_query($conn, $sql)) {
         echo "success";
     } else {

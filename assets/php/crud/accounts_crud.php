@@ -35,8 +35,10 @@ if (isset($_POST['input'])) {
             <td><?php echo $row["creation_date"] ?></td>
             <td><?php echo $row["account_type"] ?></td>
             <td>
-                <button data-id="<?php echo $row["account_id"] ?>" class="edit-data btn btn-success" data-bs-toggle="modal" data-bs-target="#editModal"><i class="fas fa-edit"></i></button>
-                <button data-id="<?php echo $row["account_id"] ?>" class="delete-data btn btn-danger"><i class="fas fa-trash"></i></button>
+                <div class="btn-group" role="group" aria-label="modify">
+                    <button data-id="<?php echo $row["account_id"] ?>" class="edit-data btn btn-success" data-bs-toggle="modal" data-bs-target="#editModal"><i class="fas fa-edit"></i></button>
+                    <button data-id="<?php echo $row["account_id"] ?>" class="delete-data btn btn-danger"><i class="fas fa-trash"></i></button>
+                </div>
             </td>
         </tr>
     <?php
