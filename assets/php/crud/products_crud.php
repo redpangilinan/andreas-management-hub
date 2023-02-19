@@ -42,25 +42,36 @@ if (isset($_POST['input'])) {
     mysqli_close($conn);
 }
 
-// Inserts a new data
+// Inserts new data
 if (
     isset($_POST['product']) &&
     isset($_POST['details']) &&
     isset($_POST['price'])
 ) {
     include '../connection.php';
-    // mysqli_real_escape_string() escapes the special characters that the users will input that will otherwise become an error
+    if ($_POST['image'] == "true") {
+        include '../image_upload.php';
+    } else {
+        $image = 'default.jpg';
+    }
+
+    // Sanitize the user input to prevent SQL injection attacks
     $product = mysqli_real_escape_string($conn, $_POST['product']);
     $details = mysqli_real_escape_string($conn, $_POST['details']);
     $price = $_POST['price'];
-    $sql = "INSERT INTO tb_products VALUES (null, '$product', '$details', $price, 'default.jpg')";
+
+    // Insert the data into the database
+    $sql = "INSERT INTO tb_products VALUES (null, '$product', '$details', $price, '$image')";
     if (mysqli_query($conn, $sql)) {
         echo "success";
     } else {
         echo "Error: " . $sql . " " . mysqli_error($conn);
     }
+
+    // Close the database connection
     mysqli_close($conn);
 }
+
 
 // Updates an existing data
 if (

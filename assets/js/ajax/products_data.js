@@ -12,7 +12,8 @@ $(document).ready(function () {
 
     $("#form_add").submit(function (e) {
         e.preventDefault();
-        insertData();
+        var formData = new FormData(this);
+        insertData(formData);
     });
 
     $("#form_edit").submit(function (e) {
@@ -58,18 +59,13 @@ const displayEdit = (primary_id) => {
 }
 
 // Adds a new data
-const insertData = () => {
-    let product = $("#product").val();
-    let details = $("#details").val();
-    let price = $("#price").val();
+const insertData = (formData) => {
     $.ajax({
-        url: "../assets/php/crud/products_crud.php",
+        url: "../assets/php/image_upload.php",
         method: "POST",
-        data: {
-            product: product,
-            details: details,
-            price: price
-        },
+        data: formData,
+        processData: false,
+        contentType: false,
         success: function (data) {
             displayTable();
             if (data == "success") {

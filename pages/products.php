@@ -34,33 +34,33 @@ privateAccess();
                 </header>
                 <div class="datatable-container">
                     <!-- Add Form -->
-                    <form class="card" id="form_add">
+                    <form class="card" id="form_add" enctype="multipart/form-data">
                         <h1 class="fs-4">Add Products</h1>
                         <div class="mb-3 d-flex">
                             <div class="w-100">
                                 <label for="product" class="form-label">Product</label>
-                                <input type="text" class="form-control" id="product" placeholder="Product" required>
+                                <input type="text" class="form-control" name="product" id="product" placeholder="Product" required>
                             </div>
                             <div class="w-100 ms-2">
                                 <label for="price" class="form-label">Price</label>
-                                <input type="number" class="form-control" id="price" placeholder="Price" required>
+                                <input type="number" class="form-control" name="price" id="price" placeholder="Price" required>
                             </div>
                         </div>
                         <div class="mb-3">
                             <label for="details">Details</label>
-                            <textarea class="form-control" id="details" rows="3" placeholder="Details" required></textarea>
+                            <textarea class="form-control" name="details" id="details" rows="3" placeholder="Details" required></textarea>
                         </div>
                         <div class="mb-3">
-                            <label for="product_image" class="form-label">Product Image</label>
-                            <input class="form-control" type="file" id="product_image">
+                            <label for="image" class="form-label">Product Image</label>
+                            <input class="form-control" type="file" name="image" id="image">
                         </div>
-                        <button type="submit" class="add-confirm btn btn-primary">Add Product</button>
+                        <button type="submit" class="add-confirm btn btn-success">Add Product</button>
                     </form>
                     <!-- Data Table w/ Search -->
                     <div class="w-100">
                         <input type="text" class="form-control" id="search_records" placeholder="Search">
                         <form method="post" action="../assets/php/exports/products_export.php">
-                            <button type="submit" class="edit-confirm btn btn-primary">Export CSV</button>
+                            <button type="submit" class="edit-confirm btn btn-success">Export CSV</button>
                         </form>
                         <div class="table-responsive">
                             <table class="table table-striped table-hover">
@@ -93,7 +93,7 @@ privateAccess();
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <!-- Edit Form -->
-                <form id="form_edit">
+                <form id="form_edit" enctype="multipart/form-data">
                     <div class="modal-body">
                     </div>
                     <div class="modal-footer">
