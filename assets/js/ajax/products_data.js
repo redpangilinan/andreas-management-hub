@@ -1,7 +1,7 @@
 $(document).ready(function () {
     // Calls the respective constants when necessary
     displayTable();
-    $("#search_products").keyup(function () {
+    $("#search_records").keyup(function () {
         displayTable();
     });
 
