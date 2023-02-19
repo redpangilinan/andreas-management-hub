@@ -16,31 +16,105 @@
     <header>
         <div class ="header-container">
 			<div class="header-image">
-				<h2>Andrea' s Fresh & Greens</h2>
+				<div class="header-text">
+					<i class="fa fa-arrow-circle-left"></i>
+					<h2>Andrea' s<br><span> Fresh & Greens</span></h2>
+				</div>
 			</div>
 		</div>
     </header>
     <main>
         <div class="menu-container">
-			<h2>MENU</h2>
-			<div class="category">
-				<div class="img-category">
-					<img src="" alt="">
+			<center><h2>Our Menu</h2></center><br>
+			<hr>
+			<h2>Baked Sushi</h2>
+			<div class="product-container">
+				<div class="product">
+					<img src="img/an.jpg" alt="">
+					<div class="product-text">
+						<span>Andrea's Fresh and Greens</span>
+						<h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
+						<h4>₱260</h4>
+					</div>
 				</div>
-				<div class="name-category">
-					<h3>Baked Cali Sushi w/ Nori Sheet Pack</h3>
-				</div>		
+				
+				<div class="product">
+					<img src="img/an.jpg" alt="">
+					<div class="product-text">
+						<span>Andrea's Fresh and Greens</span>
+						<h5>8x6 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
+						<h4>₱360</h4>
+					</div>
+				</div>
+				
+				<div class="product">
+					<img src="img/an.jpg" alt="">
+					<div class="product-text">
+						<span>Andrea's Fresh and Greens</span>
+						<h5>8x8 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
+						<h4>₱460</h4>
+					</div>
+				</div>
 			</div>
+			<hr>
+			<h2>FRESH KANI & SHRIMP SPRING ROLLS</h2>
+			<div class="product-container">
+				<div class="product">
+					<img src="img/an.jpg" alt="">
+					<div class="product-text">
+						<span>Andrea's Fresh and Greens</span>
+						<h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
+						<h4>₱260</h4>
+					</div>
+				</div>
+				
+				<div class="product">
+					<img src="img/an.jpg" alt="">
+					<div class="product-text">
+						<span>Andrea's Fresh and Greens</span>
+						<h5>8x6 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
+						<h4>₱360</h4>
+					</div>
+				</div>
+				
+				<div class="product">
+					<img src="img/an.jpg" alt="">
+					<div class="product-text">
+						<span>Andrea's Fresh and Greens</span>
+						<h5>8x8 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
+						<h4>₱460</h4>
+					</div>
+				</div>
+				
+				<div class="product">
+					<img src="img/an.jpg" alt="">
+					<div class="product-text">
+						<span>Andrea's Fresh and Greens</span>
+						<h5>8x8 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
+						<h4>₱460</h4>
+					</div>
+				</div>
+			</div>
+			<hr>
 			
-			<div class="category">
-				<div class="img-category">
-					<img src="" alt="">
+		</div>
+		<div class="navi">
+			<div class="nav-item-con">
+				<div class="nav-item">
+					<span class="fas fa-shopping-bag"></span>
+					<span>Order</span>
 				</div>
-				<div class="name-category">
-					<h3>Kani & Shrimp Spring Rolls</h3>
-				</div>		
+				
+				<div class="nav-item">
+					<span class="fas fa-cart-plus"></span>
+					<span>Cart</span>
+				</div>
+				
+				<div class="nav-item">
+					<span class="fa fa-info-circle"></span>
+					<span>About</span>
+				</div>
 			</div>
-			<div class="bot-navi"></div>
 		</div>
         
     </main>
