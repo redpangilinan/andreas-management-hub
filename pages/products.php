@@ -59,6 +59,9 @@ privateAccess();
                     <!-- Data Table w/ Search -->
                     <div class="w-100">
                         <input type="text" class="form-control" id="search_records" placeholder="Search">
+                        <form method="post" action="../assets/php/exports/products_export.php">
+                            <button type="submit" class="edit-confirm btn btn-primary">Export CSV</button>
+                        </form>
                         <div class="table-responsive">
                             <table class="table table-striped table-hover">
                                 <thead>

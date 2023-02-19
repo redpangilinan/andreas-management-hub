@@ -61,6 +61,15 @@ function passwordWeakAlert() {
     });
 }
 
+// Alert when CSV is exported
+function csvExportAlert() {
+    Swal.fire({
+        icon: 'success',
+        title: 'CSV Export Success!',
+        text: 'The CSV file has been exported!',
+    });
+}
+
 // Confirm first before deleting data
 function deleteConfirmation(delete_id) {
     Swal.fire({
