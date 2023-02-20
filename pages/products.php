@@ -58,10 +58,12 @@ privateAccess();
                     </form>
                     <!-- Data Table w/ Search -->
                     <div class="w-100">
-                        <input type="text" class="form-control" id="search_records" placeholder="Search">
-                        <form method="post" action="../assets/php/exports/products_export.php">
-                            <button type="submit" class="edit-confirm btn btn-success">Export CSV</button>
-                        </form>
+                        <div class="search-container">
+                            <input type=" text" class="form-control" id="search_records" placeholder="Search">
+                            <form method="post" action="../assets/php/exports/products_export.php" class="force-zero">
+                                <button type="submit" class="edit-confirm btn btn-success">Export CSV</button>
+                            </form>
+                        </div>
                         <div class="table-responsive">
                             <table class="table table-striped table-hover">
                                 <thead>
@@ -98,7 +100,7 @@ privateAccess();
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="edit-confirm btn btn-primary">Save changes</button>
+                        <button type="submit" class="edit-confirm btn btn-primary" id="editButton">Save changes</button>
                     </div>
                 </form>
             </div>
