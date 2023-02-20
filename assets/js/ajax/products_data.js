@@ -13,13 +13,15 @@ $(document).ready(function () {
     $("#form_add").submit(function (e) {
         e.preventDefault();
         addBtnDisable();
-        var formData = new FormData(this);
+        const formData = new FormData(this);
         insertData(formData);
     });
 
     $("#form_edit").submit(function (e) {
         e.preventDefault();
-        updateData();
+        editBtnDisable();
+        const formData = new FormData(this);
+        updateData(formData);
     });
 
     // Show confirmation first before deleting data
@@ -76,7 +78,7 @@ const insertData = (formData) => {
             } else if (data == "no image success") {
                 $('#form_add')[0].reset();
                 addBtnEnable();
-                addNoImageAlert();
+                noImageAlert();
             } else {
                 console.log(data);
                 addBtnEnable();
@@ -87,26 +89,22 @@ const insertData = (formData) => {
 }
 
 // Updates the data
-const updateData = () => {
-    let primary_id = $("#primary_id").val();
-    let edit_product = $("#edit_product").val();
-    let edit_details = $("#edit_details").val();
-    let edit_price = $("#edit_price").val();
+const updateData = (formData) => {
     $.ajax({
         url: "../assets/php/crud/products_crud.php",
         method: "POST",
-        data: {
-            primary_id: primary_id,
-            edit_product: edit_product,
-            edit_details: edit_details,
-            edit_price: edit_price
-        },
+        data: formData,
+        processData: false,
+        contentType: false,
         success: function (data) {
             displayTable();
+            editBtnEnable();
             $('#editModal').modal('hide');
             $('#form_edit')[0].reset();
             if (data == "success") {
                 editAlert();
+            } else if (data == "no image success") {
+                noImageAlert();
             } else {
                 console.log(data);
                 errorAlert();
@@ -144,4 +142,14 @@ const addBtnDisable = () => {
 const addBtnEnable = () => {
     document.querySelector("#addButton").innerHTML = "Add Product";
     document.querySelector("#addButton").disabled = false;
+}
+
+const editBtnDisable = () => {
+    document.querySelector("#editButton").innerHTML = "Uploading...";
+    document.querySelector("#editButton").disabled = true;
+}
+
+const editBtnEnable = () => {
+    document.querySelector("#editButton").innerHTML = "Save changes";
+    document.querySelector("#editButton").disabled = false;
 }
