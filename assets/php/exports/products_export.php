@@ -14,7 +14,7 @@ header('Content-Type: text/csv');
 header("Content-Disposition: attachment; filename=$table_name.csv");
 
 // Write data to the CSV file
-fputcsv($output, array('#', 'Product', 'Details', 'Price'));
+fputcsv($output, array('ID', 'Product', 'Details', 'Price'));
 while ($row = mysqli_fetch_assoc($result)) {
     fputcsv($output, $row);
 }
