@@ -17,11 +17,11 @@ function addAlert() {
 }
 
 // Alert when a record has been added to the table
-function addNoImageAlert() {
+function noImageAlert() {
     Swal.fire({
         icon: 'warning',
         title: 'Image did not upload!',
-        text: 'Record has been added but the image is either too large or unsupported!',
+        text: 'Data has been recorded but the image is either too large or unsupported!',
     });
 }
 
