@@ -77,12 +77,19 @@ if (
     isset($_POST['edit_price'])
 ) {
     include '../connection.php';
+    include '../image_edit.php';
+
+    // Sanitize the user input to prevent SQL injection attacks
     $primary_id = $_POST['primary_id'];
-    // mysqli_real_escape_string() escapes the special characters that the users will input that will otherwise become an error
     $edit_product = mysqli_real_escape_string($conn, $_POST['edit_product']);
     $edit_details = mysqli_real_escape_string($conn, $_POST['edit_details']);
     $edit_price = $_POST['edit_price'];
-    $sql = "UPDATE tb_products SET product='$edit_product', details='$edit_details', price='$edit_price' WHERE product_id='$primary_id'";
+
+    if ($file_name == "default.jpg") {
+        $sql = "UPDATE tb_products SET product='$edit_product', details='$edit_details', price='$edit_price' WHERE product_id='$primary_id'";
+    } else {
+        $sql = "UPDATE tb_products SET product='$edit_product', details='$edit_details', price='$edit_price', image='$file_name' WHERE product_id='$primary_id'";
+    }
     if (mysqli_query($conn, $sql)) {
         echo "success";
     } else {
