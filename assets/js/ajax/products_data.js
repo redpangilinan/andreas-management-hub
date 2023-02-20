@@ -12,6 +12,7 @@ $(document).ready(function () {
 
     $("#form_add").submit(function (e) {
         e.preventDefault();
+        addBtnDisable();
         var formData = new FormData(this);
         insertData(formData);
     });
@@ -61,7 +62,7 @@ const displayEdit = (primary_id) => {
 // Adds a new data
 const insertData = (formData) => {
     $.ajax({
-        url: "../assets/php/image_upload.php",
+        url: "../assets/php/crud/products_crud.php",
         method: "POST",
         data: formData,
         processData: false,
@@ -70,9 +71,11 @@ const insertData = (formData) => {
             displayTable();
             if (data == "success") {
                 $('#form_add')[0].reset();
+                addBtnEnable();
                 addAlert();
             } else {
                 console.log(data);
+                addBtnEnable();
                 errorAlert();
             }
         }
@@ -126,4 +129,15 @@ const deleteData = (delete_id) => {
             }
         }
     });
+}
+
+// Button modification
+const addBtnDisable = () => {
+    document.querySelector("#addButton").innerHTML = "Uploading...";
+    document.querySelector("#addButton").disabled = true;
+}
+
+const addBtnEnable = () => {
+    document.querySelector("#addButton").innerHTML = "Add Product";
+    document.querySelector("#addButton").disabled = false;
 }

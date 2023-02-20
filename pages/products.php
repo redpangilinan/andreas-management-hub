@@ -54,7 +54,7 @@ privateAccess();
                             <label for="image" class="form-label">Product Image</label>
                             <input class="form-control" type="file" name="image" id="image">
                         </div>
-                        <button type="submit" class="add-confirm btn btn-success">Add Product</button>
+                        <button type="submit" class="add-confirm btn btn-success" id="addButton">Add Product</button>
                     </form>
                     <!-- Data Table w/ Search -->
                     <div class="w-100">

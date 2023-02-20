@@ -49,11 +49,7 @@ if (
     isset($_POST['price'])
 ) {
     include '../connection.php';
-    if ($_POST['image'] == "true") {
-        include '../image_upload.php';
-    } else {
-        $image = 'default.jpg';
-    }
+    include '../image_upload.php';
 
     // Sanitize the user input to prevent SQL injection attacks
     $product = mysqli_real_escape_string($conn, $_POST['product']);
@@ -61,7 +57,7 @@ if (
     $price = $_POST['price'];
 
     // Insert the data into the database
-    $sql = "INSERT INTO tb_products VALUES (null, '$product', '$details', $price, '$image')";
+    $sql = "INSERT INTO tb_products VALUES (null, '$product', '$details', $price, '$file_name')";
     if (mysqli_query($conn, $sql)) {
         echo "success";
     } else {
