@@ -73,6 +73,10 @@ const insertData = (formData) => {
                 $('#form_add')[0].reset();
                 addBtnEnable();
                 addAlert();
+            } else if (data == "no image success") {
+                $('#form_add')[0].reset();
+                addBtnEnable();
+                addNoImageAlert();
             } else {
                 console.log(data);
                 addBtnEnable();
