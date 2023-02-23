@@ -47,6 +47,10 @@ privateAccess();
                             </div>
                         </div>
                         <div class="mb-3">
+                            <label for="category" class="form-label">Category</label>
+                            <input type="text" class="form-control" name="category" id="category" placeholder="Category" required>
+                        </div>
+                        <div class="mb-3">
                             <label for="details">Details</label>
                             <textarea class="form-control" name="details" id="details" rows="3" placeholder="Details" required></textarea>
                         </div>
@@ -71,6 +75,7 @@ privateAccess();
                                         <th>#</th>
                                         <th>Image</th>
                                         <th>Product</th>
+                                        <th>Category</th>
                                         <th>Details</th>
                                         <th>Price</th>
                                         <th>Modify</th>

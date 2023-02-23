@@ -2,7 +2,7 @@
 include '../connection.php';
 $primary_id = $_POST["primary_id"];
 $sql =
-    "SELECT product, details, price, image
+    "SELECT product, category, details, price, image
     FROM tb_products
     WHERE product_id = $primary_id";
 $result = mysqli_query($conn, $sql);
@@ -18,6 +18,10 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
             <label for="edit_price" class="form-label">Price</label>
             <input type="number" class="form-control" name="edit_price" id="edit_price" placeholder="Price" value="<?php echo $row['price'] ?>" required>
         </div>
+    </div>
+    <div class="mb-3">
+        <label for="edit_category" class="form-label">Category</label>
+        <input type="text" class="form-control" name="edit_category" id="edit_category" placeholder="Category" value="<?php echo $row['category'] ?>" required>
     </div>
     <div class="mb-3">
         <label for="edit_details">Details</label>
