@@ -6,6 +6,7 @@ $(document).ready(function () {
     });
 
     $(document).on("click", ".edit-data", function () {
+        $(".modal-body").html("<p>Loading...</p>");
         let primary_id = $(this).data('id');
         displayEdit(primary_id);
     });

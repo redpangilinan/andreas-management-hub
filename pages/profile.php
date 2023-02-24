@@ -37,6 +37,7 @@ validateSession();
                             <div class="col-md-12 col-xl-4">
                                 <div class="card" style="border-radius: 15px;">
                                     <div class="card-body text-center" id="profile_info">
+                                        <p>Loading...</p>
                                     </div>
                                 </div>
                             </div>
@@ -58,6 +59,7 @@ validateSession();
                 <!-- Edit Form -->
                 <form id="form_edit">
                     <div class="modal-body">
+                        <p>Loading...</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

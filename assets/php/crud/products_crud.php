@@ -37,7 +37,7 @@ if (isset($_POST['input'])) {
     if (($count) == 0) {
     ?>
         <tr>
-            <td colspan='6'>There are no records.</td>
+            <td colspan='7'>There are no records.</td>
         </tr>
 <?php
     }

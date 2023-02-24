@@ -2,6 +2,7 @@ $(document).ready(function () {
     // Calls the respective constants when necessary
     displayProfile();
     $(document).on("click", ".edit-data", function () {
+        $(".modal-body").html("<p>Loading...</p>");
         let primary_id = $(this).data('id');
         displayEdit(primary_id);
     });
