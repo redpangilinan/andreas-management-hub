@@ -49,6 +49,9 @@ privateAccess();
                             </tr>
                         </thead>
                         <tbody id="search_results">
+                            <tr>
+                                <td colspan='8'>Loading...</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -67,6 +70,7 @@ privateAccess();
                 <!-- Edit Form -->
                 <form id="form_edit">
                     <div class="modal-body">
+                        <p>Loading...</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
