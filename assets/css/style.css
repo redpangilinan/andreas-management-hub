@@ -225,7 +225,7 @@ body {
 
 /* main mobile */
 
-@media only screen and (max-width: 550px) {
+@media only screen and (max-width: 500px) {
     body {
         margin: 0;
     }
@@ -310,6 +310,7 @@ body {
 		cursor: pointer;
 		box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
 		transition: 0.2s ease;
+
 	}
 	.product:hover {
 		box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
@@ -392,10 +393,13 @@ body {
 	}
 	.cart-img {
 		width: 30%;
+      	min-width: 120px;
+      	max-width: 120px;
 		height: 100%;
 	}
 	.cart-img img{
 		width: 100%;
+      	min-width: 120px;
 		height: 100%;
 	}
 	.cart-details {
