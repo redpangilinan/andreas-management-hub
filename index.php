@@ -27,10 +27,10 @@
         <div class="menu-container">
 			<center><h2>Our Menu</h2></center><br>
 			<hr>
-			<h2>Baked Sushi</h2>
+			<h3>Baked Sushi</h3>
 			<div class="product-container">
 				<div class="product">
-					<img src="img/an.jpg" alt="">
+					<img src="./assets/images/andreas background.jpg" alt="">
 					<div class="product-text">
 						<span>Andrea's Fresh and Greens</span>
 						<h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
@@ -39,7 +39,7 @@
 				</div>
 				
 				<div class="product">
-					<img src="img/an.jpg" alt="">
+					<img src="./assets/images/andreas background.jpg" alt="">
 					<div class="product-text">
 						<span>Andrea's Fresh and Greens</span>
 						<h5>8x6 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
@@ -48,7 +48,7 @@
 				</div>
 				
 				<div class="product">
-					<img src="img/an.jpg" alt="">
+					<img src="./assets/images/andreas background.jpg" alt="">
 					<div class="product-text">
 						<span>Andrea's Fresh and Greens</span>
 						<h5>8x8 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
@@ -57,10 +57,10 @@
 				</div>
 			</div>
 			<hr>
-			<h2>FRESH KANI & SHRIMP SPRING ROLLS</h2>
+			<h3>FRESH KANI & SHRIMP SPRING ROLLS</h3>
 			<div class="product-container">
 				<div class="product">
-					<img src="img/an.jpg" alt="">
+					<img src="./assets/images/andreas background.jpg" alt="">
 					<div class="product-text">
 						<span>Andrea's Fresh and Greens</span>
 						<h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
@@ -69,7 +69,7 @@
 				</div>
 				
 				<div class="product">
-					<img src="img/an.jpg" alt="">
+					<img src="./assets/images/andreas background.jpg" alt="">
 					<div class="product-text">
 						<span>Andrea's Fresh and Greens</span>
 						<h5>8x6 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
@@ -78,7 +78,7 @@
 				</div>
 				
 				<div class="product">
-					<img src="img/an.jpg" alt="">
+					<img src="./assets/images/andreas background.jpg" alt="">
 					<div class="product-text">
 						<span>Andrea's Fresh and Greens</span>
 						<h5>8x8 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
@@ -87,7 +87,7 @@
 				</div>
 				
 				<div class="product">
-					<img src="img/an.jpg" alt="">
+					<img src="./assets/images/andreas background.jpg" alt="">
 					<div class="product-text">
 						<span>Andrea's Fresh and Greens</span>
 						<h5>8x8 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
