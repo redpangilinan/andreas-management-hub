@@ -44,16 +44,17 @@ if (
         include "../password_validation.php";
         if (validatePassword($edit_password)) {
             // Hash the password before updating
-            $hashed_password = mysqli_real_escape_string($conn, password_hash($edit_password, PASSWORD_DEFAULT));
+            $hashed_password = password_hash($edit_password, PASSWORD_DEFAULT);
             // Update the selected data
-            $sql = "UPDATE tb_accounts SET firstname='$edit_firstname', lastname='$edit_lastname', password='$hashed_password', email='$edit_email', contact_no='$edit_contact_no' WHERE account_id='$primary_id'";
-            if (mysqli_query($conn, $sql)) {
+            $stmt = mysqli_prepare($conn, "UPDATE tb_accounts SET firstname=?, lastname=?, password=?, email=?, contact_no=? WHERE account_id=?");
+            mysqli_stmt_bind_param($stmt, "ssssss", $edit_firstname, $edit_lastname, $hashed_password, $edit_email, $edit_contact_no, $primary_id);
+            if (mysqli_stmt_execute($stmt)) {
                 $_SESSION['email'] = $edit_email;
                 $_SESSION['fullname'] = "$edit_firstname $edit_lastname";
                 $_SESSION['password'] = $edit_password;
                 echo "success";
             } else {
-                echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                echo "Error: " . mysqli_stmt_error($stmt);
             }
         } else {
             echo "weak_password";
