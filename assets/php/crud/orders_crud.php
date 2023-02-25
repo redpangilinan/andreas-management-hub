@@ -33,7 +33,7 @@ if (isset($_POST['input'])) {
             <td><?php echo date("Y-m-d h:i A", strtotime($row["order_date_time"])); ?></td>
             <td><?php echo $row["order_type"] ?></td>
             <td><?php echo $row["mode_of_payment"] ?></td>
-            <td><?php echo $row["price"] ?></td>
+            <td><?php echo "₱" . $row["price"] ?></td>
             <td><?php echo $row["status"] ?></td>
             <td>
                 <div class="btn-group" role="group" aria-label="modify">
