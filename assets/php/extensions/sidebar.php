@@ -21,6 +21,7 @@ if ($account_type == "User") {
             <li><a href="./profile.php" title="Profile"><i class="fa-solid fa-user fa-lg"></i></a></li>
             <li><a href="./accounts.php" title="Users"><i class="fa-solid fa-users fa-lg"></i></a></li>
             <li><a href="./products.php" title="Products"><i class="fa-solid fa-table-list fa-lg"></i></a></li>
+            <li><a href="./orders.php" title="Orders"><i class="fa-solid fa-shipping-fast fa-lg"></i></a></li>
             <li><a href="?logout" title="Sign out"><i class="fa-solid fa-sign-out-alt fa-lg"></i></a></li>
         </ul>
     </div>
