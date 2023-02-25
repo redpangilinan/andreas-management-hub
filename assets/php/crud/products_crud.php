@@ -67,8 +67,6 @@ if (
     } else {
         echo "Error: " . $sql . " " . mysqli_error($conn);
     }
-
-    // Close the database connection
     mysqli_close($conn);
 }
 
