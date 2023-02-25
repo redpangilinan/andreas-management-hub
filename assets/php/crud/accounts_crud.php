@@ -2,7 +2,7 @@
 // Displays the data table with enabled search functionality
 if (isset($_POST['input'])) {
     include '../connection.php';
-    $input = $_POST['input'];
+    $input = mysqli_real_escape_string($conn, $_POST['input']);
     $sql =
         "SELECT account_id, firstname, lastname, email, contact_no, creation_date, account_type
     FROM tb_accounts

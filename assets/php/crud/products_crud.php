@@ -2,7 +2,7 @@
 // Displays the data table with enabled search functionality
 if (isset($_POST['input'])) {
     include '../connection.php';
-    $input = $_POST['input'];
+    $input = mysqli_real_escape_string($conn, $_POST['input']);
     $sql =
         "SELECT product_id, product, category, details, price, image
     FROM tb_products
