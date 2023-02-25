@@ -106,12 +106,14 @@ if (
 if (isset($_POST['delete_id'])) {
     include '../connection.php';
     $primary_id = $_POST['delete_id'];
-    $sql = "DELETE FROM tb_products WHERE product_id = $primary_id";
-    if (mysqli_query($conn, $sql)) {
+    $stmt = mysqli_prepare($conn, "DELETE FROM tb_products WHERE product_id = ?");
+    mysqli_stmt_bind_param($stmt, 's', $primary_id);
+    if (mysqli_stmt_execute($stmt)) {
         echo "success";
     } else {
-        echo "Error: " . $sql . " " . mysqli_error($conn);
+        echo "Error: " . mysqli_stmt_error($stmt);
     }
+    mysqli_stmt_close($stmt);
     mysqli_close($conn);
 }
 ?>
