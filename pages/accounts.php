@@ -29,8 +29,8 @@ privateAccess();
             <div class="container-fluid">
                 <!-- Header -->
                 <header>
-                    <h1>Accounts</h3>
-                        <hr>
+                    <h1>Accounts</h1>
+                    <hr>
                 </header>
                 <!-- Data Table w/ Search -->
                 <input type="text" class="form-control" id="search_records" placeholder="Search">

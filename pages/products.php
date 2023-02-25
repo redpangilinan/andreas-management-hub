@@ -29,8 +29,8 @@ privateAccess();
             <div class="container-fluid">
                 <!-- Header -->
                 <header>
-                    <h1>Products</h3>
-                        <hr>
+                    <h1>Products</h1>
+                    <hr>
                 </header>
                 <div class="datatable-container">
                     <!-- Add Form -->

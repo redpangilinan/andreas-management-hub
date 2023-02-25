@@ -28,8 +28,8 @@ validateSession();
             <div class="container-fluid">
                 <!-- Header -->
                 <header>
-                    <h1>Dashboard</h3>
-                        <hr>
+                    <h1>Dashboard</h1>
+                    <hr>
                 </header>
                 <p style="font-size: 1.5rem;">Welcome, <?php echo $_SESSION["fullname"] ?>!</p>
                 <div class="grid-ish">

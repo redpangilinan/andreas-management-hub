@@ -28,8 +28,8 @@ validateSession();
             <div class="container-fluid">
                 <!-- Header -->
                 <header>
-                    <h1>Profile</h3>
-                        <hr>
+                    <h1>Profile</h1>
+                    <hr>
                 </header>
                 <section>
                     <div class="container py-5 h-100">
