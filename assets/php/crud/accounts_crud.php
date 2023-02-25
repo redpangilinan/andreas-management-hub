@@ -124,6 +124,7 @@ if (
             } else {
                 echo "Error: " . mysqli_stmt_error($stmt);
             }
+            mysqli_stmt_close($stmt);
         } else {
             echo "weak_password";
         }
