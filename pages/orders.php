@@ -60,7 +60,7 @@ privateAccess();
                             <label for="products" class="form-label">Products</label>
                             <div class="with-button-container">
                                 <select class="form-select" name="products" id="products" aria-label="Products" required>
-                                    <option value="Test">Test</option>
+                                    <?php include "../assets/php/extensions/cb_products.php" ?>
                                 </select>
                                 <button class="btn btn-success">Add Product</button>
                             </div>
