@@ -20,7 +20,7 @@ function autoLogin()
 // Prevents access if the account is not an admin
 function privateAccess()
 {
-    if ($_SESSION['account_type'] != "Admin" || $_SESSION['account_type'] != "Owner" || $_SESSION['account_type'] != "Co-owner") {
+    if ($_SESSION['account_type'] != "Admin") {
         header('Location: dashboard.php');
     }
 }
