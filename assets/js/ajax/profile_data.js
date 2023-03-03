@@ -2,7 +2,35 @@ $(document).ready(function () {
     // Calls the respective constants when necessary
     displayProfile();
     $(document).on("click", ".edit-data", function () {
-        $(".modal-body").html("<p>Loading...</p>");
+        // Initialize Skeleton Loader
+        $(".modal-body").html(`
+        <div class="modal-body">
+            <div class="d-flex">
+                <div class="skeleton skeleton-text"></div>
+                <div class="skeleton skeleton-text ms-1"></div>
+            </div>
+            <div class="mb-3 d-flex">
+                <div class="skeleton skeleton-text"></div>
+                <div class="skeleton skeleton-text ms-1"></div>
+            </div>
+            <div class="mb-3">
+                <div class="skeleton skeleton-text"></div>
+                <div class="skeleton skeleton-text"></div>
+            </div>
+            <div class="mb-3">
+                <div class="skeleton skeleton-text"></div>
+                <div class="skeleton skeleton-text"></div>
+            </div>
+            <div class="d-flex">
+                <div class="skeleton skeleton-text"></div>
+                <div class="skeleton skeleton-text ms-1"></div>
+            </div>
+            <div class="mb-3 d-flex">
+                <div class="skeleton skeleton-text"></div>
+                <div class="skeleton skeleton-text ms-1"></div>
+            </div>
+        </div>
+        `);
         let primary_id = $(this).data('id');
         displayEdit(primary_id);
     });
