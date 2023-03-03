@@ -10,12 +10,16 @@ if (isset($_POST['profile_info'])) {
     $result = mysqli_query($conn, $sql);
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 ?>
-        <div class="mt-3 mb-4">
-            <i class="fa-solid fa-user fa-5x"></i>
+        <div class="d-flex">
+            <div class="ms-3 mt-1">
+                <i class="fa-solid fa-user fa-5x"></i>
+            </div>
+            <div class="ms-3">
+                <h4 class="mb-2"><?php echo $fullname ?></h4>
+                <p class="text-muted mb-1"><?php echo $row["email"] ?></p>
+                <p class="text-muted mb-4"><?php echo $row["creation_date"] ?></p>
+            </div>
         </div>
-        <h4 class="mb-2"><?php echo $fullname ?></h4>
-        <p class="text-muted mb-1"><?php echo $row["email"] ?></p>
-        <p class="text-muted mb-4"><?php echo $row["creation_date"] ?></p>
         <button data-id="<?php echo $primary_id ?>" class="edit-data btn btn-primary btn-rounded" data-bs-toggle="modal" data-bs-target="#editModal">Edit Profile</button>
 <?php
     }
