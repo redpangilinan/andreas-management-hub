@@ -630,11 +630,50 @@ body {
 	}
 	.cart .orderModal{
       	position: fixed;
-		height: 65%;
+		height: 55%;
       	width: 100%;
 		background-color: white;
       	bottom: 0;
       	border-top-right-radius: 30px;
         border-top-left-radius: 30px;
+	}
+	.info-img{
+		display: flex;
+	}
+	.order-img{
+		width: 50%;
+        min-width: 120px;
+		max-width: 120px;
+		min-height: 120px;
+		max-height: 120px;
+        height: 100%;
+	}
+	.order-img img {
+        width: 100%;
+		min-width: 120px;
+		max-width: 120px;
+		min-height: 120px;
+		max-height: 120px;
+        height: 100%;
+    }
+	.order-info {
+		padding-left: 10px;
+	}
+	.del-type {
+		display: flex;
+		justify-content: space-between;
+	}
+	.ordr-quantity {
+		display: flex;
+		justify-content: space-between;
+	}
+	.ordr-butn {
+		width: 100%;
+		border: none;
+		color: #ffffff;
+		background-color: #088178;
+		border-radius: 5px;
+		padding: 3px;
+		
 	}
 }
