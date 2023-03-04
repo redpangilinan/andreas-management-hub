@@ -622,4 +622,19 @@ body {
     .sub-left button:hover {
         cursor: pointer;
     }
+    .cart .modal-dialog {
+		width: 100%;
+		height: 100%;
+      	padding: 0;
+      	margin: 0 auto;
+	}
+	.cart .orderModal{
+      	position: fixed;
+		height: 65%;
+      	width: 100%;
+		background-color: white;
+      	bottom: 0;
+      	border-top-right-radius: 30px;
+        border-top-left-radius: 30px;
+	}
 }
