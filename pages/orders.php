@@ -117,9 +117,49 @@ privateAccess();
                                     </tr>
                                 </thead>
                                 <tbody id="search_results">
-                                    <tr>
-                                        <td colspan='9'>Loading...</td>
-                                    </tr>
+                                    <!-- Initialize Skeleton Loader for Data Table -->
+                                    <?php
+                                    include '../assets/php/connection.php';
+                                    $sql = "SELECT * FROM tb_orders";
+                                    $result = mysqli_query($conn, $sql);
+                                    $count = mysqli_num_rows($result);
+                                    for ($i = 0; $i < $count; $i++) {
+                                        echo "
+                                        <tr>
+                                            <td>
+                                                <div class='skeleton skeleton-text w-50'></div>
+                                            </td>
+                                            <td>
+                                                <div class='skeleton skeleton-text w-100'></div>
+                                                <div class='skeleton skeleton-text w-100'></div>
+                                                <div class='skeleton skeleton-text w-100'></div>
+                                            </td>
+                                            <td>
+                                                <div class='skeleton skeleton-text w-100'></div>
+                                            </td>
+                                            <td>
+                                                <div class='skeleton skeleton-text w-100'></div>
+                                            </td>
+                                            <td>
+                                                <div class='skeleton skeleton-text w-100'></div>
+                                            </td>
+                                            <td>
+                                                <div class='skeleton skeleton-text w-100'></div>
+                                            </td>
+                                            <td>
+                                                <div class='skeleton skeleton-text w-100'></div>
+                                            </td>
+                                            <td>
+                                                <div class='skeleton skeleton-text w-100'></div>
+                                            </td>
+                                            <td>
+                                                <div class='skeleton skeleton-text w-100'></div>
+                                            </td>
+                                        </tr>
+                                        ";
+                                    }
+                                    mysqli_close($conn);
+                                    ?>
                                 </tbody>
                             </table>
                         </div>
