@@ -440,10 +440,11 @@ body {
 
     /* cart mobile */
     .cart-con {
-		margin-bottom: 190px;
-	}
+        margin-bottom: 190px;
+    }
+
     .cart-item {
-		position: relative;
+        position: relative;
         width: 100%;
         padding: 0.625rem 0.75rem;
         background-color: #ffffff;
@@ -453,22 +454,22 @@ body {
         transition: 0.2s ease;
         display: flex;
         height: 120px;
-		margin-bottom: 20px;
+        margin-bottom: 20px;
     }
 
     .cart-item:hover {
         box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
     }
-	
-	.close-cart {
-		position: absolute;
-		top: 0;
-		width: 95%;
-		text-align: right;
-		font-size: 1rem;
-		padding: 5px;
-		
-	}
+
+    .close-cart {
+        position: absolute;
+        top: 0;
+        width: 95%;
+        text-align: right;
+        font-size: 1rem;
+        padding: 5px;
+
+    }
 
     .cart-item h5 {
         padding-top: 0.438rem;
@@ -563,6 +564,7 @@ body {
 
     /*Prevent text selection*/
     span {
+        user-select: none;
         -webkit-user-select: none;
         -moz-user-select: none;
         -ms-user-select: none;
@@ -582,12 +584,12 @@ body {
     input:disabled {
         background-color: white;
     }
-	
-	.sub-total-con {
-		position: fixed;
-		right: 0;
-		bottom: 20;
-		width: 100%;
+
+    .sub-total-con {
+        position: fixed;
+        right: 0;
+        bottom: 20;
+        width: 100%;
         padding: 20px;
         background-color: #ffffff;
         border-radius: 5px;
@@ -596,25 +598,28 @@ body {
         transition: 0.2s ease;
         display: flex;
         height: 150px;
-		margin-bottom: 20px;
-		justify-content: space-around;
+        margin-bottom: 20px;
+        justify-content: space-around;
     }
-	.sub-right {
-		width: 45%;
-	}
-	.sub-left {
-		width: 45%;
-		text-align: right;
-	}
-	.sub-left button{
-		border: none;
-		border-radius: 5px;
-		padding: 2px;
-		background-color: #088178;
-		color: ffffff;
-	}
-	.sub-left button:hover {
-		cursor: pointer;
-		background-color: 
-	}
+
+    .sub-right {
+        width: 45%;
+    }
+
+    .sub-left {
+        width: 45%;
+        text-align: right;
+    }
+
+    .sub-left button {
+        border: none;
+        border-radius: 5px;
+        padding: 2px;
+        background-color: #088178;
+        color: ffffff;
+    }
+
+    .sub-left button:hover {
+        cursor: pointer;
+    }
 }
