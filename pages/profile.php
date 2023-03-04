@@ -39,16 +39,14 @@ validateSession();
                                     <div class="card-body d-flex flex-column justify-content-center" id="profile_info">
                                         <!-- Placeholder Skeleton Div -->
                                         <div class="mb-3 d-flex">
-                                            <div>
-                                                <div class="mt-3 mb-4 skeleton skeleton-img"></div>
-                                            </div>
-                                            <div>
-                                                <h4 class="mb-2 skeleton skeleton-text"></h4>
-                                                <p class="skeleton skeleton-text"></p>
-                                                <p class="skeleton skeleton-text"></p>
+                                            <div class="w-25 skeleton skeleton-img rounded"></div>
+                                            <div class="w-75 ms-2">
+                                                <div class="mb-2 skeleton skeleton-input w-100"></div>
+                                                <div class="skeleton skeleton-text w-100"></div>
+                                                <div class="skeleton skeleton-text w-100 mb-2"></div>
                                             </div>
                                         </div>
-                                        <div class="skeleton skeleton-btn"></div>
+                                        <div class="skeleton skeleton-input w-100"></div>
                                     </div>
                                 </div>
                             </div>
