@@ -124,11 +124,11 @@ session_start();
 		</div>
 	</main>
 
-	<div class="modal fade cart" data-backdrop="static" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
+	<div class="modal fade cart" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
-			<div class="orderModal">
+			<div class="modal-content orderModal">
 				<div class="modal-header">
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" data-keyboard="false" data-backdrop="false"></button>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
 					<div class="info-img">
@@ -165,9 +165,9 @@ session_start();
 				</div>
 			</div>
 		</div>
-		<footer></footer>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
 	</div>
+	<footer></footer>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
 </body>
 
 </html>
