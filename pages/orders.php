@@ -79,6 +79,10 @@ privateAccess();
                             </div>
                         </div>
                         <div class="mb-3">
+                            <label for="price" class="form-label">Total Price</label>
+                            <input type="number" class="form-control" name="price" id="price" placeholder="Price" required>
+                        </div>
+                        <div class="mb-3">
                             <label for="order_date_time" class="form-label">Delivery Date and Time</label>
                             <input type="datetime-local" class="form-control" name="order_date_time" id="order_date_time" placeholder="Delivery Date and Time" required>
                         </div>
@@ -97,10 +101,6 @@ privateAccess();
                                     <option value="GCash">GCash</option>
                                 </select>
                             </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="price" class="form-label">Price</label>
-                            <input type="number" class="form-control" name="price" id="price" placeholder="Price" required>
                         </div>
                         <button type="submit" class="add-confirm btn btn-success" id="addButton">Add Order</button>
                     </form>
