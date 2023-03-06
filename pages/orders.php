@@ -80,7 +80,7 @@ privateAccess();
                         </div>
                         <div class="mb-3">
                             <label for="price" class="form-label">Total Price</label>
-                            <input type="number" class="form-control" name="price" id="price" placeholder="Price" required>
+                            <input type="number" class="form-control" name="price" id="price" value="0" placeholder="Price" required>
                         </div>
                         <div class="mb-3">
                             <label for="order_date_time" class="form-label">Delivery Date and Time</label>
