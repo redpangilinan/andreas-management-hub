@@ -15,17 +15,37 @@ $(document).ready(function () {
 // Initialize the shopping cart
 let cart = [];
 
-// Define a function to add a product to the cart
+// Enables the button to add products to the cart
+let addProductBtn = document.querySelector('#addProduct');
+addProductBtn.addEventListener('click', () => {
+    let productValue = document.querySelector('#products').value;
+    let splitProduct = productValue.split(",");
+    let productName = splitProduct[0];
+    let price = parseInt(splitProduct[1]);
+    let quantity = 1;
+    addToCart(productName, quantity, price);
+    showCartItems();
+});
+
+// Add a product to the cart
 const addToCart = (productName, quantity, price) => {
-    let product = {
-        name: productName,
-        qty: quantity,
-        price: price
-    };
-    cart.push(product);
+    let existingProductIndex = cart.findIndex(item => item.name === productName);
+    if (existingProductIndex !== -1) {
+        // If the product already exists in the cart, update its quantity and price
+        cart[existingProductIndex].qty += quantity;
+        cart[existingProductIndex].price += price;
+    } else {
+        // If the product does not exist in the cart, add it as a new item
+        let product = {
+            name: productName,
+            qty: quantity,
+            price: price
+        };
+        cart.push(product);
+    }
 }
 
-// Define a function to checkout the cart as JSON
+// Checkout the cart as JSON
 const checkout = () => {
     let order = {
         cart: cart,
@@ -35,7 +55,7 @@ const checkout = () => {
     return orderData;
 }
 
-// Define a function to calculate the total price of the cart
+// Calculate the total price of the cart
 const getTotal = () => {
     let total = 0;
     for (let i = 0; i < cart.length; i++) {
@@ -43,3 +63,38 @@ const getTotal = () => {
     }
     return total;
 }
+
+// Shows every product in the cart
+const showCartItems = () => {
+    let cartList = document.querySelector('#products_list');
+    cartList.innerHTML = '';
+
+    cart.forEach((item, index) => {
+        let listItem = document.createElement('li');
+        listItem.classList.add('list-group-item', 'd-flex', 'justify-content-between');
+        listItem.innerHTML = `
+            <div>${item.name} (${item.qty}) - ₱${item.price}</div>
+            <div class="productRemove cs-pointer" data-index="${index}"><i class="fa-solid fa-xmark"></i></div>
+        `;
+        cartList.appendChild(listItem);
+    });
+
+    // Update order details with cart array as a JSON string
+    let orderDetails = document.querySelector('#order_details');
+    orderDetails.value = JSON.stringify(cart);
+
+    // Add click event listener to each remove button
+    let removeButtons = document.querySelectorAll('.productRemove');
+    removeButtons.forEach(button => {
+        button.addEventListener('click', e => {
+            let index = parseInt(e.currentTarget.dataset.index);
+            cart.splice(index, 1);
+            showCartItems();
+        });
+    });
+};
+
+// Enables Search in select box
+$('select').select2({
+    theme: 'bootstrap-5'
+});
