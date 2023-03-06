@@ -117,6 +117,11 @@ const insertData = (formData) => {
         success: function (data) {
             displayTable();
             if (data == "success") {
+                // Clear the cart
+                cart = [];
+                showCartItems();
+
+                // Clear the form
                 $('#form_add')[0].reset();
                 addBtnEnable();
                 addAlert();
