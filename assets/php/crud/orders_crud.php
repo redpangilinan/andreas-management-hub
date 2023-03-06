@@ -17,19 +17,38 @@ if (isset($_POST['input'])) {
     OR mode_of_payment LIKE '{$input}%'
     OR price LIKE '{$input}%'
     OR status LIKE '{$input}%')
-    ORDER BY order_id";
+    ORDER BY order_date_time DESC";
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+        $data = json_decode($row["order_details"], true);
 ?>
         <tr>
             <td><?php echo $row["order_id"] ?></td>
             <td>
-                <?php echo $row["firstname"] . " " . $row["lastname"] ?><br>
-                <?php echo $row["contact_no"] ?><br>
-                <?php echo $row["address"] ?>
+                <div class="card">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><?php echo $row["firstname"] . " " . $row["lastname"] ?></li>
+                        <li class="list-group-item"><?php echo $row["contact_no"] ?></li>
+                        <li class="list-group-item"><?php echo $row["address"] ?></li>
+                    </ul>
+                </div>
             </td>
-            <td><?php echo $row["order_details"] ?></td>
+            <td>
+                <div class="card">
+                    <ul class="list-group list-group-flush">
+                        <?php
+                        foreach ($data as $item) {
+                            $name = $item['name'];
+                            $qty = $item['qty'];
+                            $price = $item['price'];
+
+                            echo '<li class="list-group-item">' . $name . ' (' . $qty . ') - ₱' . $price . '</li>';
+                        }
+                        ?>
+                    </ul>
+                </div>
+            </td>
             <td><?php echo date("Y-m-d h:i A", strtotime($row["order_date_time"])); ?></td>
             <td><?php echo $row["order_type"] ?></td>
             <td><?php echo $row["mode_of_payment"] ?></td>
