@@ -75,7 +75,7 @@ if (
     $address = $_POST['address'];
     $contact_no = $_POST['contact_no'];
     $order_details = $_POST['order_details'];
-    $order_date_time = $_POST['order_date_time'];
+    $order_date_time = date('Y-m-d H:i:s', strtotime($_POST['order_date_time']));
     $order_type = $_POST['order_type'];
     $mode_of_payment = $_POST['mode_of_payment'];
     $price = $_POST['price'];
