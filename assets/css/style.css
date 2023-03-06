@@ -103,7 +103,8 @@ body {
     }
 }
 
-/* Utilities */
+/* ===== Utilities ===== */
+/* Responsive Grid Layout */
 .grid-ish {
     display: flex;
     flex-wrap: wrap;
@@ -114,11 +115,17 @@ body {
     flex: 1 1 30em;
 }
 
+/* Force margin and padding 0 */
 .force-zero {
     margin: 0 !important;
     padding: 0 !important;
 }
 
+.cs-pointer {
+    cursor: pointer;
+}
+
+/* Skeleton Loaders */
 .skeleton {
     opacity: 0.7;
     animation: skeleton-loading 1s linear infinite alternate;
@@ -622,58 +629,67 @@ body {
     .sub-left button:hover {
         cursor: pointer;
     }
+
     .cart .modal-dialog {
-		width: 100%;
-		height: 100%;
-      	padding: 0;
-      	margin: 0 auto;
-	}
-	.cart .orderModal{
-      	position: fixed;
-		height: 55%;
-      	width: 100%;
-		background-color: white;
-      	bottom: 0;
-      	border-top-right-radius: 30px;
-        border-top-left-radius: 30px;
-	}
-	.info-img{
-		display: flex;
-	}
-	.order-img{
-		width: 50%;
-        min-width: 120px;
-		max-width: 120px;
-		min-height: 120px;
-		max-height: 120px;
-        height: 100%;
-	}
-	.order-img img {
         width: 100%;
-		min-width: 120px;
-		max-width: 120px;
-		min-height: 120px;
-		max-height: 120px;
+        height: 100%;
+        padding: 0;
+        margin: 0 auto;
+    }
+
+    .cart .orderModal {
+        position: fixed;
+        height: 55%;
+        width: 100%;
+        background-color: white;
+        bottom: 0;
+        border-top-right-radius: 30px;
+        border-top-left-radius: 30px;
+    }
+
+    .info-img {
+        display: flex;
+    }
+
+    .order-img {
+        width: 50%;
+        min-width: 120px;
+        max-width: 120px;
+        min-height: 120px;
+        max-height: 120px;
         height: 100%;
     }
-	.order-info {
-		padding-left: 10px;
-	}
-	.del-type {
-		display: flex;
-		justify-content: space-between;
-	}
-	.ordr-quantity {
-		display: flex;
-		justify-content: space-between;
-	}
-	.ordr-butn {
-		width: 100%;
-		border: none;
-		color: #ffffff;
-		background-color: #088178;
-		border-radius: 5px;
-		padding: 3px;
-		
-	}
+
+    .order-img img {
+        width: 100%;
+        min-width: 120px;
+        max-width: 120px;
+        min-height: 120px;
+        max-height: 120px;
+        height: 100%;
+    }
+
+    .order-info {
+        padding-left: 10px;
+    }
+
+    .del-type {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .ordr-quantity {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .ordr-butn {
+        width: 100%;
+        border: none;
+        color: #ffffff;
+        background-color: #088178;
+        border-radius: 5px;
+        padding: 3px;
+
+    }
 }
