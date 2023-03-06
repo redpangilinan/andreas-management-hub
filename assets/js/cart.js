@@ -31,8 +31,9 @@ addProductBtn.addEventListener('click', () => {
 const addToCart = (productName, quantity, price) => {
     let existingProductIndex = cart.findIndex(item => item.name === productName);
     if (existingProductIndex !== -1) {
-        // If the product already exists in the cart, update its quantity
+        // If the product already exists in the cart, update its quantity and price
         cart[existingProductIndex].qty += quantity;
+        cart[existingProductIndex].price += price;
     } else {
         // If the product does not exist in the cart, add it as a new item
         let product = {
@@ -73,13 +74,13 @@ const showCartItems = () => {
         let listItem = document.createElement('li');
         listItem.classList.add('list-group-item', 'd-flex', 'justify-content-between');
         listItem.innerHTML = `
-            <div>${item.name} (${item.qty}) - ₱${item.price * item.qty}</div>
+            <div>${item.name} (${item.qty}) - ₱${item.price}</div>
             <div class="productRemove cs-pointer" data-index="${index}"><i class="fa-solid fa-xmark"></i></div>
         `;
         cartList.appendChild(listItem);
 
         // Updates the order price
-        orderPrice += item.price * item.qty;
+        orderPrice += item.price;
     });
 
     // Update the total with the calculated order price
