@@ -68,7 +68,7 @@ privateAccess();
                                 <button type="button" class="btn btn-success" id="addProduct">Add Product</button>
                             </div>
                         </div>
-                        <input type="hidden" id="order_details">
+                        <input type="hidden" name="order_details" id="order_details">
                         <div class="mb-3">
                             <div class="card">
                                 <div class="card-header">
