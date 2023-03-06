@@ -69,6 +69,7 @@ const showCartItems = () => {
     let cartList = document.querySelector('#products_list');
     cartList.innerHTML = '';
 
+    let orderPrice = 0;
     cart.forEach((item, index) => {
         let listItem = document.createElement('li');
         listItem.classList.add('list-group-item', 'd-flex', 'justify-content-between');
@@ -77,7 +78,14 @@ const showCartItems = () => {
             <div class="productRemove cs-pointer" data-index="${index}"><i class="fa-solid fa-xmark"></i></div>
         `;
         cartList.appendChild(listItem);
+
+        // Updates the order price
+        orderPrice += item.price;
     });
+
+    // Update the total with the calculated order price
+    let totalPrice = document.querySelector('#price');
+    totalPrice.value = orderPrice;
 
     // Update order details with cart array as a JSON string
     let orderDetails = document.querySelector('#order_details');
