@@ -117,12 +117,11 @@ const insertData = (formData) => {
         success: function (data) {
             displayTable();
             if (data == "success") {
-                // Clear the cart
+                // Clear the form and cart
+                $('#form_add')[0].reset();
                 cart = [];
                 showCartItems();
 
-                // Clear the form
-                $('#form_add')[0].reset();
                 addBtnEnable();
                 addAlert();
             } else {
