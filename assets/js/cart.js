@@ -1,3 +1,5 @@
+const addButton = document.querySelector("#addButton");
+
 // Change the product quantity
 $(document).ready(function () {
     $('.count').prop('disabled', true);
@@ -10,6 +12,7 @@ $(document).ready(function () {
             $('.count').val(1);
         }
     });
+    addButton.disabled = true;
 });
 
 // Initialize the shopping cart
@@ -100,6 +103,13 @@ const showCartItems = () => {
             showCartItems();
         });
     });
+
+    // Check if cart is empty or not
+    if (cart.length !== 0) {
+        addButton.disabled = false;
+    } else {
+        addButton.disabled = true;
+    }
 };
 
 // Enables Search in select box
