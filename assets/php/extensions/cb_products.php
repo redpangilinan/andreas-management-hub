@@ -8,7 +8,7 @@ while ($product_row = mysqli_fetch_array($product_result, MYSQLI_ASSOC)) {
     $product = $product_row["product"];
     $price = $product_row["price"];
 ?>
-    <option value="<?php echo $product . "," . $price ?>"><?php echo $product . " - ₱" . $price ?></option>
+    <option value="<?php echo $product . ",,," . $price ?>"><?php echo $product . " - ₱" . $price ?></option>
 <?php
 }
 
