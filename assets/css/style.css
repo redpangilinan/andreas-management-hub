@@ -210,10 +210,11 @@ td {
     flex-flow: row;
 }
 
-.datatable-container form {
+.datatable-container #form_add {
     padding: 1.5em;
     width: 100%;
     max-width: 25rem;
+    min-width: 19rem;
     margin: 0 1em 0 0;
     height: max-content;
 }
@@ -224,7 +225,7 @@ td {
         flex-flow: column;
     }
 
-    .datatable-container form {
+    .datatable-container #form_add {
         padding: 1em;
         margin: 0 0 1em 0;
     }
