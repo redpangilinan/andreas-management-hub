@@ -51,6 +51,7 @@ $(document).ready(function () {
             </div>
         </div>
         `);
+
         let primary_id = $(this).data('id');
         displayEdit(primary_id);
     });
@@ -102,6 +103,12 @@ const displayEdit = (primary_id) => {
         },
         success: function (data) {
             $(".modal-body").html(data);
+
+            // Enables Search in select box
+            $('#edit_products').select2({
+                theme: 'bootstrap-5',
+                dropdownParent: $("#editModal")
+            });
         }
     });
 }
