@@ -27,7 +27,7 @@ if (isset($_POST['input'])) {
             <td><?php echo $row["order_id"] ?></td>
             <td>
                 <div class="card">
-                    <ul class="list-group list-group-flush">
+                    <ul class="list-group list-group-flush text-nowrap">
                         <li class="list-group-item"><?php echo $row["firstname"] . " " . $row["lastname"] ?></li>
                         <li class="list-group-item"><?php echo $row["contact_no"] ?></li>
                         <li class="list-group-item"><?php echo $row["address"] ?></li>
@@ -36,7 +36,7 @@ if (isset($_POST['input'])) {
             </td>
             <td>
                 <div class="card">
-                    <ul class="list-group list-group-flush">
+                    <ul class="list-group list-group-flush text-nowrap">
                         <?php
                         foreach ($data as $item) {
                             $name = $item['name'];
