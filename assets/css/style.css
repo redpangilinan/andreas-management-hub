@@ -75,6 +75,11 @@ body {
     vertical-align: middle;
 }
 
+th,
+td {
+    white-space: nowrap;
+}
+
 /* Sidebar */
 .sidebar {
     position: fixed;
