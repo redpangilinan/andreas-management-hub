@@ -30,14 +30,28 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
     <div class="mb-3">
         <label for="edit_products" class="form-label">Products</label>
         <div class="with-button-container">
-            <select class="form-select" name="edit_products" id="edit_products" aria-label="Products" required>
-                <option value="Test">Test</option>
+            <select class="form-select" name="edit_products" id="edit_products" aria-label="Products">
+                <?php include "../extensions/cb_products.php" ?>
             </select>
-            <button class="btn btn-success">Add Product</button>
+            <button type="button" class="btn btn-success" id="editAddProduct">Add Product</button>
         </div>
     </div>
-    <input type="hidden" id="order_details">
-    <div id="products_list"></div>
+    <input type="hidden" name="edit_order_details" id="edit_order_details">
+    <div class="mb-3">
+        <div class="card">
+            <div class="card-header">
+                Order Details
+            </div>
+            <ul class="list-group list-group-flush" id="edit_products_list">
+            </ul>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label for="edit_price" class="form-label">Total Price</label>
+                    <input type="number" class="form-control" name="edit_price" id="edit_price" value="0" placeholder="Price" required>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="mb-3">
         <label for="edit_order_date_time" class="form-label">Delivery Date and Time</label>
         <input type="datetime-local" class="form-control" name="edit_order_date_time" id="edit_order_date_time" placeholder="Delivery Date and Time" value="<?php echo $row['order_date_time'] ?>" required>
@@ -57,10 +71,6 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                 <option value="GCash">GCash</option>
             </select>
         </div>
-    </div>
-    <div class="mb-3">
-        <label for="edit_price" class="form-label">Price</label>
-        <input type="number" class="form-control" name="edit_price" id="edit_price" placeholder="Price" value="<?php echo $row['price'] ?>" required>
     </div>
     <div class="mb-3">
         <label for="edit_status" class="form-label">Status</label>
