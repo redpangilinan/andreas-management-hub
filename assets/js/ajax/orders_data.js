@@ -171,8 +171,6 @@ const updateData = (formData) => {
             $('#form_edit')[0].reset();
             if (data == "success") {
                 editAlert();
-            } else if (data == "no image success") {
-                noImageAlert();
             } else {
                 console.log(data);
                 errorAlert();
