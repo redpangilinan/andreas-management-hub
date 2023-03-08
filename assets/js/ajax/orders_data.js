@@ -104,6 +104,18 @@ const displayEdit = (primary_id) => {
         success: function (data) {
             $(".modal-body").html(data);
 
+            // Enables the button to add products to the cart
+            let editAddProductBtn = document.querySelector('#editAddProduct');
+            editAddProductBtn.addEventListener('click', () => {
+                let productValue = document.querySelector('#edit_products').value;
+                let splitProduct = productValue.split(",,,");
+                let productName = splitProduct[0];
+                let price = parseInt(splitProduct[1]);
+                let quantity = 1;
+                addToCart(productName, quantity, price, "edit");
+                showCartItems("edit");
+            });
+
             // Enables Search in select box
             $('#edit_products').select2({
                 theme: 'bootstrap-5',
@@ -127,7 +139,7 @@ const insertData = (formData) => {
                 // Clear the form and cart
                 $('#form_add')[0].reset();
                 cart = [];
-                showCartItems();
+                showCartItems("add");
 
                 addBtnEnable();
                 addAlert();

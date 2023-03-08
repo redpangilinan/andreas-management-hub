@@ -1,4 +1,5 @@
 const addButton = document.querySelector("#addButton");
+const editButton = document.querySelector("#editButton");
 
 // Initially disable the add button
 $(document).ready(function () {
@@ -7,6 +8,7 @@ $(document).ready(function () {
 
 // Initialize the shopping cart
 let cart = [];
+let editCart = [];
 
 // Enables the button to add products to the cart
 let addProductBtn = document.querySelector('#addProduct');
@@ -16,17 +18,28 @@ addProductBtn.addEventListener('click', () => {
     let productName = splitProduct[0];
     let price = parseInt(splitProduct[1]);
     let quantity = 1;
-    addToCart(productName, quantity, price);
-    showCartItems();
+    addToCart(productName, quantity, price, "add");
+    showCartItems("add");
 });
 
 // Add a product to the cart
-const addToCart = (productName, quantity, price) => {
-    let existingProductIndex = cart.findIndex(item => item.name === productName);
+const addToCart = (productName, quantity, price, form) => {
+    let existingProductIndex;
+    if (form == "add") {
+        existingProductIndex = cart.findIndex(item => item.name === productName);
+    } else {
+        existingProductIndex = editCart.findIndex(item => item.name === productName);
+    }
+
     if (existingProductIndex !== -1) {
         // If the product already exists in the cart, update its quantity and price
-        cart[existingProductIndex].qty += quantity;
-        cart[existingProductIndex].price += price;
+        if (form == "add") {
+            cart[existingProductIndex].qty += quantity;
+            cart[existingProductIndex].price += price;
+        } else {
+            editCart[existingProductIndex].qty += quantity;
+            editCart[existingProductIndex].price += price;
+        }
     } else {
         // If the product does not exist in the cart, add it as a new item
         let product = {
@@ -34,71 +47,91 @@ const addToCart = (productName, quantity, price) => {
             qty: quantity,
             price: price
         };
-        cart.push(product);
-    }
-}
 
-// Checkout the cart as JSON
-const checkout = () => {
-    let order = {
-        cart: cart,
-        total: getTotal()
-    };
-    let orderData = JSON.stringify(order);
-    return orderData;
-}
+        if (form == "add") {
+            cart.push(product);
+        } else {
+            editCart.push(product);
+        }
 
-// Calculate the total price of the cart
-const getTotal = () => {
-    let total = 0;
-    for (let i = 0; i < cart.length; i++) {
-        total += cart[i].qty * cart[i].price;
     }
-    return total;
 }
 
 // Shows every product in the cart
-const showCartItems = () => {
-    let cartList = document.querySelector('#products_list');
+const showCartItems = (form) => {
+    // Setup respective ID for the current form
+    let cartList, totalPrice, orderDetails, formCart;
+
+    if (form == "add") {
+        cartList = document.querySelector('#products_list');
+        totalPrice = document.querySelector('#price');
+        orderDetails = document.querySelector('#order_details');
+        formCart = cart;
+    } else {
+        cartList = document.querySelector('#edit_products_list');
+        totalPrice = document.querySelector('#edit_price');
+        orderDetails = document.querySelector('#edit_order_details');
+        formCart = editCart;
+    }
+
     cartList.innerHTML = '';
 
     let orderPrice = 0;
-    cart.forEach((item, index) => {
+    formCart.forEach((item, index) => {
         let listItem = document.createElement('li');
         listItem.classList.add('list-group-item', 'd-flex', 'justify-content-between');
-        listItem.innerHTML = `
+        if (form == "add") {
+            listItem.innerHTML = `
             <div>${item.name} (${item.qty}) - ₱${item.price}</div>
-            <div class="productRemove cs-pointer" data-index="${index}"><i class="fa-solid fa-xmark"></i></div>
-        `;
+            <div class="productRemove cs-pointer"><i class="fa-solid fa-xmark"></i></div>
+            `;
+        } else {
+            listItem.innerHTML = `
+            <div>${item.name} (${item.qty}) - ₱${item.price}</div>
+            <div class="editProductRemove cs-pointer"><i class="fa-solid fa-xmark"></i></div>
+            `;
+        }
         cartList.appendChild(listItem);
 
         // Updates the order price
         orderPrice += item.price;
     });
 
-    // Update the total with the calculated order price
-    let totalPrice = document.querySelector('#price');
+    // Set the total price and stringify JSON
     totalPrice.value = orderPrice;
+    orderDetails.value = JSON.stringify(formCart);
 
-    // Update order details with cart array as a JSON string
-    let orderDetails = document.querySelector('#order_details');
-    orderDetails.value = JSON.stringify(cart);
 
-    // Add click event listener to each remove button
-    let removeButtons = document.querySelectorAll('.productRemove');
-    removeButtons.forEach(button => {
-        button.addEventListener('click', e => {
-            let index = parseInt(e.currentTarget.dataset.index);
-            cart.splice(index, 1);
-            showCartItems();
+
+    // Add click event listener to each remove button and check if cart is empty or not
+    if (form == "add") {
+        let removeButtons = document.querySelectorAll('.productRemove');
+        removeButtons.forEach((button, index) => {
+            button.addEventListener('click', e => {
+                cart.splice(index, 1);
+                showCartItems("add");
+            });
         });
-    });
 
-    // Check if cart is empty or not
-    if (cart.length !== 0) {
-        addButton.disabled = false;
+        if (formCart.length !== 0) {
+            addButton.disabled = false;
+        } else {
+            addButton.disabled = true;
+        }
     } else {
-        addButton.disabled = true;
+        let removeButtons = document.querySelectorAll('.editProductRemove');
+        removeButtons.forEach((button, index) => {
+            button.addEventListener('click', e => {
+                editCart.splice(index, 1);
+                showCartItems("edit");
+            });
+        });
+
+        if (formCart.length !== 0) {
+            editButton.disabled = false;
+        } else {
+            editButton.disabled = true;
+        }
     }
 };
 
