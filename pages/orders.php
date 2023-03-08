@@ -65,7 +65,7 @@ privateAccess();
                                 <select class="form-select" name="products" id="products" aria-label="Products">
                                     <?php include "../assets/php/extensions/cb_products.php" ?>
                                 </select>
-                                <button type="button" class="btn btn-success" id="addProduct">Add Product</button>
+                                <button type="button" class="btn btn-success" id="addProduct"><i class="fas fa-plus"></i></button>
                             </div>
                         </div>
                         <input type="hidden" name="order_details" id="order_details">

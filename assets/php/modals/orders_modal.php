@@ -33,7 +33,7 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
             <select class="form-select" name="edit_products" id="edit_products" aria-label="Products">
                 <?php include "../extensions/cb_products.php" ?>
             </select>
-            <button type="button" class="btn btn-success" id="editAddProduct">Add Product</button>
+            <button type="button" class="btn btn-success" id="editAddProduct"><i class="fas fa-plus"></i></button>
         </div>
     </div>
     <input type="hidden" name="edit_order_details" id="edit_order_details">
