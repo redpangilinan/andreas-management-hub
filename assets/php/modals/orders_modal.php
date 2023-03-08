@@ -74,7 +74,7 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
     </div>
     <div class="mb-3">
         <label for="edit_status" class="form-label">Status</label>
-        <select class="form-select" name="edit_status" id="edit_status" value="<?php echo $row['order_type'] ?>" aria-label="Order Status" required>
+        <select class="form-select" name="edit_status" id="edit_status" value="<?php echo $row['status'] ?>" aria-label="Order Status" required>
             <option value="Delivery">Pending</option>
             <option value="Delivery">Pending (Paid)</option>
             <option value="Pick Up">Complete</option>
