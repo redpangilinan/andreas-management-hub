@@ -191,7 +191,7 @@ privateAccess();
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <!-- Edit Form -->
-                <form id="form_edit" enctype="multipart/form-data">
+                <form id="form_edit">
                     <div class="modal-body">
                         <p>Loading...</p>
                     </div>
