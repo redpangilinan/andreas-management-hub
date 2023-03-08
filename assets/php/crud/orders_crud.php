@@ -133,7 +133,7 @@ if (
     $edit_address = $_POST['edit_address'];
     $edit_contact_no = $_POST['edit_contact_no'];
     $edit_order_details = $_POST['edit_order_details'];
-    $edit_order_date_time = $_POST['edit_order_date_time'];
+    $edit_order_date_time = date('Y-m-d H:i:s', strtotime($_POST['edit_order_date_time']));
     $edit_order_type = $_POST['edit_order_type'];
     $edit_mode_of_payment = $_POST['edit_mode_of_payment'];
     $edit_price = $_POST['edit_price'];
