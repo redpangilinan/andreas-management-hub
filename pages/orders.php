@@ -205,7 +205,7 @@ privateAccess();
     </div>
 
     <script src="../assets/js/alerts.js"></script>
-    <script src="../assets/js/cart.js"></script>
+    <script src="../assets/js/cart_admin.js"></script>
     <script src="../assets/js/ajax/orders_data.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
 </body>
