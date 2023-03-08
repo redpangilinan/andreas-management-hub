@@ -56,38 +56,11 @@ validateSession();
                     <!-- These are just filler boxes ahead -->
                     <div class="grid-box">
                         <div class="content">
-                            <p style="font-size: 2rem;">0</p>
-                            <p>Sample</p>
+                            <p style="font-size: 2rem;"><?php orderCount() ?></p>
+                            <p>Orders</p>
                         </div>
                         <div class="content">
-                            <i class="fa-solid fa-folder-open fa-4x"></i>
-                        </div>
-                    </div>
-                    <div class="grid-box">
-                        <div class="content">
-                            <p style="font-size: 2rem;">0</p>
-                            <p>Sample</p>
-                        </div>
-                        <div class="content">
-                            <i class="fa-solid fa-book fa-4x"></i>
-                        </div>
-                    </div>
-                    <div class="grid-box">
-                        <div class="content">
-                            <p style="font-size: 2rem;">0</p>
-                            <p>Sample</p>
-                        </div>
-                        <div class="content">
-                            <i class="fa-solid fa-bell fa-4x"></i>
-                        </div>
-                    </div>
-                    <div class="grid-box">
-                        <div class="content">
-                            <p style="font-size: 2rem;">0</p>
-                            <p>Sample</p>
-                        </div>
-                        <div class="content">
-                            <i class="fa-solid fa-address-card fa-4x"></i>
+                            <i class="fa-solid fa-shipping-fast fa-4x"></i>
                         </div>
                     </div>
                 </div>
