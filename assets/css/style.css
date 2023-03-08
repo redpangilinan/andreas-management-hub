@@ -89,6 +89,7 @@ td {
     max-width: 4rem;
     background-color: aliceblue;
     text-align: center;
+    z-index: 5;
 }
 
 .sidebar a {
@@ -645,13 +646,7 @@ td {
 
     .cart .orderModal {
         position: fixed;
-<<<<<<< HEAD
-      	max-height: 55%;
-        height: auto;
-      	overflow: auto;
-=======
         height: 55%;
->>>>>>> f69c3dab62a07cf09061d9f29cea949406f9abc9
         width: 100%;
         background-color: white;
         bottom: 0;
