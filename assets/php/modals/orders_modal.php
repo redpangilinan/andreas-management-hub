@@ -36,7 +36,7 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
             <button type="button" class="btn btn-success" id="editAddProduct"><i class="fas fa-plus"></i></button>
         </div>
     </div>
-    <input type="hidden" name="edit_order_details" id="edit_order_details">
+    <input type="hidden" name="edit_order_details" id="edit_order_details" value='<?php echo $row['order_details'] ?>'>
     <div class="mb-3">
         <div class="card">
             <div class="card-header">

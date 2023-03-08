@@ -104,6 +104,10 @@ const displayEdit = (primary_id) => {
         success: function (data) {
             $(".modal-body").html(data);
 
+            // Load Order Details
+            editCart = JSON.parse(document.querySelector('#edit_order_details').value);
+            showCartItems("edit");
+
             // Enables the button to add products to the cart
             let editAddProductBtn = document.querySelector('#editAddProduct');
             editAddProductBtn.addEventListener('click', () => {
