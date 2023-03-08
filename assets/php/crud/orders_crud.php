@@ -122,7 +122,9 @@ if (
     isset($_POST['edit_order_details']) &&
     isset($_POST['edit_order_date_time']) &&
     isset($_POST['edit_order_type']) &&
-    isset($_POST['edit_mode_of_payment'])
+    isset($_POST['edit_mode_of_payment']) &&
+    isset($_POST['edit_price']) &&
+    isset($_POST['edit_status'])
 ) {
     include '../connection.php';
 

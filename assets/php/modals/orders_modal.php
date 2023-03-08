@@ -8,6 +8,7 @@ $sql =
 $result = mysqli_query($conn, $sql);
 while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 ?>
+    <input type="hidden" name="primary_id" id="primary_id" value="<?php echo $primary_id ?>">
     <div class="mb-3 d-flex">
         <div class="w-100">
             <label for="edit_firstname" class="form-label">First Name</label>
@@ -75,10 +76,10 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
     <div class="mb-3">
         <label for="edit_status" class="form-label">Status</label>
         <select class="form-select" name="edit_status" id="edit_status" value="<?php echo $row['status'] ?>" aria-label="Order Status" required>
-            <option value="Delivery">Pending</option>
-            <option value="Delivery">Pending (Paid)</option>
-            <option value="Pick Up">Complete</option>
-            <option value="Pick Up">Cancelled</option>
+            <option value="Pending">Pending</option>
+            <option value="Pending (Paid)">Pending (Paid)</option>
+            <option value="Complete">Complete</option>
+            <option value="Cancelled">Cancelled</option>
         </select>
     </div>
 <?php
