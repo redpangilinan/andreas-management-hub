@@ -20,8 +20,7 @@ if (isset($_POST['input'])) {
 ?>
         <tr>
             <td><?php echo $row["account_id"] ?></td>
-            <td><?php echo $row["firstname"] ?></td>
-            <td><?php echo $row["lastname"] ?></td>
+            <td><?php echo $row["firstname"] . " " . $row["lastname"] ?></td>
             <td><?php echo $row["email"] ?></td>
             <td>
                 <?php
@@ -46,7 +45,7 @@ if (isset($_POST['input'])) {
     if (($count) == 0) {
     ?>
         <tr>
-            <td colspan='8'>There are no records.</td>
+            <td colspan='7'>There are no records.</td>
         </tr>
 <?php
     }

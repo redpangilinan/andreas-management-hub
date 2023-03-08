@@ -17,6 +17,9 @@ privateAccess();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Orders</title>
 </head>
@@ -34,7 +37,7 @@ privateAccess();
                 </header>
                 <div class="datatable-container">
                     <!-- Add Form -->
-                    <form class="card" id="form_add">
+                    <form class="card mb-3" id="form_add">
                         <h1 class="fs-4">Add Orders</h1>
                         <!-- Customer Details -->
                         <div class="mb-3 d-flex">
@@ -59,14 +62,28 @@ privateAccess();
                         <div class="mb-3">
                             <label for="products" class="form-label">Products</label>
                             <div class="with-button-container">
-                                <select class="form-select" name="products" id="products" aria-label="Products" required>
+                                <select class="form-select" name="products" id="products" aria-label="Products">
                                     <?php include "../assets/php/extensions/cb_products.php" ?>
                                 </select>
-                                <button class="btn btn-success">Add Product</button>
+                                <button type="button" class="btn btn-success" id="addProduct">Add Product</button>
                             </div>
                         </div>
-                        <input type="hidden" id="order_details">
-                        <div id="products_list"></div>
+                        <input type="hidden" name="order_details" id="order_details">
+                        <div class="mb-3">
+                            <div class="card">
+                                <div class="card-header">
+                                    Order Details
+                                </div>
+                                <ul class="list-group list-group-flush" id="products_list">
+                                </ul>
+                                <div class="card-body">
+                                    <div class="mb-3">
+                                        <label for="price" class="form-label">Total Price</label>
+                                        <input type="number" class="form-control" name="price" id="price" value="0" placeholder="Price" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="mb-3">
                             <label for="order_date_time" class="form-label">Delivery Date and Time</label>
                             <input type="datetime-local" class="form-control" name="order_date_time" id="order_date_time" placeholder="Delivery Date and Time" required>
@@ -86,10 +103,6 @@ privateAccess();
                                     <option value="GCash">GCash</option>
                                 </select>
                             </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="price" class="form-label">Price</label>
-                            <input type="number" class="form-control" name="price" id="price" placeholder="Price" required>
                         </div>
                         <button type="submit" class="add-confirm btn btn-success" id="addButton">Add Order</button>
                     </form>
@@ -192,6 +205,7 @@ privateAccess();
     </div>
 
     <script src="../assets/js/alerts.js"></script>
+    <script src="../assets/js/cart.js"></script>
     <script src="../assets/js/ajax/orders_data.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
 </body>

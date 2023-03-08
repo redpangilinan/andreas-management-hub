@@ -30,6 +30,10 @@ $(document).ready(function () {
                 <div class="skeleton skeleton-input w-100"></div>
             </div>
             <div class="mb-3">
+                <div class="skeleton skeleton-input w-100"></div>
+                <div class="skeleton skeleton-rich-input w-100"></div>
+            </div>
+            <div class="mb-3">
                 <div class="skeleton skeleton-text w-50"></div>
                 <div class="skeleton skeleton-input w-100"></div>
             </div>
@@ -45,12 +49,9 @@ $(document).ready(function () {
                 <div class="skeleton skeleton-text w-50"></div>
                 <div class="skeleton skeleton-input w-100"></div>
             </div>
-            <div class="mb-3">
-                <div class="skeleton skeleton-text w-50"></div>
-                <div class="skeleton skeleton-input w-100"></div>
-            </div>
         </div>
         `);
+
         let primary_id = $(this).data('id');
         displayEdit(primary_id);
     });
@@ -102,6 +103,12 @@ const displayEdit = (primary_id) => {
         },
         success: function (data) {
             $(".modal-body").html(data);
+
+            // Enables Search in select box
+            $('#edit_products').select2({
+                theme: 'bootstrap-5',
+                dropdownParent: $("#editModal")
+            });
         }
     });
 }
@@ -117,13 +124,13 @@ const insertData = (formData) => {
         success: function (data) {
             displayTable();
             if (data == "success") {
+                // Clear the form and cart
                 $('#form_add')[0].reset();
+                cart = [];
+                showCartItems();
+
                 addBtnEnable();
                 addAlert();
-            } else if (data == "no image success") {
-                $('#form_add')[0].reset();
-                addBtnEnable();
-                noImageAlert();
             } else {
                 console.log(data);
                 addBtnEnable();

@@ -39,8 +39,7 @@ privateAccess();
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
+                                <th>Full Name</th>
                                 <th>Email</th>
                                 <th>Contact No.</th>
                                 <th>Creation Date</th>
@@ -60,9 +59,6 @@ privateAccess();
                                 <tr>
                                     <td>
                                         <div class='skeleton skeleton-text w-50'></div>
-                                    </td>
-                                    <td>
-                                        <div class='skeleton skeleton-text w-100'></div>
                                     </td>
                                     <td>
                                         <div class='skeleton skeleton-text w-100'></div>
