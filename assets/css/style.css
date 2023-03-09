@@ -467,8 +467,8 @@ td {
 .product {
     position: relative;
     width: 100%;
-    min-width: 18.75rem;
-    max-width: 18.75rem;
+    min-width: 16.67rem;
+    max-width: 16.67rem;
     padding: 0.625rem 0.75rem;
     border-radius: 25px;
     cursor: pointer;
@@ -549,10 +549,12 @@ body {
 .header-container .header-image .header-text i {
     color: #ffffff;
     font-size: 2rem;
+  	display: unset;
 }
 
 .header-container .header-image .header-text h2 {
     color: #ffffff;
+  	display: unset;
 }
 
 .menu-container {
@@ -643,7 +645,6 @@ h3 {
 
 .product img {
     width: 100%;
-    height: 80px;
     border-radius: 20px;
 }
 

@@ -38,19 +38,19 @@ session_start();
 			
 			<div class="best-seller-con">
 				<div class="best-seller">
-					<img src="../images/andreas background.jpg" alt="" class="best-img">
+					<img src="./assets/images/andreas background.jpg" alt="" class="best-img">
 					<h6>8x6 BAKED CALI SUSHI w/ Nori Sheet Pack</h6>
 					<p>Best seller</p>
 				</div>
 				
 				<div class="best-seller">
-					<img src="../images/andreas background.jpg" alt="" class="best-img">
+					<img src="./assets/images/andreas background.jpg" alt="" class="best-img">
 					<h6>8x6 BAKED CALI SUSHI w/ Nori Sheet Pack</h6>
 					<p>Best seller</p>
 				</div>
 				
 				<div class="best-seller">
-					<img src="../images/andreas background.jpg" alt="" class="best-img">
+					<img src="./assets/images/andreas background.jpg" alt="" class="best-img">
 					<h6>8x6 BAKED CALI SUSHI w/ Nori Sheet Pack</h6>
 					<p>Best seller</p>
 				</div>
@@ -65,7 +65,7 @@ session_start();
 			<h3>Baked Sushi</h3>
 			<div class="product-container">
 				<div class="product" data-bs-toggle="modal" data-bs-target="#orderModal">
-					<img src="../images/andreas background.jpg" alt="">
+					<img src="./assets/images/andreas background.jpg" alt="">
 					<div class="product-text">
 						<span>Andrea's Fresh and Greens</span>
 						<h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
@@ -74,7 +74,7 @@ session_start();
 				</div>
 
 				<div class="product" data-bs-toggle="modal" data-bs-target="#orderModal">
-					<img src="../images/andreas background.jpg" alt="">
+					<img src="./assets/images/andreas background.jpg" alt="">
 					<div class="product-text">
 						<span>Andrea's Fresh and Greens</span>
 						<h5>8x6 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
@@ -83,7 +83,7 @@ session_start();
 				</div>
 
 				<div class="product" data-bs-toggle="modal" data-bs-target="#orderModal">
-					<img src="../images/andreas background.jpg" alt="">
+					<img src="./assets/images/andreas background.jpg" alt="">
 					<div class="product-text">
 						<span>Andrea's Fresh and Greens</span>
 						<h5>8x8 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
@@ -95,7 +95,7 @@ session_start();
 			<h3>FRESH KANI & SHRIMP SPRING ROLLS</h3>
 			<div class="product-container">
 				<div class="product" data-bs-toggle="modal" data-bs-target="#orderModal">
-					<img src="../images/andreas background.jpg" alt="">
+					<img src="./assets/images/andreas background.jpg" alt="">
 					<div class="product-text">
 						<span>Andrea's Fresh and Greens</span>
 						<h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
@@ -104,7 +104,7 @@ session_start();
 				</div>
 
 				<div class="product" data-bs-toggle="modal" data-bs-target="#orderModal">
-					<img src="../images/andreas background.jpg" alt="">
+					<img src="./assets/images/andreas background.jpg" alt="">
 					<div class="product-text">
 						<span>Andrea's Fresh and Greens</span>
 						<h5>8x6 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
@@ -113,7 +113,7 @@ session_start();
 				</div>
 
 				<div class="product" data-bs-toggle="modal" data-bs-target="#orderModal">
-					<img src="../images/andreas background.jpg" alt="">
+					<img src="./assets/images/andreas background.jpg" alt="">
 					<div class="product-text">
 						<span>Andrea's Fresh and Greens</span>
 						<h5>8x8 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
@@ -122,7 +122,7 @@ session_start();
 				</div>
 
 				<div class="product" data-bs-toggle="modal" data-bs-target="#orderModal">
-					<img src="../images/andreas background.jpg" alt="">
+					<img src="./assets/images/andreas background.jpg" alt="">
 					<div class="product-text">
 						<span>Andrea's Fresh and Greens</span>
 						<h5>8x8 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
@@ -131,7 +131,7 @@ session_start();
 				</div>
 				
 				<div class="product" data-bs-toggle="modal" data-bs-target="#orderModal">
-					<img src="../images/andreas background.jpg" alt="">
+					<img src="./assets/images/andreas background.jpg" alt="">
 					<div class="product-text">
 						<span>Andrea's Fresh and Greens</span>
 						<h5>8x8 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
@@ -140,7 +140,7 @@ session_start();
 				</div>
 				
 				<div class="product" data-bs-toggle="modal" data-bs-target="#orderModal">
-					<img src="../images/andreas background.jpg" alt="">
+					<img src="./assets/images/andreas background.jpg" alt="">
 					<div class="product-text">
 						<span>Andrea's Fresh and Greens</span>
 						<h5>8x8 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
@@ -149,7 +149,7 @@ session_start();
 				</div>
 				
 				<div class="product" data-bs-toggle="modal" data-bs-target="#orderModal">
-					<img src="../images/andreas background.jpg" alt="">
+					<img src="./assets/images/andreas background.jpg" alt="">
 					<div class="product-text">
 						<span>Andrea's Fresh and Greens</span>
 						<h5>8x8 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
@@ -161,7 +161,7 @@ session_start();
 
 		</div>
 		<div class="navi">
-			<img src="img/full-logo.png" class="logo" alt="">
+			<img src="./assets/images/icon/full-logo.png" class="logo" alt="">
 			
 			<div class="nav-item-con">
 				<div class="nav-item">
