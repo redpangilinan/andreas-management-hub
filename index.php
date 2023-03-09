@@ -48,6 +48,12 @@ session_start();
 					<h6>8x6 BAKED CALI SUSHI w/ Nori Sheet Pack</h6>
 					<p>Best seller</p>
 				</div>
+              
+              	<div class="best-seller">
+					<img src="./assets/images/andreas background.jpg" alt="" class="best-img">
+					<h6>8x6 BAKED CALI SUSHI w/ Nori Sheet Pack</h6>
+					<p>Best seller</p>
+				</div>
 				
 				<div class="best-seller">
 					<img src="./assets/images/andreas background.jpg" alt="" class="best-img">
@@ -92,7 +98,7 @@ session_start();
 				</div>
 			</div>
 			<hr>
-			<h3>FRESH KANI & SHRIMP SPRING ROLLS</h3>
+			<h3>Fresh Kani & Shripm Spring Rolls</h3>
 			<div class="product-container">
 				<div class="product" data-bs-toggle="modal" data-bs-target="#orderModal">
 					<img src="./assets/images/andreas background.jpg" alt="">

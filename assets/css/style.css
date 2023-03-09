@@ -354,7 +354,7 @@ td {
     background-image: url("img/.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: top 25% right 0;
+    background-position: top 10% right 0;
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -390,7 +390,7 @@ td {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
+  	overflow-x: auto;
     background-color: #1e3932;
     padding: 2.5rem 5rem;
     width: 100%;
@@ -447,7 +447,6 @@ td {
     font-family: 'Spartan', sans-serif;
 }
 
-
 .menu-container {
     position: absolute;
     background: #ffffff;
@@ -502,6 +501,67 @@ td {
     font-size: 0.938rem;
     font-weight: 700;
     color: #088178;
+}
+
+.cart .orderModal {
+    max-height: 60%;
+    height: auto;
+    overflow: auto;
+    background-color: white;;
+}
+
+.info-img {
+    display: flex;
+}
+
+.order-img {
+    width: 50%;
+    min-width: 120px;
+    max-width: 120px;
+    min-height: 120px;
+    max-height: 120px;
+    height: 100%;
+}
+
+.order-img img {
+    width: 100%;
+    min-width: 120px;
+    max-width: 120px;
+    min-height: 120px;
+    max-height: 120px;
+    height: 100%;
+}
+
+.order-info {
+    padding-left: 10px;
+}
+
+.del-type {
+    display: flex;
+    justify-content: space-between;
+}
+#delivery {
+	width: 100px;
+}
+.quantity .count {
+	width: 100px;
+}
+
+.ordr-quantity {
+    display: flex;
+    justify-content: space-between;
+}
+.ordr-quantity span{
+	display: none;
+}
+
+.ordr-butn {
+    width: 100%;
+    border: none;
+    color: #ffffff;
+    background-color: #088178;
+    border-radius: 5px;
+    padding: 3px;
 }
 
 /* main mobile */
@@ -621,7 +681,6 @@ h3 {
     align-items: center;
     padding-bottom: 20px;
     padding-top: 0;
-
 }
 
 .product {
@@ -805,6 +864,7 @@ h3 {
     padding: 0 2px;
     min-width: 25px;
     text-align: center;
+  	width: 30px;
 }
 
 .quantity .plus {
@@ -830,6 +890,12 @@ h3 {
     border-radius: 10px 0 0 10px;
     background-color: #BBBCB6;
 }
+.ordr-quantity span{
+	display: unset;
+}
+#delivery {
+	width: auto;
+}  
 
 .minus:hover {
     background-color: #717fe0 !important;
