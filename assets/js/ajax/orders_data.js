@@ -119,12 +119,6 @@ const displayEdit = (primary_id) => {
                 addToCart(productName, quantity, price, "edit");
                 showCartItems("edit");
             });
-
-            // Enables Search in select box
-            $('#edit_products').select2({
-                theme: 'bootstrap-5',
-                dropdownParent: $("#editModal")
-            });
         }
     });
 }

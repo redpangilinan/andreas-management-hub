@@ -31,7 +31,7 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
     <div class="mb-3">
         <label for="edit_products" class="form-label">Products</label>
         <div class="with-button-container">
-            <select class="form-select" name="edit_products" id="edit_products" aria-label="Products">
+            <select class="form-select" name="edit_products" id="edit_products" aria-label="Products" size="3">
                 <?php include "../extensions/cb_products.php" ?>
             </select>
             <button type="button" class="btn btn-success" id="editAddProduct"><i class="fas fa-plus"></i></button>
