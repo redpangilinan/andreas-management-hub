@@ -1,10 +1,10 @@
-# Andrea's Fresh and Greens
+# Andrea's Management Hub
 
 Official Management and Ordering System for Andrea's Fresh and Greens
 
 ## Table of contents
 
-- [Andrea's Fresh and Greens](#andreas-fresh-and-greens)
+- [Andrea's Management Hub](#andreas-management-hub)
   - [Table of contents](#table-of-contents)
   - [Overview](#overview)
     - [Features](#features)
