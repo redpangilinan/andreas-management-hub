@@ -11,6 +11,7 @@ switch ($option) {
 		AS num_orders
 		FROM tb_orders
 		WHERE YEARWEEK(order_date_time, 1) = YEARWEEK(NOW(), 1)
+        AND status = 'Complete'
 		GROUP BY DATE(order_date_time)";
         break;
     case 'monthly':
@@ -20,6 +21,7 @@ switch ($option) {
 		FROM tb_orders
 		WHERE MONTH(order_date_time) = MONTH(NOW())
 		AND YEAR(order_date_time) = YEAR(NOW())
+        AND status = 'Complete'
 		GROUP BY DATE(order_date_time)";
         break;
     case 'yearly':
@@ -28,6 +30,7 @@ switch ($option) {
 		AS num_orders
 		FROM tb_orders
 		WHERE YEAR(order_date_time) = YEAR(NOW())
+        AND status = 'Complete'
 		GROUP BY DATE(order_date_time)";
         break;
     case 'all_time':
@@ -35,6 +38,7 @@ switch ($option) {
         AS order_date, COUNT(*)
         AS num_orders
         FROM tb_orders
+        WHERE status = 'Complete'
         GROUP BY DATE(order_date_time)";
         break;
     default:

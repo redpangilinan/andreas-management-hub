@@ -1,4 +1,7 @@
 $(document).ready(function () {
+    const chartSold = document.querySelector('#chartSold');
+    let chartSoldRender = null;
+
     // Make the AJAX request on load
     $.ajax({
         url: '../assets/php/charts/get_chart_sold.php?option=weekly',
@@ -7,7 +10,6 @@ $(document).ready(function () {
         success: function (data) {
             const orderDates = data.orderDates;
             const numOrders = data.numOrders;
-            console.log(data);
 
             // Render the chart with the retrieved data
             renderChart(orderDates, numOrders);
@@ -44,7 +46,6 @@ $(document).ready(function () {
             success: function (data) {
                 const orderDates = data.orderDates;
                 const numOrders = data.numOrders;
-                console.log(data);
 
                 // Render the chart with the retrieved data
                 renderChart(orderDates, numOrders);
@@ -54,30 +55,37 @@ $(document).ready(function () {
 
     // Function to render the chart with the given data
     const renderChart = (orderDates, numOrders) => {
-        const chartSold = document.querySelector('#chartSold');
-        new Chart(chartSold, {
-            type: 'line',
-            data: {
-                labels: orderDates,
-                datasets: [{
-                    label: 'Number of Orders',
-                    data: numOrders,
-                    borderWidth: 1,
-                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                    borderColor: 'rgba(255, 99, 132, 1)',
-                    pointBackgroundColor: 'rgba(255, 99, 132, 1)',
-                    pointBorderColor: '#fff',
-                    pointHoverBackgroundColor: '#fff',
-                    pointHoverBorderColor: 'rgba(255, 99, 132, 1)'
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
+        if (chartSoldRender) {
+            chartSoldRender.data.labels = orderDates;
+            chartSoldRender.data.datasets[0].data = numOrders;
+            chartSoldRender.update();
+        } else {
+            chartSoldRender = new Chart(chartSold, {
+                type: 'line',
+                data: {
+                    labels: orderDates,
+                    datasets: [{
+                        label: 'Completed Orders',
+                        data: numOrders,
+                        borderWidth: 1,
+                        backgroundColor: 'rgba(102, 204, 153, 0.2)',
+                        borderColor: 'rgba(102, 204, 153, 1)',
+                        pointBackgroundColor: 'rgba(102, 204, 153, 1)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgba(102, 204, 153, 1)'
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
                     }
-                }
-            },
-        });
+                },
+            });
+        }
     }
 });
