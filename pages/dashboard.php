@@ -3,6 +3,7 @@ session_start();
 include "../assets/php/login_validation.php";
 include "../assets/php/logout.php";
 include "../assets/php/dashboard_counter.php";
+include "../assets/php/charts/chart_sold.php";
 validateSession();
 ?>
 
@@ -69,11 +70,27 @@ validateSession();
                 <div class="d-flex flex-column flex-lg-row my-2 gap-lg-3">
                     <div class="card my-2 p-3 w-100">
                         <h4>Products Sold</h4>
-                        <canvas id="chartSold" style="width: 100%; max-width: 55rem;"></canvas>
+                        <select id="chartSoldSelect" class="form-select">
+                            <option value="weekly">Weekly</option>
+                            <option value="monthly">Monthly</option>
+                            <option value="yearly">Yearly</option>
+                            <option value="all_time">All Time</option>
+                        </select>
+                        <div id="chartSoldContainer">
+                            <canvas id="chartSold" style="width: 100%; max-width: 55rem;"></canvas>
+                        </div>
                     </div>
                     <div class="card my-2 p-3 w-100">
                         <h4>Most Sold Products</h4>
-                        <canvas id="chartProducts" style="width: 100%; max-width: 55rem;"></canvas>
+                        <select id="chartProductSelect" class="form-select">
+                            <option value="weekly">Weekly</option>
+                            <option value="monthly">Monthly</option>
+                            <option value="yearly">Yearly</option>
+                            <option value="all_time">All Time</option>
+                        </select>
+                        <div id="chartProductsContainer">
+                            <canvas id="chartProducts" style="width: 100%; max-width: 55rem;"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -81,26 +98,9 @@ validateSession();
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+    <script src="../assets/js/charts/chartSold.js"></script>
     <script>
-        const chartSold = document.querySelector('#chartSold');
-        new Chart(chartSold, {
-            type: 'line',
-            data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 5, 2, 3],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            },
-        });
+        // Highest selling products
         const chartProducts = document.querySelector('#chartProducts');
         new Chart(chartProducts, {
             type: 'bar',
