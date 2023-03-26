@@ -69,7 +69,7 @@ validateSession();
                 <!-- Data Visualization -->
                 <div class="d-flex flex-column flex-lg-row my-2 gap-lg-3">
                     <div class="card my-2 p-3 w-100">
-                        <h4>Products Sold</h4>
+                        <h4>Completed Orders</h4>
                         <select id="chartSoldSelect" class="form-select">
                             <option value="weekly">Weekly</option>
                             <option value="monthly">Monthly</option>
@@ -82,7 +82,7 @@ validateSession();
                     </div>
                     <div class="card my-2 p-3 w-100">
                         <h4>Most Sold Products</h4>
-                        <select id="chartProductSelect" class="form-select">
+                        <select id="chartProductsSelect" class="form-select">
                             <option value="weekly">Weekly</option>
                             <option value="monthly">Monthly</option>
                             <option value="yearly">Yearly</option>
@@ -99,28 +99,7 @@ validateSession();
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
     <script src="../assets/js/charts/chartSold.js"></script>
-    <script>
-        // Highest selling products
-        const chartProducts = document.querySelector('#chartProducts');
-        new Chart(chartProducts, {
-            type: 'bar',
-            data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 5, 2, 3],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            },
-        });
-    </script>
+    <script src="../assets/js/charts/chartProducts.js"></script>
 </body>
 
 </html>
