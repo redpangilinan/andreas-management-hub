@@ -34,7 +34,25 @@ validateSession();
                     <hr>
                 </header>
                 <p style="font-size: 1.5rem;">Welcome, <?php echo $_SESSION["fullname"] ?>!</p>
-                <div class="grid-ish">
+                <table class="table table-hover table-bordered d-lg-none">
+                    <tbody>
+                        <tr>
+                            <th><i class="fa-solid fa-users"></i> Users</th>
+                            <td><?php userCount() ?></td>
+                        </tr>
+                        <tr>
+
+                            <th><i class="fa-solid fa-table-list"></i> Products</th>
+                            <td><?php productCount() ?></td>
+
+                        </tr>
+                        <tr>
+                            <th><i class="fa-solid fa-shipping-fast"></i> Orders</th>
+                            <td><?php orderCount() ?></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="grid-ish d-none d-lg-flex">
                     <!-- Shows total users -->
                     <div class="grid-box">
                         <div class="content">
@@ -71,9 +89,9 @@ validateSession();
                     <div class="card my-2 p-3 w-100">
                         <h4>Completed Orders</h4>
                         <select id="chartSoldSelect" class="form-select">
-                            <option value="weekly">Weekly</option>
-                            <option value="monthly">Monthly</option>
-                            <option value="yearly">Yearly</option>
+                            <option value="weekly">This Week</option>
+                            <option value="monthly">This Month</option>
+                            <option value="yearly">This Year</option>
                             <option value="all_time">All Time</option>
                         </select>
                         <div id="chartSoldContainer">
@@ -83,9 +101,9 @@ validateSession();
                     <div class="card my-2 p-3 w-100">
                         <h4>Most Sold Products</h4>
                         <select id="chartProductsSelect" class="form-select">
-                            <option value="weekly">Weekly</option>
-                            <option value="monthly">Monthly</option>
-                            <option value="yearly">Yearly</option>
+                            <option value="weekly">This Week</option>
+                            <option value="monthly">This Month</option>
+                            <option value="yearly">This Year</option>
                             <option value="all_time">All Time</option>
                         </select>
                         <div id="chartProductsContainer">
