@@ -27,17 +27,19 @@ validateSession();
     <main>
         <!-- Main Content -->
         <div class="main-content">
+            <!-- Header -->
             <div class="container-fluid">
-                <!-- Header -->
                 <header>
                     <h1>Dashboard</h1>
                     <hr>
                 </header>
-                <p style="font-size: 1.5rem;">Welcome, <?php echo $_SESSION["fullname"] ?>!</p>
+            </div>
+            <div class="container">
+                <h5 class="mb-2">Welcome, <?php echo $_SESSION["fullname"] ?>!</h5>
                 <table class="table table-hover table-bordered d-lg-none">
                     <tbody>
                         <tr>
-                            <th><i class="fa-solid fa-users"></i> Users</th>
+                            <th><i class="fa-solid fa-users"></i> Admins</th>
                             <td><?php userCount() ?></td>
                         </tr>
                         <tr>
@@ -87,7 +89,7 @@ validateSession();
                 <!-- Data Visualization -->
                 <div class="d-flex flex-column flex-lg-row my-2 gap-lg-3">
                     <div class="card my-2 p-3 w-100">
-                        <h4>Completed Orders</h4>
+                        <h5>Completed Orders</h5>
                         <select id="chartSoldSelect" class="form-select">
                             <option value="weekly">This Week</option>
                             <option value="monthly">This Month</option>
@@ -99,7 +101,7 @@ validateSession();
                         </div>
                     </div>
                     <div class="card my-2 p-3 w-100">
-                        <h4>Most Sold Products</h4>
+                        <h5>Most Sold Products</h5>
                         <select id="chartProductsSelect" class="form-select">
                             <option value="weekly">This Week</option>
                             <option value="monthly">This Month</option>
@@ -108,6 +110,27 @@ validateSession();
                         </select>
                         <div id="chartProductsContainer">
                             <canvas id="chartProducts" style="width: 100%; max-width: 55rem;"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <!-- Profit -->
+                <div class="card my-2 p-3 w-100 d-flex">
+                    <div class="d-flex flex-row gap-lg-2 justify-content-around pt-2 flex-column flex-lg-row">
+                        <div class="d-flex flex-row-reverse flex-lg-column text-center gap-2 gap-lg-0 justify-content-between">
+                            <h5 class="text-success">₱500</h5>
+                            <p>Today's Income</p>
+                        </div>
+                        <div class="d-flex flex-row-reverse flex-lg-column text-center gap-2 gap-lg-0 justify-content-between">
+                            <h5 class="text-success">₱5000</h5>
+                            <p>This Week's Income</p>
+                        </div>
+                        <div class="d-flex flex-row-reverse flex-lg-column text-center gap-2 gap-lg-0 justify-content-between">
+                            <h5 class="text-success">₱25000</h5>
+                            <p>This Month's Income</p>
+                        </div>
+                        <div class="d-flex flex-row-reverse flex-lg-column text-center gap-2 gap-lg-0 justify-content-between">
+                            <h5 class="text-success">₱500000</h5>
+                            <p>This Year's Income</p>
                         </div>
                     </div>
                 </div>
