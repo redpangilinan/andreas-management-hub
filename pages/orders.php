@@ -38,7 +38,7 @@ privateAccess();
                 <div class="datatable-container">
                     <!-- Add Form -->
                     <form class="card mb-3" id="form_add">
-                        <h1 class="fs-4">Add Orders</h1>
+                        <h5>Add Orders</h5>
                         <!-- Customer Details -->
                         <div class="mb-3 d-flex">
                             <div class="w-100">
