@@ -32,6 +32,8 @@ privateAccess();
                     <h1>Accounts</h1>
                     <hr>
                 </header>
+            </div>
+            <div class="container">
                 <!-- Data Table w/ Search -->
                 <input type="text" class="form-control" id="search_records" placeholder="Search">
                 <div class="table-responsive">
