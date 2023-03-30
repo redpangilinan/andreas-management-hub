@@ -117,19 +117,19 @@ validateSession();
                 <div class="card my-2 p-3 w-100 d-flex">
                     <div class="d-flex flex-row gap-lg-2 justify-content-around pt-2 flex-column flex-lg-row">
                         <div class="d-flex flex-row-reverse flex-lg-column text-center gap-2 gap-lg-0 justify-content-between">
-                            <h5 class="text-success">₱500</h5>
+                            <h5 class="text-success"><?php incomeToday() ?></h5>
                             <p>Today's Income</p>
                         </div>
                         <div class="d-flex flex-row-reverse flex-lg-column text-center gap-2 gap-lg-0 justify-content-between">
-                            <h5 class="text-success">₱5000</h5>
+                            <h5 class="text-success"><?php incomeThisWeek() ?></h5>
                             <p>This Week's Income</p>
                         </div>
                         <div class="d-flex flex-row-reverse flex-lg-column text-center gap-2 gap-lg-0 justify-content-between">
-                            <h5 class="text-success">₱25000</h5>
+                            <h5 class="text-success"><?php incomeThisMonth() ?></h5>
                             <p>This Month's Income</p>
                         </div>
                         <div class="d-flex flex-row-reverse flex-lg-column text-center gap-2 gap-lg-0 justify-content-between">
-                            <h5 class="text-success">₱500000</h5>
+                            <h5 class="text-success"><?php incomeThisYear() ?></h5>
                             <p>This Year's Income</p>
                         </div>
                     </div>
