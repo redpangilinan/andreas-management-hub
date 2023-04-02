@@ -4,7 +4,7 @@ $(document).ready(function () {
 
     // Make the AJAX request on load
     $.ajax({
-        url: '../assets/php/charts/get_chart_sold.php?option=weekly',
+        url: '../assets/php/charts/get_chart_sold.php?option=last7',
         type: 'GET',
         dataType: 'json',
         success: function (data) {
@@ -22,14 +22,17 @@ $(document).ready(function () {
 
         // Set the URL for the AJAX request based on the selected option
         switch (option) {
-            case 'weekly':
-                url = '../assets/php/charts/get_chart_sold.php?option=weekly';
+            case 'last7':
+                url = '../assets/php/charts/get_chart_sold.php?option=last7';
                 break;
-            case 'monthly':
-                url = '../assets/php/charts/get_chart_sold.php?option=monthly';
+            case 'last30':
+                url = '../assets/php/charts/get_chart_sold.php?option=last30';
                 break;
-            case 'yearly':
-                url = '../assets/php/charts/get_chart_sold.php?option=yearly';
+            case 'last60':
+                url = '../assets/php/charts/get_chart_sold.php?option=last60';
+                break;
+            case 'this_year':
+                url = '../assets/php/charts/get_chart_sold.php?option=this_year';
                 break;
             case 'all_time':
                 url = '../assets/php/charts/get_chart_sold.php?option=all_time';
