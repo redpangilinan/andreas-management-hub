@@ -111,7 +111,7 @@ privateAccess();
                         <div class="search-container">
                             <input type=" text" class="form-control" id="search_records" placeholder="Search">
                             <form method="post" action="../assets/php/exports/orders_export.php" class="force-zero">
-                                <button type="submit" class="edit-confirm btn btn-success">Export CSV</button>
+                                <button type="submit" class="btn btn-success">Export CSV</button>
                             </form>
                         </div>
                         <div class="table-responsive">
