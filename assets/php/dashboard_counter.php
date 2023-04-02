@@ -1,5 +1,5 @@
 <?php
-//Shows the total count of accounts
+// Shows the total count of accounts
 function userCount()
 {
     include 'connection.php';
@@ -10,7 +10,7 @@ function userCount()
     mysqli_close($conn);
 }
 
-//Shows the total count of products
+// Shows the total count of products
 function productCount()
 {
     include 'connection.php';
@@ -21,7 +21,7 @@ function productCount()
     mysqli_close($conn);
 }
 
-//Shows the total count of orders
+// Shows the total count of orders
 function orderCount()
 {
     include 'connection.php';
@@ -32,7 +32,7 @@ function orderCount()
     mysqli_close($conn);
 }
 
-//Shows the total income today
+// Shows the total income today
 function incomeToday()
 {
     include 'connection.php';
@@ -51,14 +51,14 @@ function incomeToday()
     mysqli_close($conn);
 }
 
-//Shows the total income this week
-function incomeThisWeek()
+// Shows the total income last 7 days
+function incomeLast7Days()
 {
     include 'connection.php';
     $sql = "SELECT SUM(price) as income_data
     FROM tb_orders
-    WHERE YEARWEEK(order_date_time) = YEARWEEK(CURRENT_DATE)
-    AND status = 'Complete'";
+    WHERE order_date_time >= DATE_SUB(CURRENT_DATE, INTERVAL 7 DAY)
+    AND status = 'Complete';";
     $result = mysqli_query($conn, $sql);
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         if ($row["income_data"] == NULL) {
@@ -70,15 +70,14 @@ function incomeThisWeek()
     mysqli_close($conn);
 }
 
-//Shows the total income this month
-function incomeThisMonth()
+// Shows the total income last 30 days
+function incomeLast30Days()
 {
     include 'connection.php';
     $sql = "SELECT SUM(price) as income_data
     FROM tb_orders
-    WHERE MONTH(order_date_time) = MONTH(CURRENT_DATE)
-    AND YEAR(order_date_time) = YEAR(CURRENT_DATE)
-    AND status = 'Complete'";
+    WHERE order_date_time >= DATE_SUB(CURRENT_DATE, INTERVAL 30 DAY)
+    AND status = 'Complete';";
     $result = mysqli_query($conn, $sql);
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         if ($row["income_data"] == NULL) {
@@ -90,7 +89,26 @@ function incomeThisMonth()
     mysqli_close($conn);
 }
 
-//Shows the total income this year
+// Shows the total income last 60 days
+function incomeLast60Days()
+{
+    include 'connection.php';
+    $sql = "SELECT SUM(price) as income_data
+    FROM tb_orders
+    WHERE order_date_time >= DATE_SUB(CURRENT_DATE, INTERVAL 60 DAY)
+    AND status = 'Complete';";
+    $result = mysqli_query($conn, $sql);
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+        if ($row["income_data"] == NULL) {
+            echo "₱0";
+        } else {
+            echo "₱" . $row["income_data"];
+        }
+    }
+    mysqli_close($conn);
+}
+
+// Shows the total income this year
 function incomeThisYear()
 {
     include 'connection.php';
