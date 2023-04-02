@@ -91,9 +91,10 @@ validateSession();
                     <div class="card my-2 p-3 w-100">
                         <h5>Completed Orders</h5>
                         <select id="chartSoldSelect" class="form-select">
-                            <option value="weekly">This Week</option>
-                            <option value="monthly">This Month</option>
-                            <option value="yearly">This Year</option>
+                            <option value="last7">Last 7 days</option>
+                            <option value="last30">Last 30 days</option>
+                            <option value="last60">Last 60 days</option>
+                            <option value="this_year">This Year</option>
                             <option value="all_time">All Time</option>
                         </select>
                         <div id="chartSoldContainer">
@@ -103,9 +104,11 @@ validateSession();
                     <div class="card my-2 p-3 w-100">
                         <h5>Most Sold Products</h5>
                         <select id="chartProductsSelect" class="form-select">
-                            <option value="weekly">This Week</option>
-                            <option value="monthly">This Month</option>
-                            <option value="yearly">This Year</option>
+                            <option value="weekly">Today</option>
+                            <option value="last7">Last 7 days</option>
+                            <option value="last30">Last 30 days</option>
+                            <option value="last60">Last 60 days</option>
+                            <option value="this_year">This Year</option>
                             <option value="all_time">All Time</option>
                         </select>
                         <div id="chartProductsContainer">
@@ -121,12 +124,16 @@ validateSession();
                             <p>Today's Income</p>
                         </div>
                         <div class="d-flex flex-row-reverse flex-lg-column text-center gap-2 gap-lg-0 justify-content-between">
-                            <h5 class="text-success"><?php incomeThisWeek() ?></h5>
-                            <p>This Week's Income</p>
+                            <h5 class="text-success"><?php incomeLast7Days() ?></h5>
+                            <p>Last 7 Days' Income</p>
                         </div>
                         <div class="d-flex flex-row-reverse flex-lg-column text-center gap-2 gap-lg-0 justify-content-between">
-                            <h5 class="text-success"><?php incomeThisMonth() ?></h5>
-                            <p>This Month's Income</p>
+                            <h5 class="text-success"><?php incomeLast30Days() ?></h5>
+                            <p>Last 30 Days' Income</p>
+                        </div>
+                        <div class="d-flex flex-row-reverse flex-lg-column text-center gap-2 gap-lg-0 justify-content-between">
+                            <h5 class="text-success"><?php incomeLast60Days() ?></h5>
+                            <p>Last 60 Days' Income</p>
                         </div>
                         <div class="d-flex flex-row-reverse flex-lg-column text-center gap-2 gap-lg-0 justify-content-between">
                             <h5 class="text-success"><?php incomeThisYear() ?></h5>
