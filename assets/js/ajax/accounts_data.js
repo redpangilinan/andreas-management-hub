@@ -7,7 +7,7 @@ $(document).ready(function () {
 
     $(document).on("click", ".edit-data", function () {
         // Initialize Skeleton Loader
-        $(".modal-body").html(`
+        $("#edit-body").html(`
         <div class="d-flex">
             <div class="skeleton skeleton-text w-100"></div>
             <div class="skeleton skeleton-text w-100 ms-2"></div>
@@ -38,37 +38,8 @@ $(document).ready(function () {
     });
 
     $(document).on("click", ".add-data", function () {
-        // Initialize Skeleton Loader
-        $(".modal-body").html(`
-        <div class="modal-body">
-            <div class="d-flex">
-                <div class="skeleton skeleton-text w-100"></div>
-                <div class="skeleton skeleton-text w-100 ms-2"></div>
-            </div>
-            <div class="mb-3 d-flex">
-                <div class="skeleton skeleton-input w-100"></div>
-                <div class="skeleton skeleton-input w-100 ms-2"></div>
-            </div>
-            <div class="mb-3">
-                <div class="skeleton skeleton-text w-50"></div>
-                <div class="skeleton skeleton-input w-100"></div>
-            </div>
-            <div class="mb-3">
-                <div class="skeleton skeleton-text w-50"></div>
-                <div class="skeleton skeleton-input w-100"></div>
-            </div>
-            <div class="d-flex">
-                <div class="skeleton skeleton-text w-100"></div>
-                <div class="skeleton skeleton-text w-100 ms-2"></div>
-            </div>
-            <div class="mb-3 d-flex">
-                <div class="skeleton skeleton-input w-100"></div>
-                <div class="skeleton skeleton-input w-100 ms-2"></div>
-            </div>
-        </div>
-        `);
-        let primary_id = $(this).data('id');
-        displayEdit(primary_id);
+        // Initialize Add Account Modal
+        displayAdd();
     });
 
     $("#form_add").submit(function (e) {
@@ -113,9 +84,43 @@ const displayEdit = (primary_id) => {
             primary_id: primary_id
         },
         success: function (data) {
-            $(".modal-body").html(data);
+            $("#edit-body").html(data);
         }
     });
+}
+
+// Displays add account form modal
+const displayAdd = () => {
+    $("#add-body").html(`
+    <div class="mb-3 d-flex">
+        <div class="w-100">
+            <label for=" firstname" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="firstname" placeholder="First Name" required>
+        </div>
+        <div class="w-100 ms-2">
+            <label for="lastname" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lastname" placeholder="Last Name" required>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" placeholder="Email" required>
+    </div>
+    <div class="mb-3">
+        <label for="contact_no" class="form-label">Contact No.</label>
+        <input type="number" class="form-control" id="contact_no" placeholder="Contact No.">
+    </div>
+    <div class="mb-3 d-flex">
+        <div class="w-100">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Password" required>
+        </div>
+        <div class="w-100 ms-2">
+            <label for="confirm_password" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" id="confirm_password" placeholder="Confirm Password">
+        </div>
+    </div>
+    `);
 }
 
 // Adds a new data
@@ -194,6 +199,7 @@ const updateData = () => {
             } else if (data == "weak_password") {
                 $('#edit_password').val("");
                 $('#edit_confirm_password').val("");
+                console.log(data);
                 passwordWeakAlert();
             } else {
                 console.log(data);

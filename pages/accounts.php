@@ -35,7 +35,13 @@ privateAccess();
             </div>
             <div class="container">
                 <!-- Data Table w/ Search -->
-                <input type="text" class="form-control" id="search_records" placeholder="Search">
+                <div class="d-flex">
+                    <div class="search-container w-100">
+                        <input type="text" class="form-control" id="search_records" placeholder="Search">
+                        <button type="submit" class="add-data btn btn-success text-nowrap" data-bs-toggle="modal" data-bs-target="#addModal">Add Account</button>
+                    </div>
+                </div>
+
                 <div class="table-responsive">
                     <table class="table table-striped table-hover">
                         <thead>
@@ -92,6 +98,26 @@ privateAccess();
         </div>
     </main>
 
+    <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+        <!-- Add Account Modal -->
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="addModalLabel">Add an Account</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <!-- Add Account Form -->
+                <form id="form_add">
+                    <div class="modal-body" id="add-body"></div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="add-confirm btn btn-primary">Create account</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
         <!-- Edit Modal -->
         <div class="modal-dialog">
@@ -102,9 +128,7 @@ privateAccess();
                 </div>
                 <!-- Edit Form -->
                 <form id="form_edit">
-                    <div class="modal-body">
-                        <p>Loading...</p>
-                    </div>
+                    <div class="modal-body" id="edit-body"></div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="submit" class="edit-confirm btn btn-primary">Save changes</button>
