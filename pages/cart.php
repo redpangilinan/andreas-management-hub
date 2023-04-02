@@ -31,56 +31,116 @@ session_start();
 		<div class="menu-container">
 			<center>
 				<h2>Your Cart</h2>
+				<p class="web-p">Andrea's Fresh & Greens</p>
 			</center><br>
-			<div class="cart-item">
-				<div class="cart-img">
-					<img src="./assets/images/andreas background.jpg" alt="">
-				</div>
-				<div class="cart-details">
-					<h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
-					<div class="price-quantity">
-						<span>₱260</span>
-						<div class="quantity">
-							<span class="minus">-</span>
-							<input type="number" class="count" name="quantity" value="1">
-							<span class="plus">+</span>
+			<div class="cart-cont">
+				<div class="pad-bot">
+					<div class="cart-item">
+						<div class="cart-img">
+							<img src="./assets/images/andreas background.jpg" alt="">
+						</div>
+						<div class="cart-details">
+							<h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
+							<div class="price-quantity">
+								<span>₱260</span>
+								<div class="quantity">
+									<span class="minus">-</span>
+									<input type="number" class="count" name="quantity" value="1">
+									<span class="plus">+</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="cart-item">
+						<div class="cart-img">
+							<img src="./assets/images/andreas background.jpg" alt="">
+						</div>
+						<div class="cart-details">
+							<h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
+							<div class="price-quantity">
+								<span>₱260</span>
+								<div class="quantity">
+									<span class="minus">-</span>
+									<input type="number" class="count" name="quantity" value="1">
+									<span class="plus">+</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="cart-item">
+						<div class="cart-img">
+							<img src="./assets/images/andreas background.jpg" alt="">
+						</div>
+						<div class="cart-details">
+							<h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
+							<div class="price-quantity">
+								<span>₱260</span>
+								<div class="quantity">
+									<span class="minus">-</span>
+									<input type="number" class="count" name="quantity" value="1">
+									<span class="plus">+</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="cart-item">
+						<div class="cart-img">
+							<img src="./assets/images/andreas background.jpg" alt="">
+						</div>
+						<div class="cart-details">
+							<h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
+							<div class="price-quantity">
+								<span>₱260</span>
+								<div class="quantity">
+									<span class="minus">-</span>
+									<input type="number" class="count" name="quantity" value="1">
+									<span class="plus">+</span>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-
-			<div class ="sub-total-con">
-					<div class="sub-right">
-						<h6>Sub Total:</h6>
-						<h6>Delivery Type:</h6>
-						<h6>Total Price:</h6>
-					</div>
-					<div class="sub-left">
-						<h6>123</h6>
-						<h6>123</h6>
-						<h6>123</h6>
-						<button type="button" data-bs-toggle="modal" data-bs-target="#orderModal">Check Out</button>
-					</div>
+				<div class="summ-con">
+					<h3>Summary <span class="fa fa-trash"></span></h3>
 					
+					<div class ="sub-total-con">
+						<div class="sub-right">
+							<h6>Sub Total:</h6>
+							<h6>Delivery Type:</h6>
+							<h6>Total Price:</h6>
+						</div>
+						<div class="sub-left">
+							<h6>123</h6>
+							<h6>123</h6>
+							<h6>123</h6>
+						</div>
+					</div>
+					<button type="button" data-bs-toggle="modal" data-bs-target="#orderModal">Check Out</button>
+				</div>
 			</div>
 		</div>
 
 		</div>
 		<div class="navi">
+			<img src="./assets/images/icon/full-logo.png" class="logo" alt="">
+			
 			<div class="nav-item-con">
 				<div class="nav-item">
 					<span class="fas fa-shopping-bag"></span>
-					<span>Order</span>
+					<a href="#"><span>Order</span></a>
 				</div>
 
 				<div class="nav-item">
 					<span class="fas fa-cart-plus"></span>
-					<span>Cart</span>
+					<a href="#"><span>Cart</span></a>
 				</div>
 
 				<div class="nav-item">
 					<span class="fa fa-info-circle"></span>
-					<span>About</span>
+					<a href="#"><span>About</span></a>
 				</div>
 			</div>
 		</div>
@@ -127,7 +187,9 @@ session_start();
 			</div>
 		</div>
 	</div>
-	<footer></footer>
+	<footer>
+		
+	</footer>
 	<script src="../assets/js/cart.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
 </body>
