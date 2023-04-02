@@ -8,27 +8,25 @@ $(document).ready(function () {
     $(document).on("click", ".edit-data", function () {
         // Initialize Skeleton Loader
         $(".modal-body").html(`
-        <div class="modal-body">
-            <div class="d-flex">
-                <div class="skeleton skeleton-text w-100"></div>
-                <div class="skeleton skeleton-text w-100 ms-2"></div>
-            </div>
-            <div class="mb-3 d-flex">
-                <div class="skeleton skeleton-input w-100"></div>
-                <div class="skeleton skeleton-input w-100 ms-2"></div>
-            </div>
-            <div class="mb-3">
-                <div class="skeleton skeleton-text w-50"></div>
-                <div class="skeleton skeleton-input w-100"></div>
-            </div>
-            <div class="mb-3">
-                <div class="skeleton skeleton-text w-50"></div>
-                <div class="skeleton skeleton-rich-input w-100"></div>
-            </div>
-            <div class="mb-3">
-                <div class="skeleton skeleton-text w-50"></div>
-                <div class="skeleton skeleton-input w-100"></div>
-            </div>
+        <div class="d-flex">
+            <div class="skeleton skeleton-text w-100"></div>
+            <div class="skeleton skeleton-text w-100 ms-2"></div>
+        </div>
+        <div class="mb-3 d-flex">
+            <div class="skeleton skeleton-input w-100"></div>
+            <div class="skeleton skeleton-input w-100 ms-2"></div>
+        </div>
+        <div class="mb-3">
+            <div class="skeleton skeleton-text w-50"></div>
+            <div class="skeleton skeleton-input w-100"></div>
+        </div>
+        <div class="mb-3">
+            <div class="skeleton skeleton-text w-50"></div>
+            <div class="skeleton skeleton-rich-input w-100"></div>
+        </div>
+        <div class="mb-3">
+            <div class="skeleton skeleton-text w-50"></div>
+            <div class="skeleton skeleton-input w-100"></div>
         </div>
         `);
         let primary_id = $(this).data('id');

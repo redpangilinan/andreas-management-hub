@@ -8,6 +8,38 @@ $(document).ready(function () {
     $(document).on("click", ".edit-data", function () {
         // Initialize Skeleton Loader
         $(".modal-body").html(`
+        <div class="d-flex">
+            <div class="skeleton skeleton-text w-100"></div>
+            <div class="skeleton skeleton-text w-100 ms-2"></div>
+        </div>
+        <div class="mb-3 d-flex">
+            <div class="skeleton skeleton-input w-100"></div>
+            <div class="skeleton skeleton-input w-100 ms-2"></div>
+        </div>
+        <div class="mb-3">
+            <div class="skeleton skeleton-text w-50"></div>
+            <div class="skeleton skeleton-input w-100"></div>
+        </div>
+        <div class="mb-3">
+            <div class="skeleton skeleton-text w-50"></div>
+            <div class="skeleton skeleton-input w-100"></div>
+        </div>
+        <div class="d-flex">
+            <div class="skeleton skeleton-text w-100"></div>
+            <div class="skeleton skeleton-text w-100 ms-2"></div>
+        </div>
+        <div class="mb-3 d-flex">
+            <div class="skeleton skeleton-input w-100"></div>
+            <div class="skeleton skeleton-input w-100 ms-2"></div>
+        </div>
+        `);
+        let primary_id = $(this).data('id');
+        displayEdit(primary_id);
+    });
+
+    $(document).on("click", ".add-data", function () {
+        // Initialize Skeleton Loader
+        $(".modal-body").html(`
         <div class="modal-body">
             <div class="d-flex">
                 <div class="skeleton skeleton-text w-100"></div>
@@ -151,16 +183,21 @@ const updateData = () => {
         },
         success: function (data) {
             displayTable();
-            $('#editModal').modal('hide');
-            $('#form_edit')[0].reset();
             if (data == "success") {
+                $('#editModal').modal('hide');
+                $('#form_edit')[0].reset();
                 editAlert();
             } else if (data == "error_confirm") {
+                $('#edit_password').val("");
+                $('#edit_confirm_password').val("");
                 passwordConfirmAlert();
             } else if (data == "weak_password") {
+                $('#edit_password').val("");
+                $('#edit_confirm_password').val("");
                 passwordWeakAlert();
             } else {
                 console.log(data);
+                $('#form_edit')[0].reset();
                 errorAlert();
             }
         }
