@@ -604,6 +604,7 @@ td {
 		width: 100%;
 		height: 100%;
 		overflow-x: auto;
+		border-right: 1px solid #D3D3D3;
 		
 	}
 
@@ -760,8 +761,7 @@ td {
 	.summ-con {
 		width: 20%;
 		height: 100%;
-		margin-left: 20px;
-		border-left: 1px solid #D3D3D3;
+		max-height: 410px;
 		padding: 20px;
 	}
 	
@@ -808,6 +808,7 @@ td {
         background-color: #088178;
 		width: 100%;
         color: ffffff;
+		margin-bottom: 5px;
     }
 
     .sub-left button:hover {
@@ -1059,7 +1060,7 @@ td {
 	.pad-bot {
 		margin-bottom: 190px;
 		overflow: unset;
-		padding: 0;
+		padding: 0; 
 	}
 	
     .cart-item {
