@@ -5,31 +5,40 @@ $option = $_GET['option'];
 
 // Set the SQL query based on the selected option
 switch ($option) {
-    case 'weekly':
-        $sql = "SELECT DAYNAME(calendar.date) AS order_date, COUNT(tb_orders.order_id) AS num_orders
-        FROM (
-          SELECT DATE(NOW() - INTERVAL weekday(NOW()) DAY + INTERVAL seq DAY) AS date
-          FROM seq_0_to_6
-        ) calendar
-        LEFT JOIN tb_orders ON DATE(tb_orders.order_date_time) = calendar.date
-          AND YEARWEEK(tb_orders.order_date_time, 1) = YEARWEEK(NOW(), 1)
-          AND tb_orders.status = 'Complete'
-        GROUP BY calendar.date";
-        break;
-    case 'monthly':
+    case 'last7':
         $sql = "SELECT calendar.date AS order_date, COUNT(tb_orders.order_id) AS num_orders
         FROM (
-          SELECT LAST_DAY(NOW() - INTERVAL 1 MONTH) + INTERVAL 1 DAY + INTERVAL seq DAY AS date
-          FROM seq_0_to_30
-          WHERE LAST_DAY(NOW() - INTERVAL 1 MONTH) + INTERVAL 1 DAY + INTERVAL seq DAY <= NOW()
+            SELECT CURDATE() - INTERVAL seq DAY AS date
+            FROM seq_0_to_7
+            WHERE seq <= DATEDIFF(CURDATE(), CURDATE() - INTERVAL 30 DAY)
         ) calendar
         LEFT JOIN tb_orders ON DATE(tb_orders.order_date_time) = calendar.date
-          AND MONTH(tb_orders.order_date_time) = MONTH(NOW())
-          AND YEAR(tb_orders.order_date_time) = YEAR(NOW())
+            AND tb_orders.status = 'Complete'
+        GROUP BY calendar.date";
+        break;
+    case 'last30':
+        $sql = "SELECT calendar.date AS order_date, COUNT(tb_orders.order_id) AS num_orders
+        FROM (
+            SELECT CURDATE() - INTERVAL seq DAY AS date
+            FROM seq_0_to_30
+            WHERE seq <= DATEDIFF(CURDATE(), CURDATE() - INTERVAL 30 DAY)
+        ) calendar
+        LEFT JOIN tb_orders ON DATE(tb_orders.order_date_time) = calendar.date
+            AND tb_orders.status = 'Complete'
+        GROUP BY calendar.date";
+        break;
+    case 'last60':
+        $sql = "SELECT calendar.date AS order_date, COUNT(tb_orders.order_id) AS num_orders
+        FROM (
+          SELECT CURDATE() - INTERVAL seq DAY AS date
+          FROM seq_0_to_60
+          WHERE seq <= DATEDIFF(CURDATE(), CURDATE() - INTERVAL 60 DAY)
+        ) calendar
+        LEFT JOIN tb_orders ON DATE(tb_orders.order_date_time) = calendar.date
           AND tb_orders.status = 'Complete'
         GROUP BY calendar.date";
         break;
-    case 'yearly':
+    case 'this_year':
         $sql = "SELECT 'January' AS order_date, COUNT(*) AS num_orders
         FROM tb_orders
         WHERE YEAR(order_date_time) = YEAR(NOW()) AND MONTH(order_date_time) = 1 AND status = 'Complete'

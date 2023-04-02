@@ -5,20 +5,31 @@ $option = $_GET['option'];
 
 // Set the SQL query based on the selected option
 switch ($option) {
-    case 'weekly':
+    case 'today':
         $sql = "SELECT order_details
         FROM tb_orders
-        WHERE YEARWEEK(order_date_time, 1) = YEARWEEK(NOW(), 1)
+        WHERE DATE(order_date_time) = CURDATE()
         AND status = 'Complete'";
         break;
-    case 'monthly':
+    case 'last7':
         $sql = "SELECT order_details
         FROM tb_orders
-        WHERE MONTH(order_date_time) = MONTH(NOW())
-        AND YEAR(order_date_time) = YEAR(NOW())
+        WHERE order_date_time >= CURDATE() - INTERVAL 7 DAY
         AND status = 'Complete'";
         break;
-    case 'yearly':
+    case 'last30':
+        $sql = "SELECT order_details
+        FROM tb_orders
+        WHERE order_date_time >= CURDATE() - INTERVAL 30 DAY
+        AND status = 'Complete'";
+        break;
+    case 'last60':
+        $sql = "SELECT order_details
+        FROM tb_orders
+        WHERE order_date_time >= CURDATE() - INTERVAL 60 DAY
+        AND status = 'Complete'";
+        break;
+    case 'this_year':
         $sql = "SELECT order_details
         FROM tb_orders
         WHERE YEAR(order_date_time) = YEAR(NOW())
