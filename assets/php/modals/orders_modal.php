@@ -60,25 +60,25 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
     <div class="mb-3 d-flex">
         <div class="w-100">
             <label for="edit_order_type" class="form-label">Order Type</label>
-            <select class="form-select" name="edit_order_type" id="edit_order_type" value="<?php echo $row['order_type'] ?>" aria-label="Order Type" required>
-                <option value="Delivery">Delivery</option>
-                <option value="Pick Up">Pick Up</option>
+            <select class="form-select" name="edit_order_type" id="edit_order_type" aria-label="Order Type" required>
+                <option value="Delivery" <?php if ($row['order_type'] == 'Delivery') echo 'selected' ?>>Delivery</option>
+                <option value="Pick Up" <?php if ($row['order_type'] == 'Pick Up') echo 'selected' ?>>Pick Up</option>
             </select>
         </div>
         <div class="w-100 ms-2">
             <label for="edit_mode_of_payment" class="form-label">Mode of Payment</label>
-            <select class="form-select" name="edit_mode_of_payment" id="edit_mode_of_payment" value="<?php echo $row['mode_of_payment'] ?>" aria-label="Mode of Payment" required>
-                <option value="Cash on Delivery">Cash on Delivery</option>
-                <option value="GCash">GCash</option>
+            <select class="form-select" name="edit_mode_of_payment" id="edit_mode_of_payment" aria-label="Mode of Payment" required>
+                <option value="Cash on Delivery" <?php if ($row['mode_of_payment'] == 'Cash on Delivery') echo 'selected' ?>>Cash on Delivery</option>
+                <option value="GCash" <?php if ($row['mode_of_payment'] == 'GCash') echo 'selected' ?>>GCash</option>
             </select>
         </div>
     </div>
     <div class="mb-3">
         <label for="edit_status" class="form-label">Status</label>
-        <select class="form-select" name="edit_status" id="edit_status" value="<?php echo $row['status'] ?>" aria-label="Order Status" required>
-            <option value="Pending">Pending</option>
-            <option value="Complete">Complete</option>
-            <option value="Cancelled">Cancelled</option>
+        <select class="form-select" name="edit_status" id="edit_status" aria-label="Order Status" required>
+            <option value="Pending" <?php if ($row['status'] == 'Pending') echo 'selected' ?>>Pending</option>
+            <option value="Complete" <?php if ($row['status'] == 'Complete') echo 'selected' ?>>Complete</option>
+            <option value="Cancelled" <?php if ($row['status'] == 'Cancelled') echo 'selected' ?>>Cancelled</option>
         </select>
     </div>
 <?php
