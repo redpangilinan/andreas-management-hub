@@ -1,3 +1,12 @@
+// Creates a custom alert
+function customAlert(icon, title, text) {
+    Swal.fire({
+        icon: icon,
+        title: title,
+        text: text,
+    });
+}
+
 // Alert when a record has been updated successfully
 function editAlert() {
     Swal.fire({

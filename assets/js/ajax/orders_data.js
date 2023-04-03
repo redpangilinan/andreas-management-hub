@@ -74,7 +74,11 @@ $(document).ready(function () {
     // Show confirmation first before deleting data
     $(document).on("click", ".delete-data", function () {
         let delete_id = $(this).data('id');
-        deleteConfirmation(delete_id);
+        if (delete_id !== 1) {
+            deleteConfirmation(delete_id);
+        } else {
+            customAlert("error", "Owner Account!", "You can't delete the owner account!")
+        }
     });
 });
 
@@ -188,6 +192,9 @@ const deleteData = (delete_id) => {
             displayTable();
             if (data == "success") {
                 deleteAlert();
+            }
+            else if (data == "owner_account") {
+                customAlert("error", "Owner Account!", "You can't delete the owner account!");
             } else {
                 console.log(data);
                 errorAlert();
