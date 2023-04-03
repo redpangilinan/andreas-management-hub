@@ -22,6 +22,7 @@ while ($row = mysqli_fetch_assoc($result)) {
         $item_names[] = $item['name'] . ' (' . $item['qty'] . ')';
     }
     $row['order_details'] = implode(', ', $item_names);
+    $row['contact_no'] = "\t" . $row['contact_no'];
     fputcsv($output, $row);
 }
 
