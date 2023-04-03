@@ -104,7 +104,7 @@ validateSession();
                     <div class="card my-2 p-3 w-100">
                         <h5>Most Sold Products</h5>
                         <select id="chartProductsSelect" class="form-select">
-                            <option value="weekly">Today</option>
+                            <option value="today">Today</option>
                             <option value="last7">Last 7 days</option>
                             <option value="last30">Last 30 days</option>
                             <option value="last60">Last 60 days</option>
