@@ -139,7 +139,7 @@ validateSession();
                                     <!-- Initialize Skeleton Loader for Data Table -->
                                     <?php
                                     include '../assets/php/connection.php';
-                                    $sql = "SELECT * FROM tb_orders";
+                                    $sql = "SELECT * FROM tb_orders WHERE status = 'Pending'";
                                     $result = mysqli_query($conn, $sql);
                                     $count = mysqli_num_rows($result);
                                     for ($i = 0; $i < $count; $i++) {
