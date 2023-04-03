@@ -17,10 +17,11 @@ function autoLogin()
     }
 }
 
-// Prevents access if the account is not an admin
-function privateAccess()
+// Only allows access to owner accounts
+function ownerAccessOnly()
 {
-    if ($_SESSION['account_type'] != "Admin") {
+    $allowed_account_types = array("Owner", "Co-owner");
+    if (!in_array($_SESSION['account_type'], $allowed_account_types)) {
         header('Location: dashboard.php');
     }
 }
