@@ -52,10 +52,14 @@ $(document).ready(function () {
         updateData();
     });
 
-    // Show confirmation first before deleting data
+    // Check if the ID is from the owner then if it's not an owner, show confirmation before deleting data
     $(document).on("click", ".delete-data", function () {
         let delete_id = $(this).data('id');
-        deleteConfirmation(delete_id);
+        if (delete_id !== 1) {
+            deleteConfirmation(delete_id);
+        } else {
+            customAlert("error", "Owner Account!", "You can't delete the owner account!")
+        }
     });
 });
 
