@@ -107,11 +107,18 @@ validateSession();
                     </form>
                     <!-- Data Table w/ Search -->
                     <div class="w-100">
-                        <div class="search-container">
+                        <div class="search-container mb-2">
                             <input type=" text" class="form-control" id="search_records" placeholder="Search">
                             <form method="post" action="../assets/php/exports/orders_export.php" class="force-zero">
                                 <button type="submit" class="btn btn-success">Export CSV</button>
                             </form>
+                        </div>
+                        <div class="d-flex flex-row-reverse">
+                            <select class="form-select" id="filter_status" aria-label="Filter Status" style="max-width: 15rem;">
+                                <option value="Pending">Pending</option>
+                                <option value="Complete">Complete</option>
+                                <option value="Cancelled">Cancelled</option>
+                            </select>
                         </div>
                         <div class="table-responsive">
                             <table class="table table-striped table-hover">

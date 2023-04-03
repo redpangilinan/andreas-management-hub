@@ -4,6 +4,9 @@ $(document).ready(function () {
     $("#search_records").keyup(function () {
         displayTable();
     });
+    $('#filter_status').on('change', function () {
+        displayTable();
+    });
 
     $(document).on("click", ".edit-data", function () {
         // Initialize Skeleton Loader
@@ -79,11 +82,13 @@ $(document).ready(function () {
 // Displays data with search function
 const displayTable = () => {
     let input = $("#search_records").val();
+    let filter_status = $("#filter_status").val();
     $.ajax({
         url: "../assets/php/crud/orders_crud.php",
         method: "POST",
         data: {
-            input: input
+            input: input,
+            filter_status: filter_status
         },
         success: function (data) {
             $("#search_results").html(data);

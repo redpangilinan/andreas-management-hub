@@ -1,12 +1,14 @@
 <?php
 // Displays the data table with enabled search functionality
-if (isset($_POST['input'])) {
+if (isset($_POST['input']) && isset($_POST['filter_status'])) {
     include '../connection.php';
     $input = mysqli_real_escape_string($conn, $_POST['input']);
+    $filter_status = mysqli_real_escape_string($conn, $_POST['filter_status']);
     $sql =
         "SELECT order_id, firstname, lastname, address, contact_no, order_details, order_date_time, order_type, mode_of_payment, price, status
     FROM tb_orders
-    WHERE (order_id LIKE '{$input}%'
+    WHERE status = '$filter_status'
+    AND (order_id LIKE '{$input}%'
     OR firstname LIKE '{$input}%'
     OR lastname LIKE '{$input}%'
     OR address LIKE '{$input}%'
