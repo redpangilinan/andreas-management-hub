@@ -77,7 +77,6 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         <label for="edit_status" class="form-label">Status</label>
         <select class="form-select" name="edit_status" id="edit_status" value="<?php echo $row['status'] ?>" aria-label="Order Status" required>
             <option value="Pending">Pending</option>
-            <option value="Pending (Paid)">Pending (Paid)</option>
             <option value="Complete">Complete</option>
             <option value="Cancelled">Cancelled</option>
         </select>
