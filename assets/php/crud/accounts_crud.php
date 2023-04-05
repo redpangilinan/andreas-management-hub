@@ -32,7 +32,9 @@ if (isset($_POST['input'])) {
                 ?>
             </td>
             <td><?php echo $row["creation_date"] ?></td>
-            <td><?php echo $row["account_type"] ?></td>
+            <td>
+                <button data-id="<?php echo $row["account_id"] ?>" class="switch-auth btn btn-secondary" style="width: 6rem;"><?php echo $row["account_type"] ?></button>
+            </td>
             <td>
                 <div class="btn-group" role="group" aria-label="modify">
                     <button data-id="<?php echo $row["account_id"] ?>" class="edit-data btn btn-success" data-bs-toggle="modal" data-bs-target="#editModal"><i class="fas fa-edit"></i></button>
@@ -101,7 +103,7 @@ if (
     isset($_POST['edit_password']) &&
     isset($_POST['edit_confirm_password'])
 ) {
-    include '../connection.php';
+
     $primary_id = $_POST['primary_id'];
     $edit_firstname = $_POST['edit_firstname'];
     $edit_lastname = $_POST['edit_lastname'];
@@ -109,42 +111,51 @@ if (
     $edit_contact_no = $_POST['edit_contact_no'];
     $edit_password = $_POST['edit_password'];
     $edit_confirm_password = $_POST['edit_confirm_password'];
-    if ($edit_password == $edit_confirm_password) {
-        // Check if the password is strong
-        include "../password_validation.php";
-        if (validatePassword($edit_password)) {
-            // Hash the password before updating
-            $hashed_password = password_hash($edit_password, PASSWORD_DEFAULT);
-            // Update the selected data
-            $stmt = mysqli_prepare($conn, "UPDATE tb_accounts SET firstname=?, lastname=?, password=?, email=?, contact_no=? WHERE account_id=?");
-            mysqli_stmt_bind_param($stmt, "ssssss", $edit_firstname, $edit_lastname, $hashed_password, $edit_email, $edit_contact_no, $primary_id);
-            if (mysqli_stmt_execute($stmt)) {
-                echo "success";
+    if ($primary_id !== "1") {
+        include '../connection.php';
+        if ($edit_password == $edit_confirm_password) {
+            // Check if the password is strong
+            include "../password_validation.php";
+            if (validatePassword($edit_password)) {
+                // Hash the password before updating
+                $hashed_password = password_hash($edit_password, PASSWORD_DEFAULT);
+                // Update the selected data
+                $stmt = mysqli_prepare($conn, "UPDATE tb_accounts SET firstname=?, lastname=?, password=?, email=?, contact_no=? WHERE account_id=?");
+                mysqli_stmt_bind_param($stmt, "ssssss", $edit_firstname, $edit_lastname, $hashed_password, $edit_email, $edit_contact_no, $primary_id);
+                if (mysqli_stmt_execute($stmt)) {
+                    echo "success";
+                } else {
+                    echo "Error: " . mysqli_stmt_error($stmt);
+                }
+                mysqli_stmt_close($stmt);
             } else {
-                echo "Error: " . mysqli_stmt_error($stmt);
+                echo "weak_password";
             }
-            mysqli_stmt_close($stmt);
         } else {
-            echo "weak_password";
+            echo "error_confirm";
         }
+        mysqli_close($conn);
     } else {
-        echo "error_confirm";
+        echo "owner_account";
     }
-    mysqli_close($conn);
 }
 
 // Deletes an existing data
 if (isset($_POST['delete_id'])) {
-    include '../connection.php';
     $primary_id = $_POST['delete_id'];
-    $stmt = mysqli_prepare($conn, "DELETE FROM tb_accounts WHERE account_id = ?");
-    mysqli_stmt_bind_param($stmt, 's', $primary_id);
-    if (mysqli_stmt_execute($stmt)) {
-        echo "success";
+    if ($primary_id !== "1") {
+        include '../connection.php';
+        $stmt = mysqli_prepare($conn, "DELETE FROM tb_accounts WHERE account_id = ?");
+        mysqli_stmt_bind_param($stmt, 's', $primary_id);
+        if (mysqli_stmt_execute($stmt)) {
+            echo "success";
+        } else {
+            echo "Error: " . mysqli_stmt_error($stmt);
+        }
+        mysqli_stmt_close($stmt);
+        mysqli_close($conn);
     } else {
-        echo "Error: " . mysqli_stmt_error($stmt);
+        echo "owner_account";
     }
-    mysqli_stmt_close($stmt);
-    mysqli_close($conn);
 }
 ?>
