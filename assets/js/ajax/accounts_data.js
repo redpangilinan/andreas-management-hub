@@ -61,6 +61,16 @@ $(document).ready(function () {
             customAlert("error", "Owner Account!", "You can't delete the owner account!")
         }
     });
+
+    // Enables account type to be changed when clicked
+    $(document).on("click", ".switch-auth", function () {
+        let primary_id = $(this).data('id');
+        if (primary_id !== 1) {
+            updateAuthority(primary_id);
+        } else {
+            customAlert("error", "Owner Account!", "You can't change the owner account authority!")
+        }
+    });
 });
 
 // ========== Constants ==========
@@ -205,6 +215,8 @@ const updateData = () => {
                 $('#edit_confirm_password').val("");
                 console.log(data);
                 passwordWeakAlert();
+            } else if (data == "owner_account") {
+                customAlert("error", "Owner Account!", "You can't edit the owner account!")
             } else {
                 console.log(data);
                 $('#form_edit')[0].reset();
@@ -226,7 +238,31 @@ const deleteData = (delete_id) => {
             displayTable();
             if (data == "success") {
                 deleteAlert();
+            } else if (data == "owner_account") {
+                customAlert("error", "Owner Account!", "You can't delete the owner account!")
             } else {
+                errorAlert();
+            }
+        }
+    });
+}
+
+// Updates the account type authority
+const updateAuthority = (primary_id) => {
+    $.ajax({
+        url: "../assets/php/update_authority.php",
+        method: "POST",
+        data: {
+            primary_id: primary_id,
+        },
+        success: function (data) {
+            displayTable();
+            if (data == "success") {
+                editAlert();
+            } else if (data == "owner_account") {
+                customAlert("error", "Owner Account!", "You can't change the owner account authority!")
+            } else {
+                console.log(data);
                 errorAlert();
             }
         }
