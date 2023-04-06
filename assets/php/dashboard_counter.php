@@ -32,6 +32,27 @@ function orderCount()
     mysqli_close($conn);
 }
 
+// Shows the total count of customers
+function customerCount()
+{
+    include 'connection.php';
+    $sql =
+        "SELECT 
+            ROW_NUMBER() OVER (ORDER BY SUM(price) DESC) AS rank,
+            CONCAT(firstname, ' ', lastname) AS customer_name,
+            address,
+            contact_no,
+            COUNT(order_id) AS total_orders,
+            SUM(price) AS total_spent
+        FROM tb_orders
+        WHERE status = 'Complete'
+        GROUP BY firstname, lastname, address, contact_no";
+    $result = mysqli_query($conn, $sql);
+    $count = mysqli_num_rows($result);
+    echo "$count";
+    mysqli_close($conn);
+}
+
 // Shows the total income today
 function incomeToday()
 {

@@ -57,7 +57,17 @@ ownerAccessOnly();
                             <!-- Initialize Skeleton Loader for Data Table -->
                             <?php
                             include '../assets/php/connection.php';
-                            $sql = "SELECT * FROM tb_accounts";
+                            $sql =
+                                "SELECT 
+                                    ROW_NUMBER() OVER (ORDER BY SUM(price) DESC) AS rank,
+                                    CONCAT(firstname, ' ', lastname) AS customer_name,
+                                    address,
+                                    contact_no,
+                                    COUNT(order_id) AS total_orders,
+                                    SUM(price) AS total_spent
+                                FROM tb_orders
+                                WHERE status = 'Complete'
+                                GROUP BY firstname, lastname, address, contact_no";
                             $result = mysqli_query($conn, $sql);
                             $count = mysqli_num_rows($result);
                             for ($i = 0; $i < $count; $i++) {

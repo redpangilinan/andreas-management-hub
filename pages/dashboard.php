@@ -39,8 +39,12 @@ validateSession();
                 <table class="table table-hover table-bordered d-lg-none">
                     <tbody>
                         <tr>
-                            <th><i class="fa-solid fa-users"></i> Accounts</th>
+                            <th><i class="fa-solid fa-user"></i> Accounts</th>
                             <td><?php userCount() ?></td>
+                        </tr>
+                        <tr>
+                            <th><i class="fa-solid fa-users"></i> Customers</th>
+                            <td><?php customerCount() ?></td>
                         </tr>
                         <tr>
 
@@ -60,6 +64,16 @@ validateSession();
                         <div class="content">
                             <p style="font-size: 2rem;"><?php userCount() ?></p>
                             <p>Accounts</p>
+                        </div>
+                        <div class="content">
+                            <i class="fa-solid fa-user fa-4x"></i>
+                        </div>
+                    </div>
+                    <!-- Shows total customers -->
+                    <div class="grid-box">
+                        <div class="content">
+                            <p style="font-size: 2rem;"><?php customerCount() ?></p>
+                            <p>Customers</p>
                         </div>
                         <div class="content">
                             <i class="fa-solid fa-users fa-4x"></i>
