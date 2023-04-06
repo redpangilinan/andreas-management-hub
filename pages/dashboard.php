@@ -39,7 +39,7 @@ validateSession();
                 <table class="table table-hover table-bordered d-lg-none">
                     <tbody>
                         <tr>
-                            <th><i class="fa-solid fa-users"></i> Admins</th>
+                            <th><i class="fa-solid fa-users"></i> Accounts</th>
                             <td><?php userCount() ?></td>
                         </tr>
                         <tr>
@@ -59,7 +59,7 @@ validateSession();
                     <div class="grid-box">
                         <div class="content">
                             <p style="font-size: 2rem;"><?php userCount() ?></p>
-                            <p>Users</p>
+                            <p>Accounts</p>
                         </div>
                         <div class="content">
                             <i class="fa-solid fa-users fa-4x"></i>
