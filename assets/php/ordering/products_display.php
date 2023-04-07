@@ -10,6 +10,7 @@ $current_category = null;
 
 // Loop through the results and print the products
 while ($row = mysqli_fetch_assoc($result)) {
+    $product_id = $row["product_id"];
     $category = $row['category'];
     $product = $row['product'];
     $price = $row['price'];
@@ -30,7 +31,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 
     // Print the product
     echo "
-    <div class='product' data-bs-toggle='modal' data-bs-target='#orderModal'>
+    <div class='product' data-id='$product_id' data-bs-toggle='modal' data-bs-target='#orderModal'>
         <img src='./assets/images/products/$image' alt=''>
         <div class='product-text'>
             <h5>$product</h5>
