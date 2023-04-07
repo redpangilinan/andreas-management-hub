@@ -37,27 +37,13 @@ session_start();
         </section>
 
         <div class="best-seller-con">
-            <div class="best-seller">
-                <img src="./assets/images/andreas background.jpg" alt="" class="best-img">
-                <h6>8x6 BAKED CALI SUSHI w/ Nori Sheet Pack</h6>
-                <p>Best seller</p>
-            </div>
-            <div class="best-seller">
-                <img src="./assets/images/andreas background.jpg" alt="" class="best-img">
-                <h6>8x6 BAKED CALI SUSHI w/ Nori Sheet Pack</h6>
-                <p>Best seller</p>
-            </div>
-            <div class="best-seller">
-                <img src="./assets/images/andreas background.jpg" alt="" class="best-img">
-                <h6>8x6 BAKED CALI SUSHI w/ Nori Sheet Pack</h6>
-                <p>Best seller</p>
-            </div>
+            <?php include "./assets/php/ordering/best_seller.php" ?>
         </div>
         <div class="menu-container">
-            <center>
+            <div class="d-flex flex-column justify-content-center align-items-center">
                 <h2>Our Menu</h2>
                 <p class="web-p">Andrea's Fresh & Greens</p>
-            </center><br>
+            </div>
             <?php include "./assets/php/ordering/products_display.php" ?>
             <hr>
         </div>
@@ -69,12 +55,10 @@ session_start();
                     <span class="fas fa-shopping-bag"></span>
                     <a href="#"><span>Order</span></a>
                 </div>
-
                 <div class="nav-item">
                     <span class="fas fa-cart-plus"></span>
                     <a href="#"><span>Cart</span></a>
                 </div>
-
                 <div class="nav-item">
                     <span class="fa fa-info-circle"></span>
                     <a href="#"><span>About</span></a>
@@ -89,35 +73,7 @@ session_start();
                 <div class="modal-header">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <div class="info-img">
-                        <div class="order-img"><img src="../assets/images/andreas background.jpg" alt=""></div>
-                        <div class="order-info">
-                            <h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
-                            <span>Price:</span> <span>123</span>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="del-type">
-                        <h6>Delivery Type:</h6>
-                        <form action="#">
-                            <select id="delivery" name="delivery">
-                                <span for="delivery">Delivery Type:</span>
-                                <option value="volvo">Pick Up</option>
-                                <option value="saab">Delivery</option>
-                            </select>
-                        </form>
-                    </div>
-                    <hr>
-                    <div class="ordr-quantity">
-                        <h6>Quantity:</h6>
-                        <div class="quantity">
-                            <span class="minus">-</span>
-                            <input role="textbox" type="number" class="count" name="quantity" value="1">
-                            <span class="plus">+</span>
-                        </div>
-                    </div>
-                </div>
+                <div class="modal-body"></div>
                 <div class="modal-footer">
                     <button type="button" class="ordr-butn">Buy Now</button>
                     <button type="button" class="ordr-butn">Add to Cart</button>
@@ -125,8 +81,11 @@ session_start();
             </div>
         </div>
     </div>
+
     <footer></footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+    <script src="./assets/js/cart.js"></script>
+    <script src="./assets/js/ordering/productData.js"></script>
 </body>
 
 </html>
