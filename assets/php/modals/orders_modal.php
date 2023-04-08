@@ -48,7 +48,8 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
             <div class="card-body">
                 <div class="mb-3">
                     <label for="edit_price" class="form-label">Total Price</label>
-                    <input type="number" class="form-control" name="edit_price" id="edit_price" value="0" placeholder="Price" required>
+                    <input type="number" class="form-control" name="edit_price" id="edit_price" value="0" placeholder="Price" readonly>
+                    <input type="hidden" name="edit_profit" id="edit_profit">
                 </div>
             </div>
         </div>

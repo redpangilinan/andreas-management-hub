@@ -78,7 +78,8 @@ validateSession();
                                 <div class="card-body">
                                     <div class="mb-3">
                                         <label for="price" class="form-label">Total Price</label>
-                                        <input type="number" class="form-control" name="price" id="price" value="0" placeholder="Price" required>
+                                        <input type="number" class="form-control" name="price" id="price" value="0" placeholder="Price" readonly>
+                                        <input type="hidden" name="profit" id="profit">
                                     </div>
                                 </div>
                             </div>
