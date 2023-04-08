@@ -18,7 +18,7 @@ if (isset($_POST['input'])) {
                 OR address LIKE '{$input}%'
                 OR contact_no LIKE '{$input}%'
             )
-        GROUP BY firstname, lastname, address, contact_no
+        GROUP BY firstname, lastname, contact_no
         ORDER BY SUM(price) DESC";
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
