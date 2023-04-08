@@ -46,7 +46,7 @@ function customerCount()
             SUM(price) AS total_spent
         FROM tb_orders
         WHERE status = 'Complete'
-        GROUP BY firstname, lastname, address, contact_no";
+        GROUP BY firstname, lastname, contact_no";
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
     echo "$count";
@@ -57,7 +57,7 @@ function customerCount()
 function incomeToday()
 {
     include 'connection.php';
-    $sql = "SELECT SUM(price) as income_data
+    $sql = "SELECT SUM(profit) as income_data
     FROM tb_orders
     WHERE DATE(order_date_time) = CURRENT_DATE
     AND status = 'Complete'";
@@ -76,7 +76,7 @@ function incomeToday()
 function incomeLast7Days()
 {
     include 'connection.php';
-    $sql = "SELECT SUM(price) as income_data
+    $sql = "SELECT SUM(profit) as income_data
     FROM tb_orders
     WHERE order_date_time >= DATE_SUB(CURRENT_DATE, INTERVAL 7 DAY)
     AND status = 'Complete';";
@@ -95,7 +95,7 @@ function incomeLast7Days()
 function incomeLast30Days()
 {
     include 'connection.php';
-    $sql = "SELECT SUM(price) as income_data
+    $sql = "SELECT SUM(profit) as income_data
     FROM tb_orders
     WHERE order_date_time >= DATE_SUB(CURRENT_DATE, INTERVAL 30 DAY)
     AND status = 'Complete';";
@@ -114,7 +114,7 @@ function incomeLast30Days()
 function incomeLast60Days()
 {
     include 'connection.php';
-    $sql = "SELECT SUM(price) as income_data
+    $sql = "SELECT SUM(profit) as income_data
     FROM tb_orders
     WHERE order_date_time >= DATE_SUB(CURRENT_DATE, INTERVAL 60 DAY)
     AND status = 'Complete';";
@@ -133,7 +133,7 @@ function incomeLast60Days()
 function incomeThisYear()
 {
     include 'connection.php';
-    $sql = "SELECT SUM(price) as income_data
+    $sql = "SELECT SUM(profit) as income_data
     FROM tb_orders
     WHERE YEAR(order_date_time) = YEAR(CURRENT_DATE)
     AND status = 'Complete'";
