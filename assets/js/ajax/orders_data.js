@@ -118,8 +118,9 @@ const displayEdit = (primary_id) => {
                 let splitProduct = productValue.split(",,,");
                 let productName = splitProduct[0];
                 let price = parseInt(splitProduct[1]);
+                let expense = parseInt(splitProduct[2]);
                 let quantity = 1;
-                addToCart(productName, quantity, price, "edit");
+                addToCart(productName, quantity, price, expense, "edit");
                 showCartItems("edit");
             });
         }

@@ -17,13 +17,14 @@ addProductBtn.addEventListener('click', () => {
     let splitProduct = productValue.split(",,,");
     let productName = splitProduct[0];
     let price = parseInt(splitProduct[1]);
+    let expense = parseInt(splitProduct[2]);
     let quantity = 1;
-    addToCart(productName, quantity, price, "add");
+    addToCart(productName, quantity, price, expense, "add");
     showCartItems("add");
 });
 
 // Add a product to the cart
-const addToCart = (productName, quantity, price, form) => {
+const addToCart = (productName, quantity, price, expense, form) => {
     let existingProductIndex;
     if (form == "add") {
         existingProductIndex = cart.findIndex(item => item.name === productName);
@@ -36,16 +37,19 @@ const addToCart = (productName, quantity, price, form) => {
         if (form == "add") {
             cart[existingProductIndex].qty += quantity;
             cart[existingProductIndex].price += price;
+            cart[existingProductIndex].expense += expense;
         } else {
             editCart[existingProductIndex].qty += quantity;
             editCart[existingProductIndex].price += price;
+            editCart[existingProductIndex].expense += expense;
         }
     } else {
         // If the product does not exist in the cart, add it as a new item
         let product = {
             name: productName,
             qty: quantity,
-            price: price
+            price: price,
+            expense: expense,
         };
 
         if (form == "add") {
@@ -60,16 +64,18 @@ const addToCart = (productName, quantity, price, form) => {
 // Shows every product in the cart
 const showCartItems = (form) => {
     // Setup respective ID for the current form
-    let cartList, totalPrice, orderDetails, formCart;
+    let cartList, totalPrice, totalProfit, orderDetails, formCart;
 
     if (form == "add") {
         cartList = document.querySelector('#products_list');
         totalPrice = document.querySelector('#price');
+        totalProfit = document.querySelector('#profit');
         orderDetails = document.querySelector('#order_details');
         formCart = cart;
     } else {
         cartList = document.querySelector('#edit_products_list');
         totalPrice = document.querySelector('#edit_price');
+        totalProfit = document.querySelector('#edit_profit');
         orderDetails = document.querySelector('#edit_order_details');
         formCart = editCart;
     }
@@ -77,7 +83,8 @@ const showCartItems = (form) => {
     cartList.innerHTML = '';
 
     let orderPrice = 0;
-    formCart.forEach((item, index) => {
+    let orderExpense = 0;
+    formCart.forEach((item) => {
         let listItem = document.createElement('li');
         listItem.classList.add('list-group-item', 'd-flex', 'justify-content-between');
         if (form == "add") {
@@ -95,13 +102,13 @@ const showCartItems = (form) => {
 
         // Updates the order price
         orderPrice += item.price;
+        orderExpense += item.expense;
     });
 
     // Set the total price and stringify JSON
     totalPrice.value = orderPrice;
+    totalProfit.value = orderPrice - orderExpense;
     orderDetails.value = JSON.stringify(formCart);
-
-
 
     // Add click event listener to each remove button and check if cart is empty or not
     if (form == "add") {
