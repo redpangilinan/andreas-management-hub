@@ -51,6 +51,7 @@ if (
     isset($_POST['product']) &&
     isset($_POST['details']) &&
     isset($_POST['category']) &&
+    isset($_POST['expense']) &&
     isset($_POST['price'])
 ) {
     include '../connection.php';
@@ -60,11 +61,12 @@ if (
     $product = $_POST['product'];
     $details = $_POST['details'];
     $category = $_POST['category'];
+    $expense = $_POST['expense'];
     $price = $_POST['price'];
 
     // Sanitize the input and insert the data into the database
-    $stmt = mysqli_prepare($conn, "INSERT INTO tb_products VALUES (null, ?, ?, ?, ?, ?)");
-    mysqli_stmt_bind_param($stmt, "sssds", $product, $category, $details, $price, $file_name);
+    $stmt = mysqli_prepare($conn, "INSERT INTO tb_products VALUES (null, ?, ?, ?, ?, ?, ?)");
+    mysqli_stmt_bind_param($stmt, "sssdds", $product, $category, $details, $expense, $price, $file_name);
     if (mysqli_stmt_execute($stmt)) {
         echo "success";
     } else {
@@ -80,24 +82,26 @@ if (
     isset($_POST['edit_product']) &&
     isset($_POST['edit_details']) &&
     isset($_POST['edit_category']) &&
+    isset($_POST['edit_expense']) &&
     isset($_POST['edit_price'])
 ) {
     include '../connection.php';
     include '../image_edit.php';
 
-    // Sanitize the user input to prevent SQL injection attacks
+    // Sanitize the user input to before updating record
     $primary_id = $_POST['primary_id'];
     $edit_product = $_POST['edit_product'];
     $edit_details = $_POST['edit_details'];
     $edit_category = $_POST['edit_category'];
+    $edit_expense = $_POST['edit_expense'];
     $edit_price = $_POST['edit_price'];
 
     if ($file_name == "default.jpg") {
-        $stmt = mysqli_prepare($conn, "UPDATE tb_products SET product=?, category=?, details=?, price=? WHERE product_id=?");
-        mysqli_stmt_bind_param($stmt, "sssds", $edit_product, $edit_category, $edit_details, $edit_price, $primary_id);
+        $stmt = mysqli_prepare($conn, "UPDATE tb_products SET product=?, category=?, details=?, expense=?, price=? WHERE product_id=?");
+        mysqli_stmt_bind_param($stmt, "sssdds", $edit_product, $edit_category, $edit_details, $edit_expense, $edit_price, $primary_id);
     } else {
-        $stmt = mysqli_prepare($conn, "UPDATE tb_products SET product=?, category=?, details=?, price=?, image=? WHERE product_id=?");
-        mysqli_stmt_bind_param($stmt, "sssdss", $edit_product, $edit_category, $edit_details, $edit_price, $file_name, $primary_id);
+        $stmt = mysqli_prepare($conn, "UPDATE tb_products SET product=?, category=?, details=?, expense=?, price=?, image=? WHERE product_id=?");
+        mysqli_stmt_bind_param($stmt, "sssddss", $edit_product, $edit_category, $edit_details, $edit_expense, $edit_price, $file_name, $primary_id);
     }
     if (mysqli_stmt_execute($stmt)) {
         echo "success";
