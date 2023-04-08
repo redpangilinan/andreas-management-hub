@@ -56,6 +56,7 @@ if (isset($_POST['input']) && isset($_POST['filter_status'])) {
             <td><?php echo $row["order_type"] ?></td>
             <td><?php echo $row["mode_of_payment"] ?></td>
             <td><?php echo "₱" . $row["price"] ?></td>
+            <td><?php echo "₱" . $row["profit"] ?></td>
             <td><?php echo $row["status"] ?></td>
             <td>
                 <div class="btn-group" role="group" aria-label="modify">
@@ -88,7 +89,8 @@ if (
     isset($_POST['order_date_time']) &&
     isset($_POST['order_type']) &&
     isset($_POST['mode_of_payment']) &&
-    isset($_POST['price'])
+    isset($_POST['price']) &&
+    isset($_POST['profit'])
 ) {
     include '../connection.php';
 
@@ -102,10 +104,11 @@ if (
     $order_type = $_POST['order_type'];
     $mode_of_payment = $_POST['mode_of_payment'];
     $price = $_POST['price'];
+    $profit = $_POST['profit'];
 
     // Sanitize the input and insert the data into the database
-    $stmt = mysqli_prepare($conn, "INSERT INTO tb_orders VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'Pending')");
-    mysqli_stmt_bind_param($stmt, "ssssssssd", $firstname, $lastname, $address, $contact_no, $order_details, $order_date_time, $order_type, $mode_of_payment, $price);
+    $stmt = mysqli_prepare($conn, "INSERT INTO tb_orders VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'Pending')");
+    mysqli_stmt_bind_param($stmt, "ssssssssdd", $firstname, $lastname, $address, $contact_no, $order_details, $order_date_time, $order_type, $mode_of_payment, $price, $profit);
     if (mysqli_stmt_execute($stmt)) {
         echo "success";
     } else {
@@ -128,6 +131,7 @@ if (
     isset($_POST['edit_order_type']) &&
     isset($_POST['edit_mode_of_payment']) &&
     isset($_POST['edit_price']) &&
+    isset($_POST['edit_profit']) &&
     isset($_POST['edit_status'])
 ) {
     include '../connection.php';
@@ -143,11 +147,12 @@ if (
     $edit_order_type = $_POST['edit_order_type'];
     $edit_mode_of_payment = $_POST['edit_mode_of_payment'];
     $edit_price = $_POST['edit_price'];
+    $edit_profit = $_POST['edit_profit'];
     $edit_status = $_POST['edit_status'];
 
     // Sanitize the input and insert the data into the database
-    $stmt = mysqli_prepare($conn, "UPDATE tb_orders SET firstname=?, lastname=?, address=?, contact_no=?, order_details=?, order_date_time=?, order_type=?, mode_of_payment=?, price=?, status=? WHERE order_id=?");
-    mysqli_stmt_bind_param($stmt, "ssssssssdss", $edit_firstname, $edit_lastname, $edit_address, $edit_contact_no, $edit_order_details, $edit_order_date_time, $edit_order_type, $edit_mode_of_payment, $edit_price, $edit_status, $primary_id);
+    $stmt = mysqli_prepare($conn, "UPDATE tb_orders SET firstname=?, lastname=?, address=?, contact_no=?, order_details=?, order_date_time=?, order_type=?, mode_of_payment=?, price=?, profit=?, status=? WHERE order_id=?");
+    mysqli_stmt_bind_param($stmt, "ssssssssddss", $edit_firstname, $edit_lastname, $edit_address, $edit_contact_no, $edit_order_details, $edit_order_date_time, $edit_order_type, $edit_mode_of_payment, $edit_price, $edit_profit, $edit_status, $primary_id);
     if (mysqli_stmt_execute($stmt)) {
         echo "success";
     } else {
