@@ -4,12 +4,13 @@ if (isset($_POST['input'])) {
     include '../connection.php';
     $input = mysqli_real_escape_string($conn, $_POST['input']);
     $sql =
-        "SELECT product_id, product, category, details, price, image
+        "SELECT product_id, product, category, details, expense, price, image
     FROM tb_products
     WHERE (product_id LIKE '{$input}%'
     OR product LIKE '{$input}%'
     OR details LIKE '{$input}%'
     OR category LIKE '{$input}%'
+    OR expense LIKE '{$input}%'
     OR price LIKE '{$input}%')
     ORDER BY product_id";
     $result = mysqli_query($conn, $sql);
@@ -24,6 +25,7 @@ if (isset($_POST['input'])) {
             <td><?php echo $row["product"] ?></td>
             <td><?php echo $row["category"] ?></td>
             <td><?php echo $row["details"] ?></td>
+            <td><?php echo "₱" . $row["expense"] ?></td>
             <td><?php echo "₱" . $row["price"] ?></td>
             <td>
                 <div class="btn-group" role="group" aria-label="modify">
@@ -37,7 +39,7 @@ if (isset($_POST['input'])) {
     if (($count) == 0) {
     ?>
         <tr>
-            <td colspan='7'>There are no records.</td>
+            <td colspan='8'>There are no records.</td>
         </tr>
 <?php
     }
