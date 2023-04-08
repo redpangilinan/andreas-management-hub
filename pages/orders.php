@@ -131,6 +131,7 @@ validateSession();
                                         <th>Order Type</th>
                                         <th>Mode of Payment</th>
                                         <th>Price</th>
+                                        <th>Profit</th>
                                         <th>Status</th>
                                         <th>Modify</th>
                                     </tr>
@@ -151,6 +152,9 @@ validateSession();
                                             <td>
                                                 <div class='skeleton skeleton-text w-100'></div>
                                                 <div class='skeleton skeleton-text w-100'></div>
+                                                <div class='skeleton skeleton-text w-100'></div>
+                                            </td>
+                                            <td>
                                                 <div class='skeleton skeleton-text w-100'></div>
                                             </td>
                                             <td>

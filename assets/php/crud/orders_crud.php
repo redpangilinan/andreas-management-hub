@@ -5,7 +5,7 @@ if (isset($_POST['input']) && isset($_POST['filter_status'])) {
     $input = mysqli_real_escape_string($conn, $_POST['input']);
     $filter_status = mysqli_real_escape_string($conn, $_POST['filter_status']);
     $sql =
-        "SELECT order_id, firstname, lastname, address, contact_no, order_details, order_date_time, order_type, mode_of_payment, price, status
+        "SELECT order_id, firstname, lastname, address, contact_no, order_details, order_date_time, order_type, mode_of_payment, price, profit, status
     FROM tb_orders
     WHERE status = '$filter_status'
     AND (order_id LIKE '{$input}%'
@@ -18,6 +18,7 @@ if (isset($_POST['input']) && isset($_POST['filter_status'])) {
     OR order_type LIKE '{$input}%'
     OR mode_of_payment LIKE '{$input}%'
     OR price LIKE '{$input}%'
+    OR profit LIKE '{$input}%'
     OR status LIKE '{$input}%')
     ORDER BY order_date_time DESC";
     $result = mysqli_query($conn, $sql);
@@ -70,7 +71,7 @@ if (isset($_POST['input']) && isset($_POST['filter_status'])) {
     if (($count) == 0) {
     ?>
         <tr>
-            <td colspan='9'>There are no records.</td>
+            <td colspan='10'>There are no records.</td>
         </tr>
 <?php
     }
