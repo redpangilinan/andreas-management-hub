@@ -34,6 +34,7 @@ session_start();
 				<p class="web-p">Andrea's Fresh & Greens</p>
 			</center><br>
 			<div class="cart-cont">
+              <div class="s">
 				<div class="pad-bot">
 					<div class="cart-item">
 						<div class="cart-img">
@@ -48,6 +49,7 @@ session_start();
 									<input type="number" class="count" name="quantity" value="1">
 									<span class="plus">+</span>
 								</div>
+                                  <input type="checkbox">
 							</div>
 						</div>
 					</div>
@@ -65,6 +67,45 @@ session_start();
 									<input type="number" class="count" name="quantity" value="1">
 									<span class="plus">+</span>
 								</div>
+                                  <input type="checkbox">
+							</div>
+						</div>
+					</div>
+					
+					
+					<div class="cart-item">
+						<div class="cart-img">
+							<img src="./assets/images/andreas background.jpg" alt="">
+						</div>
+						<div class="cart-details">
+							<h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
+							<div class="price-quantity">
+								<span>₱260</span>
+								<div class="quantity">
+									<span class="minus">-</span>
+									<input type="number" class="count" name="quantity" value="1">
+									<span class="plus">+</span>
+								</div>
+                                  <input type="checkbox">
+							</div>
+						</div>
+					</div>
+					
+					
+					<div class="cart-item">
+						<div class="cart-img">
+							<img src="./assets/images/andreas background.jpg" alt="">
+						</div>
+						<div class="cart-details">
+							<h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
+							<div class="price-quantity">
+								<span>₱260</span>
+								<div class="quantity">
+									<span class="minus">-</span>
+									<input type="number" class="count" name="quantity" value="1">
+									<span class="plus">+</span>
+								</div>
+                                  <input type="checkbox">
 							</div>
 						</div>
 					</div>
@@ -82,6 +123,7 @@ session_start();
 									<input type="number" class="count" name="quantity" value="1">
 									<span class="plus">+</span>
 								</div>
+                                  <input type="checkbox">
 							</div>
 						</div>
 					</div>
@@ -99,9 +141,47 @@ session_start();
 									<input type="number" class="count" name="quantity" value="1">
 									<span class="plus">+</span>
 								</div>
+                                  <input type="checkbox">
 							</div>
 						</div>
 					</div>
+					
+					<div class="cart-item">
+						<div class="cart-img">
+							<img src="./assets/images/andreas background.jpg" alt="">
+						</div>
+						<div class="cart-details">
+							<h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
+							<div class="price-quantity">
+								<span>₱260</span>
+								<div class="quantity">
+									<span class="minus">-</span>
+									<input type="number" class="count" name="quantity" value="1">
+									<span class="plus">+</span>
+								</div>
+                                  <input type="checkbox">
+							</div>
+						</div>
+					</div>
+					
+					<div class="cart-item">
+						<div class="cart-img">
+							<img src="./assets/images/andreas background.jpg" alt="">
+						</div>
+						<div class="cart-details">
+							<h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
+							<div class="price-quantity">
+								<span>₱260</span>
+								<div class="quantity">
+									<span class="minus">-</span>
+									<input type="number" class="count" name="quantity" value="1">
+									<span class="plus">+</span>
+								</div>
+                                  <input type="checkbox">
+							</div>
+						</div>
+					</div>
+                  </div>
 				</div>
 				<div class="summ-con">
 					<h3>Summary <span class="fa fa-trash"></span></h3>
