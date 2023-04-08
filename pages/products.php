@@ -41,17 +41,23 @@ validateSession();
                                 <input type="text" class="form-control" name="product" id="product" placeholder="Product" required>
                             </div>
                             <div class="w-100 ms-2">
-                                <label for="price" class="form-label">Price</label>
-                                <input type="number" class="form-control" name="price" id="price" placeholder="Price" required>
+                                <label for="category" class="form-label">Category</label>
+                                <input type="text" class="form-control" name="category" id="category" placeholder="Category" required>
                             </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="category" class="form-label">Category</label>
-                            <input type="text" class="form-control" name="category" id="category" placeholder="Category" required>
                         </div>
                         <div class="mb-3">
                             <label for="details">Details</label>
                             <textarea class="form-control" name="details" id="details" rows="3" placeholder="Details" required></textarea>
+                        </div>
+                        <div class="mb-3 d-flex">
+                            <div class="w-100">
+                                <label for="expense" class="form-label">Expense</label>
+                                <input type="number" class="form-control" name="expense" id="expense" placeholder="Expense" required>
+                            </div>
+                            <div class="w-100 ms-2">
+                                <label for="price" class="form-label">Price</label>
+                                <input type="number" class="form-control" name="price" id="price" placeholder="Price" required>
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="image" class="form-label">Product Image</label>
