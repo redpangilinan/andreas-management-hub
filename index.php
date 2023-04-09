@@ -22,7 +22,6 @@ session_start();
         <div class="header-container">
             <div class="header-image">
                 <div class="header-text">
-                    <i class="fa fa-arrow-circle-left"></i>
                     <h2>Andrea' s<br><span> Fresh & Greens</span></h2>
                 </div>
             </div>
@@ -31,8 +30,8 @@ session_start();
     <main>
         <div class="menu-container">
         	<div class="order-prod">
-              <div class="d-flex flex-column justify-content-center align-items-center" style="margin-top: 2rem" >
-                <h2 style="color:#088178;font-family:Spartan;font-weight:700">Best Seller</h2>
+              <div class="best-title">
+                <h2>Best Seller</h2>
                </div>
               <div class="best-seller-con">
                 <div class="best-left">
@@ -51,27 +50,45 @@ session_start();
                   </div>
                 </div>
         	  </div>
-              <div class="prod-navi">
-                <a class="active" href="#home">All</a>
-                <a href="#home">Maki</a>
-                <a href="#home">Spring rolls</a>
-                <a href="#home">Sushi</a>
-              </div>
-              	<h3>Maki</h3>
-            	<div class="product-container">
-                  <div class="product" data-bs-toggle="modal" data-bs-target="#orderModal">
-                      <img src="./assets/images/andreas background.jpg" alt="">
-                      <div class="product-text">
-                          <span>Andrea's Fresh and Greens</span>
-                          <h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
-                          <h4>₱260</h4>
-                      </div>
-                  </div>
-              </div>
+			  <div class="margin-space">
+				  <div class="prod-navi">
+					<a class="active" href="#home"><div class="prod-navi-img"><div class="circle-bg"><img src="./assets/images/all.png" alt=""></div></div>ALL</a>
+                    <a href="#home"><div class="prod-navi-img"><div class="circle-bg"><img src="./assets/images/maki.png" alt=""></div></div>MAKI</a>
+					<a href="#home"><div class="prod-navi-img"><div class="circle-bg"><img src="./assets/images/rolls.png" alt=""></div></div>SPRING ROLLS</a>
+					<a href="#home"><div class="prod-navi-img"><div class="circle-bg"><img src="./assets/images/sushi.png" alt=""></div></div>SUSHI</a>
+				  </div>
+					<div class="product-container">
+					  <div class="product" data-bs-toggle="modal" data-bs-target="#orderModal">
+						  <img src="./assets/images/andreas background.jpg" alt="">
+						  <div class="product-text">
+							  <span>Andrea's Fresh and Greens</span>
+							  <h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
+							  <h4>₱260</h4>
+						  </div>
+					  </div>
+                      <div class="product" data-bs-toggle="modal" data-bs-target="#orderModal">
+						  <img src="./assets/images/andreas background.jpg" alt="">
+						  <div class="product-text">
+							  <span>Andrea's Fresh and Greens</span>
+							  <h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
+							  <h4>₱260</h4>
+						  </div>
+					  </div>
+                      <div class="product" data-bs-toggle="modal" data-bs-target="#orderModal">
+						  <img src="./assets/images/andreas background.jpg" alt="">
+						  <div class="product-text">
+							  <span>Andrea's Fresh and Greens</span>
+							  <h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
+							  <h4>₱260</h4>
+						  </div>
+					  </div>
+				  </div>
+				</div>
           </div>
           <div class="cart-cont">
-            <div class="d-flex flex-column justify-content-center align-items-left">
+            <div class="d-flex justify-content-between">
                 <h4><span class="fas fa-cart-plus"></span> My Cart</h4>
+              	<div><input type="checkbox" id="all" name="all" value="all"><label for="all">ALL</label></div>
             </div>
 				<div class="pad-bot">
 					<div class="cart-item">
@@ -297,7 +314,6 @@ session_start();
         </div>
         <div class="navi">
             <img src="./assets/images/icon/full-logo.png" class="logo" alt="">
-
             <div class="nav-item-con">
                 <div class="nav-item">
                     <span class="fas fa-shopping-bag"></span>
