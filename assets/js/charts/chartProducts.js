@@ -31,7 +31,7 @@ $(document).ready(function () {
             case 'last60':
                 url = '../assets/php/charts/get_chart_products.php?option=last60';
                 break;
-            case 'yearly':
+            case 'this_year':
                 url = '../assets/php/charts/get_chart_products.php?option=this_year';
                 break;
             case 'all_time':
