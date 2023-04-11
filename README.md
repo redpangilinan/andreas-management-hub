@@ -14,14 +14,14 @@ Official Management and Ordering System for Andrea's Fresh and Greens
     - [Frameworks/Libraries](#frameworkslibraries)
   - [Workflows and Activities](#workflows-and-activities)
     - [Management System](#management-system)
-      - [Admin Login:](#admin-login)
+      - [Admin Login](#admin-login)
       - [Data Visualization](#data-visualization)
       - [Data Tables](#data-tables)
       - [Adding and Editing Data](#adding-and-editing-data)
       - [Products Cart for Admin](#products-cart-for-admin)
       - [Editing Admin Profile](#editing-admin-profile)
     - [Ordering System](#ordering-system)
-      - [Customer Information:](#customer-information)
+      - [Customer Information](#customer-information)
       - [Ordering Products](#ordering-products)
       - [Viewing Order History](#viewing-order-history)
 
@@ -60,7 +60,7 @@ Official Management and Ordering System for Andrea's Fresh and Greens
 
 ### Management System
 
-#### Admin Login:
+#### Admin Login
 
 1. Access admin login form through URL. (Not for customers)
 2. Input email and password to access the Management Hub.
@@ -120,7 +120,7 @@ Official Management and Ordering System for Andrea's Fresh and Greens
 
 ### Ordering System
 
-#### Customer Information:
+#### Customer Information
 
 1. The ordering system does not offer account creation for customers (As per client's request) so customer orders will be tracked through their input information. Mainly through the customer name and contact number.
 2. Once the ordering hub (Andrea's Fresh and Greens) has been accessed, the customers will be prompted to input the following details:
