@@ -29,288 +29,306 @@ session_start();
     </header>
     <main>
         <div class="menu-container">
-        	<div class="order-prod">
-              <div class="best-title">
-                <h2>Best Seller</h2>
-               </div>
-              <div class="best-seller-con">
-                <div class="best-left">
-                  <div class="best-img"><img src="./assets/images/andreas background.jpg" alt="">
-                    <h4>Sushi</h4>
-                  </div>
+            <div class="order-prod">
+                <div class="best-title">
+                    <h2>Best Seller</h2>
                 </div>
-                <div class="best-mid">
-                  <div class="best-img"><img src="./assets/images/andreas background.jpg" alt="">
-                    <h4>12pcs Spring Rolls</h4>
-                  </div>
+                <div class="best-seller-con">
+                    <div class="best-left">
+                        <div class="best-img"><img src="./assets/images/andreas background.jpg" alt="">
+                            <h4>Sushi</h4>
+                        </div>
+                    </div>
+                    <div class="best-mid">
+                        <div class="best-img"><img src="./assets/images/andreas background.jpg" alt="">
+                            <h4>12pcs Spring Rolls</h4>
+                        </div>
+                    </div>
+                    <div class="best-right">
+                        <div class="best-img"><img src="./assets/images/andreas background.jpg" alt="">
+                            <h4>Maki</h4>
+                        </div>
+                    </div>
                 </div>
-                <div class="best-right">
-                  <div class="best-img"><img src="./assets/images/andreas background.jpg" alt="">
-                    <h4>Maki</h4>
-                  </div>
+                <div class="margin-space">
+                    <div class="prod-navi">
+                        <a class="active" href="#home">
+                            <div class="prod-navi-img">
+                                <div class="circle-bg"><img src="./assets/images/all.png" alt=""></div>
+                            </div>ALL
+                        </a>
+                        <a href="#home">
+                            <div class="prod-navi-img">
+                                <div class="circle-bg"><img src="./assets/images/maki.png" alt=""></div>
+                            </div>MAKI
+                        </a>
+                        <a href="#home">
+                            <div class="prod-navi-img">
+                                <div class="circle-bg"><img src="./assets/images/rolls.png" alt=""></div>
+                            </div>SPRING ROLLS
+                        </a>
+                        <a href="#home">
+                            <div class="prod-navi-img">
+                                <div class="circle-bg"><img src="./assets/images/sushi.png" alt=""></div>
+                            </div>SUSHI
+                        </a>
+                    </div>
+                    <div class="product-container">
+                        <div class="product" data-bs-toggle="modal" data-bs-target="#orderModal">
+                            <img src="./assets/images/andreas background.jpg" alt="">
+                            <div class="product-text">
+                                <span>Andrea's Fresh and Greens</span>
+                                <h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
+                                <h4>₱260</h4>
+                            </div>
+                        </div>
+                        <div class="product" data-bs-toggle="modal" data-bs-target="#orderModal">
+                            <img src="./assets/images/andreas background.jpg" alt="">
+                            <div class="product-text">
+                                <span>Andrea's Fresh and Greens</span>
+                                <h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
+                                <h4>₱260</h4>
+                            </div>
+                        </div>
+                        <div class="product" data-bs-toggle="modal" data-bs-target="#orderModal">
+                            <img src="./assets/images/andreas background.jpg" alt="">
+                            <div class="product-text">
+                                <span>Andrea's Fresh and Greens</span>
+                                <h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
+                                <h4>₱260</h4>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-        	  </div>
-			  <div class="margin-space">
-				  <div class="prod-navi">
-					<a class="active" href="#home"><div class="prod-navi-img"><div class="circle-bg"><img src="./assets/images/all.png" alt=""></div></div>ALL</a>
-                    <a href="#home"><div class="prod-navi-img"><div class="circle-bg"><img src="./assets/images/maki.png" alt=""></div></div>MAKI</a>
-					<a href="#home"><div class="prod-navi-img"><div class="circle-bg"><img src="./assets/images/rolls.png" alt=""></div></div>SPRING ROLLS</a>
-					<a href="#home"><div class="prod-navi-img"><div class="circle-bg"><img src="./assets/images/sushi.png" alt=""></div></div>SUSHI</a>
-				  </div>
-					<div class="product-container">
-					  <div class="product" data-bs-toggle="modal" data-bs-target="#orderModal">
-						  <img src="./assets/images/andreas background.jpg" alt="">
-						  <div class="product-text">
-							  <span>Andrea's Fresh and Greens</span>
-							  <h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
-							  <h4>₱260</h4>
-						  </div>
-					  </div>
-                      <div class="product" data-bs-toggle="modal" data-bs-target="#orderModal">
-						  <img src="./assets/images/andreas background.jpg" alt="">
-						  <div class="product-text">
-							  <span>Andrea's Fresh and Greens</span>
-							  <h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
-							  <h4>₱260</h4>
-						  </div>
-					  </div>
-                      <div class="product" data-bs-toggle="modal" data-bs-target="#orderModal">
-						  <img src="./assets/images/andreas background.jpg" alt="">
-						  <div class="product-text">
-							  <span>Andrea's Fresh and Greens</span>
-							  <h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
-							  <h4>₱260</h4>
-						  </div>
-					  </div>
-				  </div>
-				</div>
-          </div>
-          <div class="cart-cont">
-            <div class="d-flex justify-content-between">
-                <h4><span class="fas fa-cart-plus"></span> My Cart</h4>
-              	<div><input type="checkbox" id="all" name="all" value="all"><label for="all">ALL</label></div>
             </div>
-				<div class="pad-bot">
-					<div class="cart-item">
-                      	<input type="checkbox">
-						<div class="cart-img">
-							<img src="./assets/images/andreas background.jpg" alt="">
-						</div>
-						<div class="cart-details">
-							<h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
-							<div class="price-quantity">
-								<span>₱260</span>
-								<div class="quantity">
-									<span class="minus">-</span>
-									<input type="number" class="count" name="quantity" value="1">
-									<span class="plus">+</span>
-								</div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="cart-item">
-                      	<input type="checkbox">
-						<div class="cart-img">
-							<img src="./assets/images/andreas background.jpg" alt="">
-						</div>
-						<div class="cart-details">
-							<h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
-							<div class="price-quantity">
-								<span>₱260</span>
-								<div class="quantity">
-									<span class="minus">-</span>
-									<input type="number" class="count" name="quantity" value="1">
-									<span class="plus">+</span>
-								</div>
-							</div>
-						</div>
-					</div>
-					
-					
-					<div class="cart-item">
-                      	<input type="checkbox">
-						<div class="cart-img">
-							<img src="./assets/images/andreas background.jpg" alt="">
-						</div>
-						<div class="cart-details">
-							<h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
-							<div class="price-quantity">
-								<span>₱260</span>
-								<div class="quantity">
-									<span class="minus">-</span>
-									<input type="number" class="count" name="quantity" value="1">
-									<span class="plus">+</span>
-								</div>
-							</div>
-						</div>
-					</div>
-					
-					
-					<div class="cart-item">
-                      	<input type="checkbox">
-						<div class="cart-img">
-							<img src="./assets/images/andreas background.jpg" alt="">
-						</div>
-						<div class="cart-details">
-							<h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
-							<div class="price-quantity">
-								<span>₱260</span>
-								<div class="quantity">
-									<span class="minus">-</span>
-									<input type="number" class="count" name="quantity" value="1">
-									<span class="plus">+</span>
-								</div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="cart-item">
-                      	<input type="checkbox">
-						<div class="cart-img">
-							<img src="./assets/images/andreas background.jpg" alt="">
-						</div>
-						<div class="cart-details">
-							<h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
-							<div class="price-quantity">
-								<span>₱260</span>
-								<div class="quantity">
-									<span class="minus">-</span>
-									<input type="number" class="count" name="quantity" value="1">
-									<span class="plus">+</span>
-								</div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="cart-item">
-                      	<input type="checkbox">
-						<div class="cart-img">
-							<img src="./assets/images/andreas background.jpg" alt="">
-						</div>
-						<div class="cart-details">
-							<h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
-							<div class="price-quantity">
-								<span>₱260</span>
-								<div class="quantity">
-									<span class="minus">-</span>
-									<input type="number" class="count" name="quantity" value="1">
-									<span class="plus">+</span>
-								</div>
-							</div>
-						</div>
-					</div>
-                  
-                  <div class="cart-item">
-                      	<input type="checkbox">
-						<div class="cart-img">
-							<img src="./assets/images/andreas background.jpg" alt="">
-						</div>
-						<div class="cart-details">
-							<h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
-							<div class="price-quantity">
-								<span>₱260</span>
-								<div class="quantity">
-									<span class="minus">-</span>
-									<input type="number" class="count" name="quantity" value="1">
-									<span class="plus">+</span>
-								</div>
-							</div>
-						</div>
-					</div>
-                  
-                  <div class="cart-item">
-                      	<input type="checkbox">
-						<div class="cart-img">
-							<img src="./assets/images/andreas background.jpg" alt="">
-						</div>
-						<div class="cart-details">
-							<h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
-							<div class="price-quantity">
-								<span>₱260</span>
-								<div class="quantity">
-									<span class="minus">-</span>
-									<input type="number" class="count" name="quantity" value="1">
-									<span class="plus">+</span>
-								</div>
-							</div>
-						</div>
-					</div>
-                  
-                  <div class="cart-item">
-                      	<input type="checkbox">
-						<div class="cart-img">
-							<img src="./assets/images/andreas background.jpg" alt="">
-						</div>
-						<div class="cart-details">
-							<h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
-							<div class="price-quantity">
-								<span>₱260</span>
-								<div class="quantity">
-									<span class="minus">-</span>
-									<input type="number" class="count" name="quantity" value="1">
-									<span class="plus">+</span>
-								</div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="cart-item">
-                      	<input type="checkbox">
-						<div class="cart-img">
-							<img src="./assets/images/andreas background.jpg" alt="">
-						</div>
-						<div class="cart-details">
-							<h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
-							<div class="price-quantity">
-								<span>₱260</span>
-								<div class="quantity">
-									<span class="minus">-</span>
-									<input type="number" class="count" name="quantity" value="1">
-									<span class="plus">+</span>
-								</div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="cart-item">
-                      	<input type="checkbox">
-						<div class="cart-img">
-							<img src="./assets/images/andreas background.jpg" alt="">
-						</div>
-						<div class="cart-details">
-							<h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
-							<div class="price-quantity">
-								<span>₱260</span>
-								<div class="quantity">
-									<span class="minus">-</span>
-									<input type="number" class="count" name="quantity" value="1">
-									<span class="plus">+</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-            	<div class="summ-con">
-                  	<hr>
-					<h3>Summary <span class="fa fa-trash"></span></h3>
-                  <center><hr size = "20px" width="98%" </center></center>
-					
-					<div class ="sub-total-con">
-						<div class="sub-right">
-							<h6>Sub Total:</h6>
-							<h6>Delivery Type:</h6>
-							<h6>Total Price:</h6>
-						</div>
-						<div class="sub-left">
-							<h6>123</h6>
-							<h6>123</h6>
-							<h6>123</h6>
-						</div>
-					</div>
-					<button type="button" data-bs-toggle="modal" data-bs-target="#orderModal">Check Out</button>
-				</div>
-			</div>
+            <div class="cart-cont">
+                <div class="d-flex justify-content-between">
+                    <h4><span class="fas fa-cart-plus"></span> My Cart</h4>
+                    <div><input type="checkbox" id="all" name="all" value="all"><label for="all">ALL</label></div>
+                </div>
+                <div class="pad-bot">
+                    <div class="cart-item">
+                        <input type="checkbox">
+                        <div class="cart-img">
+                            <img src="./assets/images/andreas background.jpg" alt="">
+                        </div>
+                        <div class="cart-details">
+                            <h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
+                            <div class="price-quantity">
+                                <span>₱260</span>
+                                <div class="quantity">
+                                    <span class="minus">-</span>
+                                    <input type="number" class="count" name="quantity" value="1">
+                                    <span class="plus">+</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cart-item">
+                        <input type="checkbox">
+                        <div class="cart-img">
+                            <img src="./assets/images/andreas background.jpg" alt="">
+                        </div>
+                        <div class="cart-details">
+                            <h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
+                            <div class="price-quantity">
+                                <span>₱260</span>
+                                <div class="quantity">
+                                    <span class="minus">-</span>
+                                    <input type="number" class="count" name="quantity" value="1">
+                                    <span class="plus">+</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="cart-item">
+                        <input type="checkbox">
+                        <div class="cart-img">
+                            <img src="./assets/images/andreas background.jpg" alt="">
+                        </div>
+                        <div class="cart-details">
+                            <h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
+                            <div class="price-quantity">
+                                <span>₱260</span>
+                                <div class="quantity">
+                                    <span class="minus">-</span>
+                                    <input type="number" class="count" name="quantity" value="1">
+                                    <span class="plus">+</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="cart-item">
+                        <input type="checkbox">
+                        <div class="cart-img">
+                            <img src="./assets/images/andreas background.jpg" alt="">
+                        </div>
+                        <div class="cart-details">
+                            <h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
+                            <div class="price-quantity">
+                                <span>₱260</span>
+                                <div class="quantity">
+                                    <span class="minus">-</span>
+                                    <input type="number" class="count" name="quantity" value="1">
+                                    <span class="plus">+</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cart-item">
+                        <input type="checkbox">
+                        <div class="cart-img">
+                            <img src="./assets/images/andreas background.jpg" alt="">
+                        </div>
+                        <div class="cart-details">
+                            <h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
+                            <div class="price-quantity">
+                                <span>₱260</span>
+                                <div class="quantity">
+                                    <span class="minus">-</span>
+                                    <input type="number" class="count" name="quantity" value="1">
+                                    <span class="plus">+</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cart-item">
+                        <input type="checkbox">
+                        <div class="cart-img">
+                            <img src="./assets/images/andreas background.jpg" alt="">
+                        </div>
+                        <div class="cart-details">
+                            <h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
+                            <div class="price-quantity">
+                                <span>₱260</span>
+                                <div class="quantity">
+                                    <span class="minus">-</span>
+                                    <input type="number" class="count" name="quantity" value="1">
+                                    <span class="plus">+</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cart-item">
+                        <input type="checkbox">
+                        <div class="cart-img">
+                            <img src="./assets/images/andreas background.jpg" alt="">
+                        </div>
+                        <div class="cart-details">
+                            <h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
+                            <div class="price-quantity">
+                                <span>₱260</span>
+                                <div class="quantity">
+                                    <span class="minus">-</span>
+                                    <input type="number" class="count" name="quantity" value="1">
+                                    <span class="plus">+</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cart-item">
+                        <input type="checkbox">
+                        <div class="cart-img">
+                            <img src="./assets/images/andreas background.jpg" alt="">
+                        </div>
+                        <div class="cart-details">
+                            <h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
+                            <div class="price-quantity">
+                                <span>₱260</span>
+                                <div class="quantity">
+                                    <span class="minus">-</span>
+                                    <input type="number" class="count" name="quantity" value="1">
+                                    <span class="plus">+</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cart-item">
+                        <input type="checkbox">
+                        <div class="cart-img">
+                            <img src="./assets/images/andreas background.jpg" alt="">
+                        </div>
+                        <div class="cart-details">
+                            <h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
+                            <div class="price-quantity">
+                                <span>₱260</span>
+                                <div class="quantity">
+                                    <span class="minus">-</span>
+                                    <input type="number" class="count" name="quantity" value="1">
+                                    <span class="plus">+</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cart-item">
+                        <input type="checkbox">
+                        <div class="cart-img">
+                            <img src="./assets/images/andreas background.jpg" alt="">
+                        </div>
+                        <div class="cart-details">
+                            <h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
+                            <div class="price-quantity">
+                                <span>₱260</span>
+                                <div class="quantity">
+                                    <span class="minus">-</span>
+                                    <input type="number" class="count" name="quantity" value="1">
+                                    <span class="plus">+</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cart-item">
+                        <input type="checkbox">
+                        <div class="cart-img">
+                            <img src="./assets/images/andreas background.jpg" alt="">
+                        </div>
+                        <div class="cart-details">
+                            <h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
+                            <div class="price-quantity">
+                                <span>₱260</span>
+                                <div class="quantity">
+                                    <span class="minus">-</span>
+                                    <input type="number" class="count" name="quantity" value="1">
+                                    <span class="plus">+</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="summ-con">
+                    <hr>
+                    <h3>Summary <span class="fa fa-trash"></span></h3>
+                    <center>
+                        <hr size="20px" width="98%" </center>
+                    </center>
+
+                    <div class="sub-total-con">
+                        <div class="sub-right">
+                            <h6>Sub Total:</h6>
+                            <h6>Delivery Type:</h6>
+                            <h6>Total Price:</h6>
+                        </div>
+                        <div class="sub-left">
+                            <h6>123</h6>
+                            <h6>123</h6>
+                            <h6>123</h6>
+                        </div>
+                    </div>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#orderModal">Check Out</button>
+                </div>
+            </div>
         </div>
         <div class="navi">
             <img src="./assets/images/icon/full-logo.png" class="logo" alt="">
@@ -337,7 +355,7 @@ session_start();
                 <div class="modal-header">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body"></div>
+                <div class="modal-body" id="product-info"></div>
                 <div class="modal-footer">
                     <button type="button" class="ordr-butn">Buy Now</button>
                     <button type="button" class="ordr-butn">Add to Cart</button>
