@@ -1,9 +1,4 @@
-const getCustomer = () => {
-    let customer = localStorage.getItem('customerDetails');
-    if (customer == undefined) {
-        customAlert("error", "Unavailable details!", "No customer details found!");
-    }
-}
+const customerDetails = localStorage.getItem('customerDetails');
 
 const setCustomer = (firstName, lastName, contactNo, address) => {
     const customerDetails = {
@@ -13,4 +8,12 @@ const setCustomer = (firstName, lastName, contactNo, address) => {
         address: address,
     }
     localStorage.setItem('customerDetails', JSON.stringify(customerDetails));
+}
+
+function isAuthenticated() {
+    if (localStorage.getItem('customerDetails') !== null) {
+        return true;
+    } else {
+        return false;
+    }
 }

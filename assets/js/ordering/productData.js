@@ -1,7 +1,12 @@
-$(document).ready(function () {
-    $(document).on("click", ".product", function () {
+const orderModal = new bootstrap.Modal(document.querySelector("#orderModal"), {});
+const customerInfoModal = new bootstrap.Modal(document.querySelector("#customerInfoModal"), {});
+
+$(document).on("click", ".product", function () {
+    if (isAuthenticated()) {
+        console.log(authentication);
+        orderModal.show();
         // Initialize Skeleton Loader
-        $(".modal-body").html(`
+        $("#product-info").html(`
         <div class="mb-3">
             <div class="skeleton skeleton-rich-input w-100" style="height: 7.5rem;"></div>
         </div>
@@ -18,7 +23,9 @@ $(document).ready(function () {
         `);
         let primary_id = $(this).data('id');
         displayProduct(primary_id);
-    });
+    } else {
+        customerInfoModal.show();
+    }
 });
 
 // Displays the product data

@@ -74,7 +74,7 @@ session_start();
                         </a>
                     </div>
                     <div class="product-container">
-                        <div class="product" data-bs-toggle="modal" data-bs-target="#orderModal">
+                        <div class="product">
                             <img src="./assets/images/andreas background.jpg" alt="">
                             <div class="product-text">
                                 <span>Andrea's Fresh and Greens</span>
@@ -82,7 +82,7 @@ session_start();
                                 <h4>₱260</h4>
                             </div>
                         </div>
-                        <div class="product" data-bs-toggle="modal" data-bs-target="#orderModal">
+                        <div class="product">
                             <img src="./assets/images/andreas background.jpg" alt="">
                             <div class="product-text">
                                 <span>Andrea's Fresh and Greens</span>
@@ -90,7 +90,7 @@ session_start();
                                 <h4>₱260</h4>
                             </div>
                         </div>
-                        <div class="product" data-bs-toggle="modal" data-bs-target="#orderModal">
+                        <div class="product">
                             <img src="./assets/images/andreas background.jpg" alt="">
                             <div class="product-text">
                                 <span>Andrea's Fresh and Greens</span>
@@ -326,7 +326,7 @@ session_start();
                             <h6>123</h6>
                         </div>
                     </div>
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#orderModal">Check Out</button>
+                    <button type="button">Check Out</button>
                 </div>
             </div>
         </div>
@@ -364,9 +364,28 @@ session_start();
         </div>
     </div>
 
+    <div class="modal fade cart" id="customerInfoModal" tabindex="-1" aria-labelledby="customerInfoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content customerInfoModal">
+                <div class="modal-header">
+                    <h5 class="modal-title">Enter details before ordering</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    WIP CUSTOMER FORM
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer></footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
     <script src="./assets/js/cart.js"></script>
+    <script src="./assets/js/ordering/customerAuthentication.js"></script>
     <script src="./assets/js/ordering/productData.js"></script>
 </body>
 
