@@ -437,7 +437,27 @@ session_start();
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    WIP CUSTOMER FORM
+                    <!-- Customer Details -->
+                    <form id="customer_form">
+                        <div class="mb-3 d-flex">
+                            <div class="w-100">
+                                <label for="firstname" class="form-label">First Name</label>
+                                <input type="text" class="form-control" name="firstname" id="firstname" placeholder="First Name" required>
+                            </div>
+                            <div class="w-100 ms-2">
+                                <label for="lastname" class="form-label">Last Name</label>
+                                <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Last Name" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="address" class="form-label">Address</label>
+                            <input type="text" class="form-control" name="address" id="address" placeholder="Address" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="contact_no" class="form-label">Contact No.</label>
+                            <input type="text" class="form-control" name="contact_no" id="contact_no" placeholder="Contact No." required>
+                        </div>
+                    </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
