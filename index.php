@@ -18,15 +18,6 @@ session_start();
 </head>
 
 <body>
-    <header>
-        <div class="header-container">
-            <div class="header-image">
-                <div class="header-text">
-                    <h2>Andrea' s<br><span> Fresh & Greens</span></h2>
-                </div>
-            </div>
-        </div>
-    </header>
     <main>
         <div class="menu-container">
             <div class="order-prod">
@@ -50,7 +41,54 @@ session_start();
                         </div>
                     </div>
                 </div>
+				<!-- best seller mobile!-->
+				<div id="carouselControls" class="carousel slide" data-bs-ride="carousel">
+                  <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                  </div>
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <div class="best-mob">
+                        <div class="best-mob-img"><img src="./assets/images/best1.png" alt="">
+                            <div class="carousel-caption d-block">
+                                <h5>12 pcs. Spring Rolls</h5>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="carousel-item">
+                      <div class="best-mob">
+                        <div class="best-mob-img"><img src="./assets/images/best2.png" alt="">
+                            <div class="carousel-caption d-block">
+                                <h5>Sushi</h5>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="carousel-item">
+                      <div class="best-mob">
+                        <div class="best-mob-img"><img src="./assets/images/best1.png" alt="">
+                            <div class="carousel-caption d-block">
+                                <h5>Maki</h5>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                  </div>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselControls" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselControls" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+				
                 <div class="margin-space">
+                  <h4>Categories</h4>
                     <div class="prod-navi">
                         <a class="active" href="#home">
                             <div class="prod-navi-img">
@@ -79,7 +117,9 @@ session_start();
                             <div class="product-text">
                                 <span>Andrea's Fresh and Greens</span>
                                 <h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
+                              	<hr>
                                 <h4>₱260</h4>
+                              	 <button type="button">Order</button>
                             </div>
                         </div>
                         <div class="product">
@@ -87,7 +127,9 @@ session_start();
                             <div class="product-text">
                                 <span>Andrea's Fresh and Greens</span>
                                 <h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
+                              	<hr>
                                 <h4>₱260</h4>
+                              	 <button type="button">Order</button>
                             </div>
                         </div>
                         <div class="product">
@@ -95,7 +137,39 @@ session_start();
                             <div class="product-text">
                                 <span>Andrea's Fresh and Greens</span>
                                 <h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
+                              	<hr>
                                 <h4>₱260</h4>
+                              	 <button type="button">Order</button>
+                            </div>
+                        </div>
+						<div class="product">
+                            <img src="./assets/images/andreas background.jpg" alt="">
+                            <div class="product-text">
+                                <span>Andrea's Fresh and Greens</span>
+                                <h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
+                              	<hr>
+                                <h4>₱260</h4>
+                              	 <button type="button">Order</button>
+                            </div>
+                        </div>
+						<div class="product">
+                            <img src="./assets/images/andreas background.jpg" alt="">
+                            <div class="product-text">
+                                <span>Andrea's Fresh and Greens</span>
+                                <h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
+                              	<hr>
+                                <h4>₱260</h4>
+                              	 <button type="button">Order</button>
+                            </div>
+                        </div>
+						<div class="product">
+                            <img src="./assets/images/andreas background.jpg" alt="">
+                            <div class="product-text">
+                                <span>Andrea's Fresh and Greens</span>
+                                <h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
+                              	<hr>
+                                <h4>₱260</h4>
+                              	 <button type="button">Order</button>
                             </div>
                         </div>
                     </div>
@@ -334,16 +408,7 @@ session_start();
             <img src="./assets/images/icon/full-logo.png" class="logo" alt="">
             <div class="nav-item-con">
                 <div class="nav-item">
-                    <span class="fas fa-shopping-bag"></span>
-                    <a href="#"><span>Order</span></a>
-                </div>
-                <div class="nav-item">
                     <span class="fas fa-cart-plus"></span>
-                    <a href="#"><span>Cart</span></a>
-                </div>
-                <div class="nav-item">
-                    <span class="fa fa-info-circle"></span>
-                    <a href="#"><span>About</span></a>
                 </div>
             </div>
         </div>
@@ -382,7 +447,20 @@ session_start();
         </div>
     </div>
 
-    <footer></footer>
+    <footer class="text-center text-white" style="background-color: #165853;">
+
+  <div class="container p-4 pb-0">
+    <section class="mb-4">
+      <a class="btn btn-outline-light btn-floating m-1" href="https://www.facebook.com/profile.php?id=100064229854714" role="button"><i class="fab fa-facebook-f"></i></a>
+      <a class="btn btn-outline-light btn-floating m-1" href="https://mail.google.com/mail/u/0/?fs=1&to=im.ice31@gmail.com&su=&body=&tf=cm" role="button"><i class="fab fa-google"></i></a>
+    </section>
+  </div>
+
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2023 Copyright:
+    <a class="text-white" href="https://www.facebook.com/profile.php?id=100064229854714">Andrea's Fresh and Greens </a>
+  </div>
+</footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
     <script src="./assets/js/cart.js"></script>
     <script src="./assets/js/ordering/customerAuthentication.js"></script>
