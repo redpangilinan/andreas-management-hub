@@ -56,6 +56,16 @@ $(document).ready(function () {
         let delete_id = $(this).data('id');
         deleteConfirmation(delete_id);
     });
+
+    // Enables product status to be changed when clicked
+    $(document).on("click", ".availability", function () {
+        this.innerHTML = `
+        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        <span class="visually-hidden">Loading...</span>
+        `;
+        let primary_id = $(this).data('id');
+        updateStatus(primary_id);
+    });
 });
 
 // ========== Constants ==========
@@ -106,6 +116,8 @@ const insertData = (formData) => {
                 $('#form_add')[0].reset();
                 addBtnEnable();
                 noImageAlert();
+            } else if (data == "expense_handler") {
+                customAlert("error", "High expense!", "Expense cannot be higher or equal to the price!")
             } else {
                 console.log(data);
                 addBtnEnable();
@@ -132,6 +144,8 @@ const updateData = (formData) => {
                 editAlert();
             } else if (data == "no image success") {
                 noImageAlert();
+            } else if (data == "expense_handler") {
+                customAlert("error", "High expense!", "Expense cannot be higher or equal to the price!")
             } else {
                 console.log(data);
                 errorAlert();
@@ -154,6 +168,25 @@ const deleteData = (delete_id) => {
                 deleteAlert();
             } else {
                 console.log(data);
+                errorAlert();
+            }
+        }
+    });
+}
+
+// Updates the product status
+const updateStatus = (primary_id) => {
+    $.ajax({
+        url: "../assets/php/crud/update_status.php",
+        method: "POST",
+        data: {
+            primary_id: primary_id,
+        },
+        success: function (data) {
+            displayTable();
+            if (data == "success") {
+                editAlert();
+            } else {
                 errorAlert();
             }
         }
