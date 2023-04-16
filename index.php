@@ -183,7 +183,7 @@ include "./assets/php/ordering/best_seller.php"
                         </div>
                         <div class="mb-3">
                             <label for="contact_no" class="form-label">Contact No.</label>
-                            <input type="text" class="form-control" name="contact_no" id="contact_no" placeholder="Contact No." required>
+                            <input type="number" class="form-control" name="contact_no" id="contact_no" placeholder="Contact No." required>
                         </div>
                     </form>
                 </div>
