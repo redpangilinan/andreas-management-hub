@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 
 * {
     margin: 0;
@@ -375,6 +376,10 @@ td {
     position: absolute;
     bottom: -0.25rem;
     left: 1.25rem;
+}
+
+.navi .nav-item-con .nav-item button {
+	display: none;
 }
 
 .best-title{
@@ -1057,6 +1062,13 @@ label {
         font-size: 1rem;
         color: #465b52;
     }
+  	
+  .carousel .carousel-inner .carousel-item .best-mob-img .carousel-caption h5 {
+  	font-size: 2rem;
+    font-weight: 900;
+    font-family: 'Dancing Script', cursive;
+
+  }
 
     .web-p {
         display: none;
@@ -1215,6 +1227,7 @@ label {
     }
 
     .navi {
+      	z-index: 98;
         display: flex;
         justify-content: space-between;
       	align-items: center;
@@ -1248,6 +1261,12 @@ label {
       	border: 1px solid;
        	border-radius: 20%;
     }
+  
+  .navi .nav-item-con .nav-item button {
+  		background: none;
+    	border: none;
+    	display: unset;
+  }
 
     .navi .fas,
     .navi .fa {
@@ -1264,30 +1283,14 @@ label {
 
     /* cart mobile */
     .cart-cont {
-        position: relative;
+      	z-index: 99;
         width: 100%;
         margin-bottom: inherit;
         border: none;
-        height: unset;
-        display:none;
+      	display: none;
     }
-
-    .summ-con h3 {
-        display: none;
-    }
-
-    .summ-con {
-        width: unset;
-        height: unset;
-        margin-left: unset;
-        border-left: unset;
-        padding: unset;
-		display:none;
-    }
-
     .pad-bot {
-        margin-bottom: 190px;
-        overflow: unset;
+      	margin-bottom: 250px;
         padding: 0;
         border: none;
     }
@@ -1309,7 +1312,7 @@ label {
     .cart-item:hover {
         box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
     }
-
+  	
     .close-cart {
         position: absolute;
         top: 0;
@@ -1443,9 +1446,11 @@ label {
     }
 
     .summ-con {
+      	z-index: 99;
         position: fixed;
         right: 0;
-        bottom: 20;
+      	left: 0;
+        bottom: 0;
         width: 100%;
         padding: 20px;
         background-color: #ffffff;
@@ -1453,8 +1458,6 @@ label {
         cursor: pointer;
         box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
         transition: 0.2s ease;
-        height: 150px;
-        margin-bottom: 20px;
         justify-content: space-around;
     }
 
@@ -1466,6 +1469,11 @@ label {
         width: 45%;
         text-align: right;
     }
+  	
+  	.sub-total-con {
+  	  background-color: #ffffff;
+      width: 100%;
+	}
 
     .sub-left button {
         border: none;
