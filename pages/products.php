@@ -84,6 +84,7 @@ validateSession();
                                         <th>Details</th>
                                         <th>Expense</th>
                                         <th>Price</th>
+                                        <th>Status</th>
                                         <th>Modify</th>
                                     </tr>
                                 </thead>
@@ -102,6 +103,9 @@ validateSession();
                                             </td>
                                             <td>
                                                 <div class='skeleton skeleton-img rounded'></div>
+                                            </td>
+                                            <td>
+                                                <div class='skeleton skeleton-text w-100'></div>
                                             </td>
                                             <td>
                                                 <div class='skeleton skeleton-text w-100'></div>
