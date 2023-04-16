@@ -1,6 +1,11 @@
 const orderModal = new bootstrap.Modal(document.querySelector("#orderModal"), {});
 const customerInfoModal = new bootstrap.Modal(document.querySelector("#customerInfoModal"), {});
 
+// Display every product on load
+$(document).ready(function () {
+    displayProducts("All");
+});
+
 $(document).on("click", ".product", function () {
     if (isAuthenticated()) {
         console.log(authentication);
@@ -22,14 +27,39 @@ $(document).on("click", ".product", function () {
         </div>
         `);
         let primary_id = $(this).data('id');
-        displayProduct(primary_id);
+        displayProductInfo(primary_id);
     } else {
         customerInfoModal.show();
     }
 });
 
+$(document).on("click", ".category-tab", function () {
+    const category = $(this).data('category');
+    $("#store-products").html(`
+    <div class="product skeleton skeleton-rich-input w-100" style="height: 20rem;"></div>
+    <div class="product skeleton skeleton-rich-input w-100" style="height: 20rem;"></div>
+    <div class="product skeleton skeleton-rich-input w-100" style="height: 20rem;"></div>
+    <div class="product skeleton skeleton-rich-input w-100" style="height: 20rem;"></div>
+    <div class="product skeleton skeleton-rich-input w-100" style="height: 20rem;"></div>`);
+    displayProducts(category);
+});
+
+// Displays all available products within the category
+const displayProducts = (category) => {
+    $.ajax({
+        url: "./assets/php/ordering/products_display.php",
+        method: "POST",
+        data: {
+            category: category,
+        },
+        success: function (data) {
+            $("#store-products").html(data);
+        }
+    });
+}
+
 // Displays the product data
-const displayProduct = (primary_id) => {
+const displayProductInfo = (primary_id) => {
     $.ajax({
         url: "./assets/php/ordering/products_info.php",
         method: "POST",

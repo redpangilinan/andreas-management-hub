@@ -1,51 +1,39 @@
 <?php
-include "./assets/php/connection.php";
+if (isset($_POST['category'])) {
+    include "../connection.php";
+    $category = mysqli_real_escape_string($conn, $_POST["category"]);
 
-// Query the database for all products
-$query = "SELECT product_id, product, category, details, price, image FROM tb_products ORDER BY category";
-$result = mysqli_query($conn, $query);
+    // Query the database for all products
+    if ($category == "All") {
+        $query = "SELECT product, price, image FROM tb_products ORDER BY product_id";
+    } else {
+        $query = "SELECT product, price, image FROM tb_products WHERE category = '$category' ORDER BY product_id";
+    }
+    $result = mysqli_query($conn, $query);
 
-// Initialize a variable to keep track of the current category
-$current_category = null;
+    // Loop through the results and print the products
+    while ($row = mysqli_fetch_assoc($result)) {
+        $product = $row['product'];
+        $price = $row['price'];
+        $image = $row['image'];
 
-// Loop through the results and print the products
-while ($row = mysqli_fetch_assoc($result)) {
-    $product_id = $row["product_id"];
-    $category = $row['category'];
-    $product = $row['product'];
-    $price = $row['price'];
-    $image = $row['image'];
-    $details = $row['details'];
-
-    // If this is the first product or a new category, print the category header
-    if ($current_category == null || $category != $current_category) {
-        // Close the previous product container, if any
-        if ($current_category != null) {
-            echo "</div>";
-        }
-        // Open a new product container for this category
-        echo "<h3>$category</h3>";
-        echo "<div class='product-container'>";
-        $current_category = $category;
+?>
+        <div class="product">
+            <img src="./assets/images/products/<?php echo $image ?>" alt="">
+            <div class="product-text">
+                <span>Andrea's Fresh and Greens</span>
+                <h5><?php echo $product ?></h5>
+                <hr>
+                <h4><?php echo "₱" . $price ?></h4>
+                <button type="button">Order</button>
+            </div>
+        </div>
+<?php
     }
 
-    // Print the product
-    echo "
-    <div class='product' data-id='$product_id' data-bs-toggle='modal' data-bs-target='#orderModal'>
-        <img src='./assets/images/products/$image' alt=''>
-        <div class='product-text'>
-            <h5>$product</h5>
-            <span>$details</span>
-            <h4>₱$price</h4>
-        </div>
-    </div>
-    ";
+    // Close the database connection
+    mysqli_close($conn);
+} else {
+    echo "Error retrieving data.";
 }
-
-// Close the final product container
-if ($current_category != null) {
-    echo "</div>";
-}
-
-// Close the database connection
-mysqli_close($conn);
+?>
