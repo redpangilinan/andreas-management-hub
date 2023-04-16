@@ -11,7 +11,6 @@ include "./assets/php/ordering/best_seller.php"
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -51,24 +50,19 @@ include "./assets/php/ordering/best_seller.php"
                 <div class="margin-space">
                     <h4>Categories</h4>
                     <div class="prod-navi">
-                        <a class="active" href="#home">
+                        <a class="category-tab" href="#home" data-category="All">
                             <div class="prod-navi-img">
                                 <div class="circle-bg"><img src="./assets/images/all.png" alt="" class="rounded-circle"></div>
                             </div>All
                         </a>
                         <?php include "./assets/php/ordering/show_categories.php" ?>
                     </div>
-                    <div class="product-container">
-                        <div class="product">
-                            <img src="./assets/images/andreas background.jpg" alt="">
-                            <div class="product-text">
-                                <span>Andrea's Fresh and Greens</span>
-                                <h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
-                                <hr>
-                                <h4>₱260</h4>
-                                <button type="button">Order</button>
-                            </div>
-                        </div>
+                    <div class="product-container mb-sm-4" id="store-products">
+                        <div class="product skeleton skeleton-rich-input w-100" style="height: 20rem;"></div>
+                        <div class="product skeleton skeleton-rich-input w-100" style="height: 20rem;"></div>
+                        <div class="product skeleton skeleton-rich-input w-100" style="height: 20rem;"></div>
+                        <div class="product skeleton skeleton-rich-input w-100" style="height: 20rem;"></div>
+                        <div class="product skeleton skeleton-rich-input w-100" style="height: 20rem;"></div>
                     </div>
                 </div>
             </div>
