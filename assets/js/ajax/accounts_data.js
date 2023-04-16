@@ -66,6 +66,10 @@ $(document).ready(function () {
     $(document).on("click", ".switch-auth", function () {
         let primary_id = $(this).data('id');
         if (primary_id !== 1) {
+            this.innerHTML = `
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            <span class="visually-hidden">Loading...</span>
+            `;
             updateAuthority(primary_id);
         } else {
             customAlert("error", "Owner Account!", "You can't change the owner account authority!")
@@ -250,7 +254,7 @@ const deleteData = (delete_id) => {
 // Updates the account type authority
 const updateAuthority = (primary_id) => {
     $.ajax({
-        url: "../assets/php/update_authority.php",
+        url: "../assets/php/crud/update_authority.php",
         method: "POST",
         data: {
             primary_id: primary_id,
