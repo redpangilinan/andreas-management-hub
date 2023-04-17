@@ -35,12 +35,12 @@ $(document).on("click", ".product", function () {
 
 $(document).on("click", ".category-tab", function () {
     const category = $(this).data('category');
-    $("#store-products").html(`
-    <div class="product skeleton skeleton-rich-input w-100" style="height: 20rem;"></div>
-    <div class="product skeleton skeleton-rich-input w-100" style="height: 20rem;"></div>
-    <div class="product skeleton skeleton-rich-input w-100" style="height: 20rem;"></div>
-    <div class="product skeleton skeleton-rich-input w-100" style="height: 20rem;"></div>
-    <div class="product skeleton skeleton-rich-input w-100" style="height: 20rem;"></div>`);
+    const count = $(this).data('count');
+    let products = '';
+    for (let i = 0; i < count; i++) {
+        products += '<div class="product skeleton skeleton-rich-input w-100" style="height: 20rem;"></div>';
+    }
+    $("#store-products").html(products);
     displayProducts(category);
 });
 

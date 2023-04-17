@@ -49,20 +49,28 @@ include "./assets/php/ordering/best_seller.php"
 
                 <div class="margin-space">
                     <h4>Categories</h4>
+                    <?php
+                    include "./assets/php/connection.php";
+
+                    $sql = "SELECT COUNT(*) AS product_count FROM tb_products";
+                    $result = mysqli_query($conn, $sql);
+                    $row = mysqli_fetch_assoc($result);
+                    $product_count = $row['product_count'];
+                    ?>
                     <div class="prod-navi">
-                        <a class="category-tab" href="#home" data-category="All">
+                        <a class="category-tab" href="#home" data-category="All" data-count="<?php echo $product_count ?>">
                             <div class="prod-navi-img">
-                                <div class="circle-bg"><img src="./assets/images/all.png" alt="" class="rounded-circle"></div>
+                                <div class="circle-bg"><img src="./assets/images/all.png" alt=""></div>
                             </div>All
                         </a>
                         <?php include "./assets/php/ordering/show_categories.php" ?>
                     </div>
-                    <div class="product-container mb-sm-4" id="store-products">
-                        <div class="product skeleton skeleton-rich-input w-100" style="height: 20rem;"></div>
-                        <div class="product skeleton skeleton-rich-input w-100" style="height: 20rem;"></div>
-                        <div class="product skeleton skeleton-rich-input w-100" style="height: 20rem;"></div>
-                        <div class="product skeleton skeleton-rich-input w-100" style="height: 20rem;"></div>
-                        <div class="product skeleton skeleton-rich-input w-100" style="height: 20rem;"></div>
+                    <div class="product-container mb-4 m-md-0" id="store-products">
+                        <?php
+                        for ($i = 0; $i < $product_count; $i++) {
+                            echo '<div class="product skeleton skeleton-rich-input w-100" style="height: 20rem;"></div>';
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
