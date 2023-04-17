@@ -220,7 +220,6 @@ validateSession();
     <script src="../assets/js/alerts.js"></script>
     <script src="../assets/js/cartAdmin.js"></script>
     <script src="../assets/js/ajax/orders_data.js"></script>
-    <script src="../assets/js/autoAddress.js"></script>
 </body>
 
 </html>
