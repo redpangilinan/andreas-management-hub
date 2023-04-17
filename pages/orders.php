@@ -52,7 +52,7 @@ validateSession();
                         </div>
                         <div class="mb-3">
                             <label for="address" class="form-label">Address</label>
-                            <input type="text" class="form-control" name="address" id="address" placeholder="Address" required>
+                            <input type="text" class="form-control" name="address" id="address" placeholder="Address" autocomplete="new-password" required>
                         </div>
                         <div class="mb-3">
                             <label for="contact_no" class="form-label">Contact No.</label>
@@ -204,9 +204,7 @@ validateSession();
                 </div>
                 <!-- Edit Form -->
                 <form id="form_edit">
-                    <div class="modal-body">
-                        <p>Loading...</p>
-                    </div>
+                    <div class="modal-body"></div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="submit" class="edit-confirm btn btn-primary" id="editButton">Save changes</button>
@@ -222,6 +220,7 @@ validateSession();
     <script src="../assets/js/alerts.js"></script>
     <script src="../assets/js/cartAdmin.js"></script>
     <script src="../assets/js/ajax/orders_data.js"></script>
+    <script src="../assets/js/autoAddress.js"></script>
 </body>
 
 </html>
