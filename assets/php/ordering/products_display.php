@@ -5,20 +5,21 @@ if (isset($_POST['category'])) {
 
     // Query the database for all products
     if ($category == "All") {
-        $query = "SELECT product, price, image FROM tb_products ORDER BY product_id";
+        $query = "SELECT product_id, product, price, image FROM tb_products ORDER BY product_id";
     } else {
-        $query = "SELECT product, price, image FROM tb_products WHERE category = '$category' ORDER BY product_id";
+        $query = "SELECT product_id, product, price, image FROM tb_products WHERE category = '$category' ORDER BY product_id";
     }
     $result = mysqli_query($conn, $query);
 
     // Loop through the results and print the products
     while ($row = mysqli_fetch_assoc($result)) {
+        $primary_id = $row['product_id'];
         $product = $row['product'];
         $price = $row['price'];
         $image = $row['image'];
 
 ?>
-        <div class="product">
+        <div class="product" data-id="<?php echo $primary_id ?>">
             <img src="./assets/images/products/<?php echo $image ?>" alt="">
             <div class="product-text">
                 <span>Andrea's Fresh and Greens</span>
