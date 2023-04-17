@@ -2,7 +2,7 @@
 $dir = "../../images/products/";
 $file_name = $_FILES['image']['name'];
 $file_tmp_name = $_FILES['image']['tmp_name'];
-$ext = array("jpg", "png", "jpeg", "bmp");
+$ext = array("jpg", "jpeg", "png", "bmp");
 $split = explode('.', $file_name);
 $image_ext = strtolower(end($split));
 
@@ -11,7 +11,15 @@ if (empty($_FILES['image']['tmp_name'])) {
 } else {
     if (in_array($image_ext, $ext)) {
         $file_name = uniqid() . "-" . time() . "-" . date("Y-m-d") . "." . $image_ext;
-        move_uploaded_file($file_tmp_name, "$dir" . $file_name);
+
+        // Compress the image using the GD library
+        $image = imagecreatefromstring(file_get_contents($file_tmp_name));
+        if ($image_ext == "png") {
+            imagepng($image, "$dir" . $file_name, 9); // Adjust the compression level as needed
+        } else {
+            imagejpeg($image, "$dir" . $file_name, 75); // Adjust the compression level as needed
+        }
+        imagedestroy($image);
     } else {
         $file_name = 'default.jpg';
         echo "no image ";
