@@ -8,7 +8,6 @@ $(document).ready(function () {
 
 $(document).on("click", ".product", function () {
     if (isAuthenticated()) {
-        console.log(authentication);
         orderModal.show();
         // Initialize Skeleton Loader
         $("#product-info").html(`
