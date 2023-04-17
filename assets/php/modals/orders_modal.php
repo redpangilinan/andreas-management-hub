@@ -21,7 +21,7 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
     </div>
     <div class="mb-3">
         <label for="edit_address" class="form-label">Address</label>
-        <input type="text" class="form-control" name="edit_address" id="edit_address" placeholder="Address" value="<?php echo $row['address'] ?>" autocomplete="new-password" required>
+        <input type="text" class="form-control" name="edit_address" id="edit_address" placeholder="Address" value="<?php echo $row['address'] ?>" required>
     </div>
     <div class="mb-3">
         <label for="edit_contact_no" class="form-label">Contact No.</label>
