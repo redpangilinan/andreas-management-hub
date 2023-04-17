@@ -1,3 +1,15 @@
+const popupCart = document.querySelector('#popup-cart');
+const cartCont = document.querySelector('#cart-contt');
+
+// Toggle cart
+popupCart.addEventListener('click', () => {
+    if (cartCont.style.display !== 'flex') {
+        cartCont.style.display = 'flex';
+    } else {
+        cartCont.style.display = 'none';
+    }
+})
+
 // Change the product quantity
 $(document).ready(function () {
     $('.count').prop('disabled', true);
