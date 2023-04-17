@@ -188,7 +188,7 @@ include "./assets/php/ordering/best_seller.php"
                         </div>
                         <div class="mb-3">
                             <label for="address" class="form-label">Address</label>
-                            <input type="text" class="form-control" name="address" id="address" placeholder="Address" required>
+                            <input type="text" class="form-control" name="address" id="address" placeholder="Address" autocomplete="new-password" required>
                         </div>
                         <div class="mb-3">
                             <label for="contact_no" class="form-label">Contact No.</label>
@@ -210,17 +210,7 @@ include "./assets/php/ordering/best_seller.php"
     <script src="./assets/js/cart.js"></script>
     <script src="./assets/js/ordering/customerAuthentication.js"></script>
     <script src="./assets/js/ordering/productData.js"></script>
-    <script>
-        const popupCart = document.querySelector('#popup-cart');
-        const cartCont = document.querySelector('#cart-contt');
-        popupCart.addEventListener('click', () => {
-            if (cartCont.style.display !== 'flex') {
-                cartCont.style.display = 'flex';
-            } else {
-                cartCont.style.display = 'none';
-            }
-        })
-    </script>
+    <script src="./assets/js/autoAddress.js"></script>
 </body>
 
 </html>
