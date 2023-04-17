@@ -105,7 +105,7 @@ if (
     $edit_price = $_POST['edit_price'];
 
     // Sanitize the user input to before updating record
-    if ($expense >= $price) {
+    if ($edit_expense >= $edit_price) {
         echo "expense_handler";
     } else {
         if ($file_name == "default.jpg") {
