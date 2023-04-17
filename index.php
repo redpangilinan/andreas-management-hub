@@ -173,9 +173,9 @@ include "./assets/php/ordering/best_seller.php"
                     <h5 class="modal-title">Enter details before ordering</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <!-- Customer Details -->
-                    <form id="customer_form">
+                <form id="customer-form">
+                    <div class="modal-body">
+                        <!-- Customer Details -->
                         <div class="mb-3 d-flex">
                             <div class="w-100">
                                 <label for="firstname" class="form-label">First Name</label>
@@ -194,12 +194,12 @@ include "./assets/php/ordering/best_seller.php"
                             <label for="contact_no" class="form-label">Contact No.</label>
                             <input type="number" class="form-control" name="contact_no" id="contact_no" placeholder="Contact No." required>
                         </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" id="customer-submit" style="width: rem;">Save changes</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -207,10 +207,10 @@ include "./assets/php/ordering/best_seller.php"
     <?php include "./assets/php/extensions/footer.php" ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+    <script src="./assets/js/alerts.js"></script>
     <script src="./assets/js/cart.js"></script>
     <script src="./assets/js/ordering/customerAuthentication.js"></script>
     <script src="./assets/js/ordering/productData.js"></script>
-    <script src="./assets/js/autoAddress.js"></script>
 </body>
 
 </html>
