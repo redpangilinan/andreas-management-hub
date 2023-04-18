@@ -24,6 +24,7 @@ Official Management and Ordering System for Andrea's Fresh and Greens
       - [Customer Information](#customer-information)
       - [Ordering Products](#ordering-products)
       - [Viewing Order History](#viewing-order-history)
+  - [License](#license)
 
 ## Overview
 
@@ -148,3 +149,9 @@ Official Management and Ordering System for Andrea's Fresh and Greens
   - Contact No.
 3. All the data from the orders table that includes the same customer name and contact number will be retrieved.
 4. After receiving the data from the orders table, the customers can view all of their purchase history and view the details.
+
+## License
+
+This project is licensed under the [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)](https://creativecommons.org/licenses/by-nc-nd/4.0/) license. See the [LICENSE](LICENSE) file for details.
+
+This license allows others to download and share the project for non-commercial purposes, as long as they give credit to the developers and do not modify the work or create derivative works based on it. If you wish to modify the project, please contact the developers for permission.
