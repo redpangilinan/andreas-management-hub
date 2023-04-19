@@ -47,15 +47,16 @@ Official Management and Ordering System for Andrea's Fresh and Greens
 ## Tech Stack
 
 ### Languages
-- [PHP](https://www.php.net/)
+- [HTML5/CSS3](https://developer.mozilla.org/en-US/docs/Glossary/HTML5)
 - [JavaScript](https://www.javascript.com/)
-- CSS
+- [PHP](https://www.php.net/)
 
 ### Frameworks/Libraries
-- AJAX
-- [JQuery](https://jquery.com/)
+- [JQuery/AJAX](https://jquery.com/)
 - [Bootstrap](https://getbootstrap.com/)
 - [SweetAlert2](https://sweetalert2.github.io/)
+- [Chart.js](https://www.chartjs.org/)
+- [Select2](https://select2.org/)
 
 ## Workflows and Activities
 
