@@ -156,3 +156,8 @@ Official Management and Ordering System for Andrea's Fresh and Greens
 This project is licensed under the [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)](https://creativecommons.org/licenses/by-nc-nd/4.0/) license. See the [LICENSE](LICENSE) file for details.
 
 This license allows others to download and share the project for non-commercial purposes, as long as they give credit to the developers and do not modify the work or create derivative works based on it. If you wish to modify the project, please contact the developers for permission.
+
+## Author
+
+- [redpangilinan](https://github.com/redpangilinan) - Backend
+- [JDterrenal](https://github.com/JDterrenal) - Frontend
