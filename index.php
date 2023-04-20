@@ -77,17 +77,25 @@ include "./assets/php/ordering/best_seller.php"
             </div>
 
             <div class="cart-cont" id="cart-contt">
-                <div class="d-flex justify-content-between">
-                    <h4><span class="fas fa-cart-plus"></span> My Cart</h4>
-                    <div><input type="checkbox" id="all" name="all" value="all"><label for="all">ALL</label></div>
+                <div class="cart-header-con">
+                  <div class="cart-header1">
+                      <h4><span class="fas fa-cart-plus"></span> Your Order</h4>
+                      <div><input type="checkbox" id="all" name="all" value="all"><label for="all">ALL</label></div>
+                  </div>
+                  <div class="cart-header2">
+                      <button type="button" class="history-button" id="history-buttonn">History</button>
+                      <button type="button" class="cart-button" id="cart-buttonn">Cart</button>
+                  </div>
                 </div>
-                <div class="pad-bot">
-                    <div class="cart-item">
+                <div class="cart-con" id="cart-conn">
+                    
+					
+					<div class="history-cart-item">
                         <input type="checkbox">
-                        <div class="cart-img">
+                        <div class="history-cart-img">
                             <img src="./assets/images/andreas background.jpg" alt="">
                         </div>
-                        <div class="cart-details">
+                        <div class="history-cart-details">
                             <h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
                             <div class="price-quantity">
                                 <span>₱260</span>
@@ -99,20 +107,20 @@ include "./assets/php/ordering/best_seller.php"
                             </div>
                         </div>
                     </div>
-
-                    <div class="cart-item">
+                </div>
+				<div class="history-con" id="history-conn">
+					
+					<div class="history-cart-item">
                         <input type="checkbox">
-                        <div class="cart-img">
+                        <div class="history-cart-img">
                             <img src="./assets/images/andreas background.jpg" alt="">
                         </div>
-                        <div class="cart-details">
+                        <div class="history-cart-details">
                             <h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
                             <div class="price-quantity">
                                 <span>₱260</span>
-                                <div class="quantity">
-                                    <span class="minus">-</span>
-                                    <input type="number" class="count" name="quantity" value="1">
-                                    <span class="plus">+</span>
+								<div class="quantity">
+                                <button type="button">Buy again</button>    
                                 </div>
                             </div>
                         </div>
@@ -208,9 +216,40 @@ include "./assets/php/ordering/best_seller.php"
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
     <script src="./assets/js/alerts.js"></script>
-    <script src="./assets/js/cart.js"></script>
+	<script src="./assets/js/cart.js"></script>
     <script src="./assets/js/ordering/customerAuthentication.js"></script>
     <script src="./assets/js/ordering/productData.js"></script>
+	<script>
+	const popupCartCon = document.querySelector('#cart-conn');
+	const popupHistoryCon = document.querySelector('#history-conn');
+
+	const cartButton = document.querySelector('#cart-buttonn');
+	const historyButton = document.querySelector('#history-buttonn');
+
+	historyButton.addEventListener('click', () => {
+		if (popupHistoryCon.style.display !== 'block') {
+			popupHistoryCon.style.display = 'block';
+			popupCartCon.style.display = 'none';
+			historyButton.style.backgroundColor = '#165853';
+			historyButton.style.color = '#ffffff';
+			cartButton.style.backgroundColor = 'transparent';
+			cartButton.style.color = '#165853';
+		}
+	});
+
+	cartButton.addEventListener('click', () => {
+		if (popupCartCon.style.display !== 'block') {
+			popupHistoryCon.style.display = 'none';
+			popupCartCon.style.display = 'block';
+			historyButton.style.backgroundColor = 'transparent';
+			historyButton.style.color = '#165853';
+			cartButton.style.backgroundColor = '#165853';
+			cartButton.style.color = '#ffffff';
+		}
+	});
+		
+		
+	</script>
 </body>
 
 </html>
