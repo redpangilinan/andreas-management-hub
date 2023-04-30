@@ -196,7 +196,7 @@ include "./assets/php/ordering/best_seller.php"
                 </div>
 				
 				<div class="history-summ-con" id="history-summ-con">
-					<div class="sub-total-con">
+					<div class="history-sub-total-con">
                         <div class="sub-right">
                             <h6>Sub Total:</h6>
                             <h6>Delivery Fee:</h6>

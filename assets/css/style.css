@@ -771,6 +771,7 @@ label {
 
 .history-summ-con {
     padding: 10px 20px 20px 20px;
+    display: none;
     width: 100%;
     justify-content: space-around;
     margin: 0;
@@ -778,6 +779,10 @@ label {
 
 
 .sub-total-con {
+    display: flex;
+    justify-content: space-between;
+}
+.history-sub-total-con {
     display: flex;
     justify-content: space-between;
 }
@@ -1654,6 +1659,7 @@ input:disabled {
 	
 	.history-summ-con {
         z-index: 99;
+        display: none;
         position: fixed;
         right: 0;
         left: 0;
@@ -1678,6 +1684,10 @@ input:disabled {
     }
 
     .sub-total-con {
+        background-color: #ffffff;
+        width: 100%;
+    }
+    .history-sub-total-con {
         background-color: #ffffff;
         width: 100%;
     }
