@@ -39,7 +39,7 @@ $(document).ready(function () {
     });
 });
 
-// ========== Constants ==========
+// ========== Functions ==========
 // Displays information about the user currently signed in
 const displayProfile = () => {
     let profile_info = "";

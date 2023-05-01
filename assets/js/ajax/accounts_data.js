@@ -77,7 +77,7 @@ $(document).ready(function () {
     });
 });
 
-// ========== Constants ==========
+// ========== Functions ==========
 // Displays data with search function
 const displayTable = () => {
     let input = $("#search_records").val();
