@@ -12,20 +12,20 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
     <div class="mb-3 d-flex">
         <div class="w-100">
             <label for="edit_firstname" class="form-label">First Name</label>
-            <input type="text" class="form-control" name="edit_firstname" id="edit_firstname" placeholder="First Name" value="<?php echo $row['firstname'] ?>" required>
+            <input type="text" class="form-control" name="edit_firstname" id="edit_firstname" placeholder="First Name" value="<?php echo $row['firstname'] ?>" readonly>
         </div>
         <div class=" w-100 ms-2">
             <label for="edit_lastname" class="form-label">Last Name</label>
-            <input type="text" class="form-control" name="edit_lastname" id="edit_lastname" placeholder="Last Name" value="<?php echo $row['lastname'] ?>" required>
+            <input type="text" class="form-control" name="edit_lastname" id="edit_lastname" placeholder="Last Name" value="<?php echo $row['lastname'] ?>" readonly>
         </div>
     </div>
     <div class="mb-3">
         <label for="edit_address" class="form-label">Address</label>
-        <input type="text" class="form-control" name="edit_address" id="edit_address" placeholder="Address" value="<?php echo $row['address'] ?>" required>
+        <input type="text" class="form-control" name="edit_address" id="edit_address" placeholder="Address" value="<?php echo $row['address'] ?>" readonly>
     </div>
     <div class="mb-3">
         <label for="edit_contact_no" class="form-label">Contact No.</label>
-        <input type="text" class="form-control" name="edit_contact_no" id="edit_contact_no" placeholder="Contact No." value="<?php echo $row['contact_no'] ?>" required>
+        <input type="text" class="form-control" name="edit_contact_no" id="edit_contact_no" placeholder="Contact No." value="<?php echo $row['contact_no'] ?>" readonly>
     </div>
     <!-- Order Details -->
     <div class="mb-3">
@@ -79,7 +79,7 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         <select class="form-select" name="edit_status" id="edit_status" aria-label="Order Status" required>
             <option value="Pending" <?php if ($row['status'] == 'Pending') echo 'selected' ?>>Pending</option>
             <option value="Complete" <?php if ($row['status'] == 'Complete') echo 'selected' ?>>Complete</option>
-            <option value="Cancelled" <?php if ($row['status'] == 'Cancelled') echo 'selected' ?>>Cancelled</option>
+            <option value="Canceled" <?php if ($row['status'] == 'Canceled') echo 'selected' ?>>Canceled</option>
         </select>
     </div>
 <?php
