@@ -55,9 +55,14 @@ if (isset($_POST['input']) && isset($_POST['filter_status'])) {
             <td><?php echo date("Y-m-d h:i A", strtotime($row["order_date_time"])); ?></td>
             <td><?php echo $row["order_type"] ?></td>
             <td><?php echo $row["mode_of_payment"] ?></td>
-            <td><?php echo "₱" . $row["price"] ?></td>
-            <td><?php echo "₱" . $row["profit"] ?></td>
-            <td><?php echo $row["status"] ?></td>
+            <td><?php echo "₱" . $row["price"] . " <span class='text-success'>(" . "₱" . $row["profit"] . ")</span>" ?></td>
+            <td>
+                <select data-id="<?php echo $row["order_id"] ?>" class="status-select form-select form-select-sm" style="min-width: 7rem;">
+                    <option value="Pending" <?php if ($row["status"] == "Pending") echo "selected" ?>>Pending</option>
+                    <option value="Complete" <?php if ($row["status"] == "Complete") echo "selected" ?>>Complete</option>
+                    <option value="Canceled" <?php if ($row["status"] == "Canceled") echo "selected" ?>>Canceled</option>
+                </select>
+            </td>
             <td>
                 <div class="btn-group" role="group" aria-label="modify">
                     <!-- <button data-id="<?php // echo $row["order_id"] 
