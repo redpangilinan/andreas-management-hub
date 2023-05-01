@@ -76,9 +76,32 @@ $(document).ready(function () {
         let delete_id = $(this).data('id');
         deleteConfirmation(delete_id);
     });
+
+    // Update order status
+    $(document).on("change", ".status-select", function () {
+        let primary_id = $(this).data('id');
+        let status = $(this).val();
+        console.log(primary_id + " " + status);
+        $.ajax({
+            url: '../assets/php/crud/update_order_status.php',
+            method: 'POST',
+            data: {
+                primary_id: primary_id,
+                status: status
+            },
+            success: function (data) {
+                displayTable();
+                if (data == "success") {
+                    editAlert();
+                } else {
+                    errorAlert();
+                }
+            }
+        });
+    });
 });
 
-// ========== Constants ==========
+// ========== Functions ==========
 // Displays data with search function
 const displayTable = () => {
     let input = $("#search_records").val();
