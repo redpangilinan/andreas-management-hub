@@ -4,7 +4,7 @@ const customerDetails = localStorage.getItem('customerDetails');
 const setCustomer = async (firstName, lastName, contactNo, address) => {
     const query = encodeURI(address);
     try {
-        const response = await fetch(`https://nominatim.openstreetmap.org/search?q=${query}&format=json`);
+        const response = await fetch(`https://nominatim.openstreetmap.org/search?q=${query},PH&format=json&limit=1`);
         const data = await response.json();
         if (data && data.length) {
             const customerDetails = {

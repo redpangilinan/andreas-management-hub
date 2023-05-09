@@ -1,13 +1,13 @@
 async function calculateDeliveryFee(startAddress, endAddress) {
     // Get the latitude and longitude of the starting address
-    const startUrl = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(startAddress)}&format=json&limit=1`;
+    const startUrl = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(startAddress)},PH&format=json&limit=1`;
     const startRes = await fetch(startUrl);
     const startData = await startRes.json();
     const startLat = startData[0].lat;
     const startLng = startData[0].lon;
 
     // Get the latitude and longitude of the ending address
-    const endUrl = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(endAddress)}&format=json&limit=1`;
+    const endUrl = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(endAddress)},PH&format=json&limit=1`;
     const endRes = await fetch(endUrl);
     const endData = await endRes.json();
     const endLat = endData[0].lat;
