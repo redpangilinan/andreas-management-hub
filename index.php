@@ -87,27 +87,7 @@ include "./assets/php/ordering/best_seller.php"
                         <button type="button" class="cart-button" id="cart-buttonn">Cart</button>
                     </div>
                 </div>
-                <div class="cart-con" id="cart-conn">
-
-
-                    <div class="cart-item">
-                        <input type="checkbox">
-                        <div class="history-cart-img">
-                            <img src="./assets/images/andreas background.jpg" alt="">
-                        </div>
-                        <div class="history-cart-details">
-                            <h5>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</h5>
-                            <div class="price-quantity">
-                                <span>₱260</span>
-                                <div class="quantity">
-                                    <span class="minus">-</span>
-                                    <input type="number" class="count" name="quantity" value="1">
-                                    <span class="plus">+</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div class="cart-con" id="cart-conn"></div>
                 <div class="history-con" id="history-conn">
                     <div class="history-oder-con" id="history-oder-con">
                         <div class="history-order">
@@ -139,7 +119,6 @@ include "./assets/php/ordering/best_seller.php"
                                     <span>100.00</span>
                                 </div>
                             </div>
-
                             <div class="history-item">
                                 <div class="history-details">
                                     <div class="history-item-details">
@@ -154,7 +133,6 @@ include "./assets/php/ordering/best_seller.php"
                                     <span>50.00</span>
                                 </div>
                             </div>
-
                             <div class="history-item">
                                 <div class="history-details">
                                     <div class="history-item-details">

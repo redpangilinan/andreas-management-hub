@@ -2,7 +2,7 @@
 let customerCart = [];
 
 // Add a product to the customer cart
-const addToCart = (productName, quantity, price, expense) => {
+const addToCart = (productName, quantity, price, expense, image) => {
     let existingProductIndex = customerCart.findIndex(item => item.name === productName);
 
     if (existingProductIndex !== -1) {
@@ -17,9 +17,35 @@ const addToCart = (productName, quantity, price, expense) => {
             qty: quantity,
             price: price,
             expense: expense,
+            image: image,
         };
 
         customerCart.push(product);
     }
-    console.log(customerCart);
+    customAlert("success", "Added to cart!", "The product has been added to your orders.")
+    updateCart();
 }
+
+const updateCart = () => {
+    const cartContainer = document.getElementById('cart-conn');
+    let cartHTML = '';
+
+    customerCart.forEach((item) => {
+        cartHTML += `
+        <div class="cart-item">
+          <div class="history-cart-img">
+            <img src="/assets/images/products/${item.image}" alt="">
+          </div>
+          <div class="history-cart-details">
+            <h5>${item.name}</h5>
+            <div class="price-quantity">
+              <span>₱${item.price}</span>
+              <div>Qty: ${item.qty}</div>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+
+    cartContainer.innerHTML = cartHTML;
+};
