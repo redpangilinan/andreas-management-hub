@@ -32,6 +32,7 @@ $(document).on("click", ".product", function () {
         </div>`);
         let primary_id = $(this).data('id');
         displayProductInfo(primary_id);
+        console.log(localStorage.getItem('customerDetails'));
     } else {
         customerInfoModal.show();
     }

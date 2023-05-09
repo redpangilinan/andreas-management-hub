@@ -80,14 +80,13 @@ include "./assets/php/ordering/best_seller.php"
                 <div class="cart-header-con">
                     <div class="cart-header1">
                         <h4><span class="fas fa-cart-plus"></span> Your Order</h4>
-                        <div id="check"><input type="checkbox" id="all" name="all" value="all"><label for="all">ALL</label></div>
                     </div>
                     <div class="cart-header2">
                         <button type="button" class="history-button" id="history-buttonn">History</button>
                         <button type="button" class="cart-button" id="cart-buttonn">Cart</button>
                     </div>
                 </div>
-                <div class="cart-con" id="cart-conn"></div>
+                <div class="cart-con h-100" id="cart-conn"></div>
                 <div class="history-con" id="history-conn">
                     <div class="history-oder-con" id="history-oder-con">
                         <div class="history-order">
@@ -153,21 +152,21 @@ include "./assets/php/ordering/best_seller.php"
                 </div>
                 <div class="summ-con" id="summ-con">
                     <hr>
-                    <h3>Summary <span class="fa fa-trash"></span></h3>
+                    <h3>Summary</h3>
                     <center>
                         <hr size="20px" width="98%">
                     </center>
 
-                    <div class="sub-total-con">
+                    <div class="sub-total-con" id="cart-details">
                         <div class="sub-right">
                             <h6>Sub Total:</h6>
-                            <h6>Delivery Type:</h6>
+                            <h6>Delivery Fee:</h6>
                             <h6>Total Price:</h6>
                         </div>
                         <div class="sub-left">
-                            <h6>123</h6>
-                            <h6>123</h6>
-                            <h6>123</h6>
+                            <h6>₱0</h6>
+                            <h6>₱0</h6>
+                            <h6>₱0</h6>
                         </div>
                     </div>
                     <button type="button">Check Out</button>
@@ -255,6 +254,7 @@ include "./assets/php/ordering/best_seller.php"
     <script src="./assets/js/alerts.js"></script>
     <script src="./assets/js/cart.js"></script>
     <script src="./assets/js/ordering/customerAuthentication.js"></script>
+    <script src="./assets/js/deliveryFee.js"></script>
     <script src="./assets/js/ordering/productData.js"></script>
     <script src="./assets/js/ordering/cartCustomer.js"></script>
 </body>
