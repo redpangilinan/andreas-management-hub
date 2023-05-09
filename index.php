@@ -78,19 +78,19 @@ include "./assets/php/ordering/best_seller.php"
 
             <div class="cart-cont" id="cart-contt">
                 <div class="cart-header-con">
-                  <div class="cart-header1">
-                      <h4><span class="fas fa-cart-plus"></span> Your Order</h4>
-                      <div id="check"><input type="checkbox" id="all" name="all" value="all"><label for="all">ALL</label></div>
-                  </div>
-                  <div class="cart-header2">
-                      <button type="button" class="history-button" id="history-buttonn">History</button>
-                      <button type="button" class="cart-button" id="cart-buttonn">Cart</button>
-                  </div>
+                    <div class="cart-header1">
+                        <h4><span class="fas fa-cart-plus"></span> Your Order</h4>
+                        <div id="check"><input type="checkbox" id="all" name="all" value="all"><label for="all">ALL</label></div>
+                    </div>
+                    <div class="cart-header2">
+                        <button type="button" class="history-button" id="history-buttonn">History</button>
+                        <button type="button" class="cart-button" id="cart-buttonn">Cart</button>
+                    </div>
                 </div>
                 <div class="cart-con" id="cart-conn">
-                    
-					
-					<div class="cart-item">
+
+
+                    <div class="cart-item">
                         <input type="checkbox">
                         <div class="history-cart-img">
                             <img src="./assets/images/andreas background.jpg" alt="">
@@ -108,70 +108,70 @@ include "./assets/php/ordering/best_seller.php"
                         </div>
                     </div>
                 </div>
-				<div class="history-con" id="history-conn">
-					<div class="history-oder-con" id="history-oder-con">
-						<div class="history-order">
-							<h5>Oct 6, 2022</h5>
-							<div class = "history-details">
-								<span>3 Items</span>
-							</div>
-						</div>
-					</div>
-					<div class="history-info-con">
-						<div class = "history-date" id="history-date">
-							<span>Delivery Time:</span>
-							<span>10:11 AM</span>
-							<span>Oct 6, 2022</span>
-						</div>
-						
-						<div class="history-item-con" id="history-item-con">
-							<div class="history-item">
-								<div class="history-details">
-									<div class="history-item-details">
-										<input type="checkbox">
-										<img src="./assets/images/andreas background.jpg" alt="">
-										<span>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</span>
-									</div>
-									<span>x2</span>
-								</div>
-								<div class="history-sub">
-									<span>Sub Total:</span>
-									<span>100.00</span>
-								</div>
-							</div>
-							
-							<div class="history-item">
-								<div class="history-details">
-									<div class="history-item-details">
-										<input type="checkbox">
-										<img src="./assets/images/andreas background.jpg" alt="">
-										<span>maki</span>
-									</div>
-									<span>x1</span>
-								</div>
-								<div class="history-sub">
-									<span>Sub Total:</span>
-									<span>50.00</span>
-								</div>
-							</div>
-							
-							<div class="history-item">
-								<div class="history-details">
-									<div class="history-item-details">
-										<input type="checkbox">
-										<img src="./assets/images/andreas background.jpg" alt="">
-										<span>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</span>
-									</div>
-									<span>x3</span>
-								</div>
-								<div class="history-sub">
-									<span>Sub Total:</span>
-									<span>150.00</span>
-								</div>
-							</div>
-						</div>
-					</div>
-					
+                <div class="history-con" id="history-conn">
+                    <div class="history-oder-con" id="history-oder-con">
+                        <div class="history-order">
+                            <h5>Oct 6, 2022</h5>
+                            <div class="history-details">
+                                <span>3 Items</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="history-info-con">
+                        <div class="history-date" id="history-date">
+                            <span>Delivery Time:</span>
+                            <span>10:11 AM</span>
+                            <span>Oct 6, 2022</span>
+                        </div>
+
+                        <div class="history-item-con" id="history-item-con">
+                            <div class="history-item">
+                                <div class="history-details">
+                                    <div class="history-item-details">
+                                        <input type="checkbox">
+                                        <img src="./assets/images/andreas background.jpg" alt="">
+                                        <span>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</span>
+                                    </div>
+                                    <span>x2</span>
+                                </div>
+                                <div class="history-sub">
+                                    <span>Sub Total:</span>
+                                    <span>100.00</span>
+                                </div>
+                            </div>
+
+                            <div class="history-item">
+                                <div class="history-details">
+                                    <div class="history-item-details">
+                                        <input type="checkbox">
+                                        <img src="./assets/images/andreas background.jpg" alt="">
+                                        <span>maki</span>
+                                    </div>
+                                    <span>x1</span>
+                                </div>
+                                <div class="history-sub">
+                                    <span>Sub Total:</span>
+                                    <span>50.00</span>
+                                </div>
+                            </div>
+
+                            <div class="history-item">
+                                <div class="history-details">
+                                    <div class="history-item-details">
+                                        <input type="checkbox">
+                                        <img src="./assets/images/andreas background.jpg" alt="">
+                                        <span>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</span>
+                                    </div>
+                                    <span>x3</span>
+                                </div>
+                                <div class="history-sub">
+                                    <span>Sub Total:</span>
+                                    <span>150.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
                 <div class="summ-con" id="summ-con">
                     <hr>
@@ -194,9 +194,9 @@ include "./assets/php/ordering/best_seller.php"
                     </div>
                     <button type="button">Check Out</button>
                 </div>
-				
-				<div class="history-summ-con" id="history-summ-con">
-					<div class="history-sub-total-con">
+
+                <div class="history-summ-con" id="history-summ-con">
+                    <div class="history-sub-total-con">
                         <div class="sub-right">
                             <h6>Sub Total:</h6>
                             <h6>Delivery Fee:</h6>
@@ -208,8 +208,8 @@ include "./assets/php/ordering/best_seller.php"
                             <h6>350.00</h6>
                         </div>
                     </div>
-					<button type="button">Re-order</button>
-				</div>
+                    <button type="button">Re-order</button>
+                </div>
             </div>
         </div>
         <div class="navi">
@@ -228,11 +228,7 @@ include "./assets/php/ordering/best_seller.php"
                 <div class="modal-header">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body" id="product-info"></div>
-                <div class="modal-footer">
-                    <button type="button" class="ordr-butn">Buy Now</button>
-                    <button type="button" class="ordr-butn">Add to Cart</button>
-                </div>
+                <div id="product-info"></div>
             </div>
         </div>
     </div>
@@ -279,65 +275,10 @@ include "./assets/php/ordering/best_seller.php"
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
     <script src="./assets/js/alerts.js"></script>
-	<script src="./assets/js/cart.js"></script>
+    <script src="./assets/js/cart.js"></script>
     <script src="./assets/js/ordering/customerAuthentication.js"></script>
     <script src="./assets/js/ordering/productData.js"></script>
-	<script>
-	const popupCartCon = document.querySelector('#cart-conn');
-	const popupHistoryCon = document.querySelector('#history-conn');
-	const sumCon = document.querySelector('#summ-con');
-	const hisSumCon = document.querySelector('#history-summ-con');
-	const check = document.querySelector('#check');
-	const hisItemCon = document.querySelector('#history-item-con');
-	const hisDate = document.querySelector('#history-date');
-	const hisOrCon = document.querySelector('#history-oder-con');
-	
-	
-
-	const cartButton = document.querySelector('#cart-buttonn');
-	const historyButton = document.querySelector('#history-buttonn');
-
-	historyButton.addEventListener('click', () => {
-		if (popupHistoryCon.style.display !== 'block') {
-			popupHistoryCon.style.display = 'block';
-			popupCartCon.style.display = 'none';
-			historyButton.style.backgroundColor = '#165853';
-			historyButton.style.color = '#ffffff';
-			cartButton.style.backgroundColor = 'transparent';
-			cartButton.style.color = '#165853';
-			sumCon.style.display = 'none';
-			hisSumCon.style.display = 'none';
-			hisItemCon.style.display = 'none';
-			hisDate.style.display = 'none';
-			check.style.display = 'none';
-			hisOrCon.style.display = 'block';
-		}
-	});
-
-	cartButton.addEventListener('click', () => {
-		if (popupCartCon.style.display !== 'block') {
-			popupHistoryCon.style.display = 'none';
-			popupCartCon.style.display = 'block';
-			historyButton.style.backgroundColor = 'transparent';
-			historyButton.style.color = '#165853';
-			cartButton.style.backgroundColor = '#165853';
-			cartButton.style.color = '#ffffff';
-			sumCon.style.display = 'block';
-			hisSumCon.style.display = 'none';
-			check.style.display = 'block';
-		}
-	});
-	
-	hisOrCon.addEventListener('click', () => {
-		hisSumCon.style.display = 'block';
-		hisItemCon.style.display = 'block';
-		hisDate.style.display = 'flex';
-		hisOrCon.style.display = 'none';
-		check.style.display = 'block';
-	})
-		
-		
-	</script>
+    <script src="./assets/js/ordering/cartCustomer.js"></script>
 </body>
 
 </html>

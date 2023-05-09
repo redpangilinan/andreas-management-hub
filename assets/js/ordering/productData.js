@@ -11,20 +11,25 @@ $(document).on("click", ".product", function () {
         orderModal.show();
         // Initialize Skeleton Loader
         $("#product-info").html(`
-        <div class="mb-3">
-            <div class="skeleton skeleton-rich-input w-100" style="height: 7.5rem;"></div>
+        <div class="modal-body">
+            <div class="mb-3">
+                <div class="skeleton skeleton-rich-input w-100" style="height: 7.5rem;"></div>
+            </div>
+            <hr>
+            <div class="d-flex">
+                <div class="skeleton skeleton-text w-100"></div>
+                <div class="skeleton skeleton-text w-100 ms-2"></div>
+            </div>
+            <hr>
+            <div class="d-flex">
+                <div class="skeleton skeleton-text w-100"></div>
+                <div class="skeleton skeleton-text w-100 ms-2"></div>
+            </div>
         </div>
-        <hr>
-        <div class="d-flex">
-            <div class="skeleton skeleton-text w-100"></div>
-            <div class="skeleton skeleton-text w-100 ms-2"></div>
-        </div>
-        <hr>
-        <div class="d-flex">
-            <div class="skeleton skeleton-text w-100"></div>
-            <div class="skeleton skeleton-text w-100 ms-2"></div>
-        </div>
-        `);
+        <div class="modal-footer">
+            <button type="button" class="ordr-butn">Buy Now</button>
+            <button type="button" class="ordr-butn">Add to Cart</button>
+        </div>`);
         let primary_id = $(this).data('id');
         displayProductInfo(primary_id);
     } else {
