@@ -56,7 +56,7 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
     </div>
     <div class="mb-3">
         <label for="edit_order_date_time" class="form-label">Delivery Date and Time</label>
-        <input type="datetime-local" class="form-control" name="edit_order_date_time" id="edit_order_date_time" placeholder="Delivery Date and Time" value="<?php echo $row['order_date_time'] ?>" required>
+        <input type="datetime-local" class="form-control" name="edit_order_date_time" id="edit_order_date_time" placeholder="Delivery Date and Time" value="<?php echo $row['order_date_time'] ?>" min="<?php echo date('Y-m-d\TH:i'); ?>" required>
     </div>
     <div class="mb-3 d-flex">
         <div class="w-100">

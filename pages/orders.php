@@ -88,7 +88,7 @@ validateSession();
                         </div>
                         <div class="mb-3">
                             <label for="order_date_time" class="form-label">Delivery Date and Time</label>
-                            <input type="datetime-local" class="form-control" name="order_date_time" id="order_date_time" placeholder="Delivery Date and Time" required>
+                            <input type="datetime-local" class="form-control" name="order_date_time" id="order_date_time" placeholder="Delivery Date and Time" min="<?php echo date('Y-m-d\TH:i'); ?>" required>
                         </div>
                         <div class="mb-3 d-flex">
                             <div class="w-100">
