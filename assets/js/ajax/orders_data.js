@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    addBtnEnable();
     // Calls the respective constants when necessary
     displayTable();
     $("#search_records").keyup(function () {
@@ -60,8 +61,24 @@ $(document).ready(function () {
     $("#form_add").submit(function (e) {
         e.preventDefault();
         addBtnDisable();
-        const formData = new FormData(this);
-        insertData(formData);
+
+        // Get the input elements
+        const deliveryFeeInput = document.getElementById("deliveryfee");
+        const addressInput = document.getElementById("address");
+
+        // Call the calculateDeliveryFee function with start and end addresses
+        calculateDeliveryFee("1 Woodlands Drive, Malanday, Valenzuela", addressInput.value)
+            .then((deliveryFee) => {
+                console.log("Fee: " + deliveryFee);
+                deliveryFeeInput.value = deliveryFee;
+                const formData = new FormData(this);
+                insertData(formData);
+            })
+            .catch((error) => {
+                addBtnEnable();
+                console.error(error);
+                customAlert("error", "Invalid address!", "The address you input does not exist!")
+            });
     });
 
     $("#form_edit").submit(function (e) {

@@ -5,7 +5,7 @@ if (isset($_POST['input']) && isset($_POST['filter_status'])) {
     $input = mysqli_real_escape_string($conn, $_POST['input']);
     $filter_status = mysqli_real_escape_string($conn, $_POST['filter_status']);
     $sql =
-        "SELECT order_id, firstname, lastname, address, contact_no, order_details, order_date_time, order_type, mode_of_payment, price, profit, status
+        "SELECT order_id, firstname, lastname, address, contact_no, order_details, order_date_time, order_type, mode_of_payment, price, profit, deliveryfee, status
     FROM tb_orders
     WHERE status = '$filter_status'
     AND (order_id LIKE '{$input}%'
@@ -55,7 +55,10 @@ if (isset($_POST['input']) && isset($_POST['filter_status'])) {
             <td><?php echo date("Y-m-d h:i A", strtotime($row["order_date_time"])); ?></td>
             <td><?php echo $row["order_type"] ?></td>
             <td><?php echo $row["mode_of_payment"] ?></td>
-            <td><?php echo "₱" . $row["price"] . " <span class='text-success'>(" . "₱" . $row["profit"] . ")</span>" ?></td>
+            <td><?php echo "₱" . $row["price"] . " <span class='text-success'>(" . "₱" . $row["profit"] . ")</span>
+                            <br><span class='text-secondary'>₱" . $row["deliveryfee"] . "</span>";
+                ?>
+            </td>
             <td>
                 <select data-id="<?php echo $row["order_id"] ?>" class="status-select form-select form-select-sm" style="min-width: 7rem;">
                     <option value="Pending" <?php if ($row["status"] == "Pending") echo "selected" ?>>Pending</option>
@@ -95,7 +98,8 @@ if (
     isset($_POST['order_type']) &&
     isset($_POST['mode_of_payment']) &&
     isset($_POST['price']) &&
-    isset($_POST['profit'])
+    isset($_POST['profit']) &&
+    isset($_POST['deliveryfee'])
 ) {
     include '../connection.php';
 
@@ -110,10 +114,11 @@ if (
     $mode_of_payment = $_POST['mode_of_payment'];
     $price = $_POST['price'];
     $profit = $_POST['profit'];
+    $deliveryfee = $_POST['deliveryfee'];
 
     // Sanitize the input and insert the data into the database
-    $stmt = mysqli_prepare($conn, "INSERT INTO tb_orders VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'Pending')");
-    mysqli_stmt_bind_param($stmt, "ssssssssdd", $firstname, $lastname, $address, $contact_no, $order_details, $order_date_time, $order_type, $mode_of_payment, $price, $profit);
+    $stmt = mysqli_prepare($conn, "INSERT INTO tb_orders VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'Pending')");
+    mysqli_stmt_bind_param($stmt, "ssssssssddd", $firstname, $lastname, $address, $contact_no, $order_details, $order_date_time, $order_type, $mode_of_payment, $price, $profit, $deliveryfee);
     if (mysqli_stmt_execute($stmt)) {
         echo "success";
     } else {

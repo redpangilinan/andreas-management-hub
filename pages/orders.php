@@ -40,6 +40,7 @@ validateSession();
                     <form class="card mb-3" id="form_add">
                         <h5>Add Orders</h5>
                         <!-- Customer Details -->
+                        <input type="hidden" name="deliveryfee" id="deliveryfee">
                         <div class="mb-3 d-flex">
                             <div class="w-100">
                                 <label for="firstname" class="form-label">First Name</label>
@@ -214,6 +215,7 @@ validateSession();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
     <script src="../assets/js/tooltip.js"></script>
     <script src="../assets/js/alerts.js"></script>
+    <script src="../assets/js/deliveryFee.js"></script>
     <script src="../assets/js/cartAdmin.js"></script>
     <script src="../assets/js/ajax/orders_data.js"></script>
 </body>
