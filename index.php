@@ -76,10 +76,11 @@ include "./assets/php/ordering/best_seller.php"
                 </div>
             </div>
 
-            <div class="cart-cont" id="cart-contt">
+            <div class="cart-cont shadow" id="cart-contt">
                 <div class="cart-header-con">
                     <div class="cart-header1">
                         <h4><span class="fas fa-cart-plus"></span> Your Order</h4>
+                        <div class="btn text-white" data-bs-toggle="modal" data-bs-target="#customerInfoModal" style="background-color: #165853"><i class="fa-solid fa-user"></i></div>
                     </div>
                     <div class="cart-header2">
                         <button type="button" class="history-button" id="history-buttonn">History</button>
@@ -89,7 +90,7 @@ include "./assets/php/ordering/best_seller.php"
                 <div class="cart-con h-100" id="cart-conn"></div>
                 <div class="history-con" id="history-conn">
                     <div class="history-oder-con" id="history-oder-con">
-                        <div class="history-order">
+                        <div class="history-order card">
                             <h5>Oct 6, 2022</h5>
                             <div class="history-details">
                                 <span>3 Items</span>
@@ -214,7 +215,7 @@ include "./assets/php/ordering/best_seller.php"
         <div class="modal-dialog">
             <div class="modal-content customerInfoModal">
                 <div class="modal-header">
-                    <h5 class="modal-title">Enter details before ordering</h5>
+                    <h5 class="modal-title">Customer Details</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form id="customer-form">
@@ -254,9 +255,9 @@ include "./assets/php/ordering/best_seller.php"
     <script src="./assets/js/alerts.js"></script>
     <script src="./assets/js/cart.js"></script>
     <script src="./assets/js/deliveryFee.js"></script>
+    <script src="./assets/js/ordering/customerAuthentication.js"></script>
     <script src="./assets/js/ordering/productData.js"></script>
     <script src="./assets/js/ordering/cartCustomer.js"></script>
-    <script src="./assets/js/ordering/customerAuthentication.js"></script>
 </body>
 
 </html>
