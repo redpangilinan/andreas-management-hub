@@ -28,13 +28,18 @@ const addToCart = (productName, quantity, price, expense, image) => {
     updateCart(deliveryFee);
 }
 
+// Refreshes the customer cart display
 const updateCart = (deliveryFee) => {
+    // Set the cart to local storage
+    localStorage.setItem('customerCart', JSON.stringify(customerCart));
+
+    // Reset values
     let cartHTML = '';
     let totalPrice = 0;
 
     customerCart.forEach((item, index) => {
         cartHTML += `
-        <div class="cart-item">
+        <div class="cart-item border">
           <div class="d-flex justify-content-center align-items-center">
             <i class="fa-solid fa-times fa-xl pe-2" aria-hidden="true" data-index="${index}"></i>
           </div>
@@ -85,10 +90,16 @@ const updateCart = (deliveryFee) => {
     });
 };
 
-// Set delivery fee
-if (customer !== null) {
+// Set delivery fee and customer cart
+if (customer !== null || customer.deliveryFee !== undefined) {
     deliveryFee = customer.deliveryFee;
-    console.log("Fee: ", deliveryFee);
+    document.querySelector("#firstname").value = customer.firstName;
+    document.querySelector("#lastname").value = customer.lastName;
+    document.querySelector("#contact_no").value = customer.contactNo;
+    document.querySelector("#address").value = customer.address;
+    if (localStorage.getItem('customerCart')) {
+        customerCart = JSON.parse(localStorage.getItem('customerCart'));
+    }
     updateCart(deliveryFee);
 } else {
     customerInfoModal.show();

@@ -39,11 +39,12 @@ const setCustomer = async (firstName, lastName, contactNo, address) => {
 }
 
 const isAuthenticated = () => {
-    if (localStorage.getItem('customerDetails') !== null) {
+    if (localStorage.getItem('customerDetails') !== null || JSON.parse(localStorage.getItem('customerDetails')).deliveryFee !== undefined) {
         return true;
     } else {
         return false;
     }
+
 }
 
 // Enables customer form to be submitted
