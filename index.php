@@ -253,10 +253,10 @@ include "./assets/php/ordering/best_seller.php"
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
     <script src="./assets/js/alerts.js"></script>
     <script src="./assets/js/cart.js"></script>
-    <script src="./assets/js/ordering/customerAuthentication.js"></script>
     <script src="./assets/js/deliveryFee.js"></script>
     <script src="./assets/js/ordering/productData.js"></script>
     <script src="./assets/js/ordering/cartCustomer.js"></script>
+    <script src="./assets/js/ordering/customerAuthentication.js"></script>
 </body>
 
 </html>

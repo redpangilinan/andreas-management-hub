@@ -12,8 +12,19 @@ const setCustomer = async (firstName, lastName, contactNo, address) => {
                 lastName: lastName,
                 contactNo: contactNo,
                 address: address,
+                deliveryFee: 0,
             }
-            localStorage.setItem('customerDetails', JSON.stringify(customerDetails));
+            calculateDeliveryFee("1 Woodlands Drive, Malanday, Valenzuela", customerDetails.address)
+                .then((data) => {
+                    customerDetails.deliveryFee = data;
+                    localStorage.setItem('customerDetails', JSON.stringify(customerDetails));
+                    updateCart(customerDetails.deliveryFee);
+                })
+                .catch((error) => {
+                    console.error(error);
+                    localStorage.removeItem("customerDetails");
+                    customAlert("error", "There are invalid info in your details!", "Your details are invalid and has been cleared. Please reinput your details.");
+                });
             customAlert("success", "Success!", "Your details have been saved.");
             customerInfoModal.hide();
         } else {

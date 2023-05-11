@@ -69,15 +69,14 @@ $(document).ready(function () {
         // Call the calculateDeliveryFee function with start and end addresses
         calculateDeliveryFee("1 Woodlands Drive, Malanday, Valenzuela", addressInput.value)
             .then((deliveryFee) => {
-                console.log("Fee: " + deliveryFee);
                 deliveryFeeInput.value = deliveryFee;
                 const formData = new FormData(this);
                 insertData(formData);
             })
             .catch((error) => {
-                addBtnEnable();
                 console.error(error);
-                customAlert("error", "Invalid address!", "The address you input does not exist!")
+                addBtnEnable();
+                customAlert("error", "Invalid address!", "The address you input does not exist!");
             });
     });
 

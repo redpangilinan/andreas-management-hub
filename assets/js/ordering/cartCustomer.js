@@ -1,5 +1,6 @@
 // Initialize the customer cart
 let customerCart = [];
+const customer = JSON.parse(customerDetails);
 let deliveryFee = null;
 
 // Add a product to the customer cart
@@ -24,10 +25,10 @@ const addToCart = (productName, quantity, price, expense, image) => {
         customerCart.push(product);
     }
     customAlert("success", "Added to cart!", "The product has been added to your orders.")
-    updateCart();
+    updateCart(deliveryFee);
 }
 
-const updateCart = async () => {
+const updateCart = (deliveryFee) => {
     let cartHTML = '';
     let totalPrice = 0;
 
@@ -49,16 +50,10 @@ const updateCart = async () => {
           </div>
         </div>
       `;
-        totalPrice += item.price * item.qty;
+        totalPrice += item.price;
     });
 
     const subTotal = totalPrice;
-    const customer = JSON.parse(customerDetails);
-
-    if (deliveryFee === null) {
-        deliveryFee = Math.round(await calculateDeliveryFee('1 Woodlands Drive, Malanday, Valenzuela', customer.address));
-    }
-
     const total = totalPrice + deliveryFee;
 
     const cartContainer = document.querySelector('#cart-conn');
@@ -85,7 +80,16 @@ const updateCart = async () => {
         icon.addEventListener('click', () => {
             const index = parseInt(icon.dataset.index);
             customerCart.splice(index, 1);
-            updateCart();
+            updateCart(deliveryFee);
         });
     });
 };
+
+// Set delivery fee
+if (customer !== null) {
+    deliveryFee = customer.deliveryFee;
+    console.log("Fee: ", deliveryFee);
+    updateCart(deliveryFee);
+} else {
+    customerInfoModal.show();
+}
