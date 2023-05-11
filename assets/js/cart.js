@@ -16,8 +16,10 @@ const historyButton = document.querySelector('#history-buttonn');
 popupCart.addEventListener('click', () => {
     if (cartCont.style.display !== 'flex') {
         cartCont.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
     } else {
         cartCont.style.display = 'none';
+        document.body.style.overflow = 'scroll';
     }
 })
 
