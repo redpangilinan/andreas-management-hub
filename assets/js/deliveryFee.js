@@ -25,7 +25,7 @@ async function calculateDeliveryFee(startAddress, endAddress) {
     const deliveryFee = 49 + (distanceInKm * 5);
 
     // Return the delivery fee
-    return deliveryFee;
+    return Math.round(deliveryFee);
 
     // Helper function to convert degrees to radians
     function toRad(deg) {
