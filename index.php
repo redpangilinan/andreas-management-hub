@@ -88,68 +88,8 @@ include "./assets/php/ordering/best_seller.php"
                     </div>
                 </div>
                 <div class="cart-con h-100" id="cart-conn"></div>
-                <div class="history-con" id="history-conn">
-                    <div class="history-oder-con" id="history-oder-con">
-                        <div class="history-order card">
-                            <h5>Oct 6, 2022</h5>
-                            <div class="history-details">
-                                <span>3 Items</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="history-info-con">
-                        <div class="history-date" id="history-date">
-                            <span>Delivery Time:</span>
-                            <span>10:11 AM</span>
-                            <span>Oct 6, 2022</span>
-                        </div>
-
-                        <div class="history-item-con" id="history-item-con">
-                            <div class="history-item">
-                                <div class="history-details">
-                                    <div class="history-item-details">
-                                        <input type="checkbox">
-                                        <img src="./assets/images/andreas background.jpg" alt="">
-                                        <span>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</span>
-                                    </div>
-                                    <span>x2</span>
-                                </div>
-                                <div class="history-sub">
-                                    <span>Sub Total:</span>
-                                    <span>100.00</span>
-                                </div>
-                            </div>
-                            <div class="history-item">
-                                <div class="history-details">
-                                    <div class="history-item-details">
-                                        <input type="checkbox">
-                                        <img src="./assets/images/andreas background.jpg" alt="">
-                                        <span>maki</span>
-                                    </div>
-                                    <span>x1</span>
-                                </div>
-                                <div class="history-sub">
-                                    <span>Sub Total:</span>
-                                    <span>50.00</span>
-                                </div>
-                            </div>
-                            <div class="history-item">
-                                <div class="history-details">
-                                    <div class="history-item-details">
-                                        <input type="checkbox">
-                                        <img src="./assets/images/andreas background.jpg" alt="">
-                                        <span>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</span>
-                                    </div>
-                                    <span>x3</span>
-                                </div>
-                                <div class="history-sub">
-                                    <span>Sub Total:</span>
-                                    <span>150.00</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                <div class="history-con h-100" id="history-conn">
+                    <div class="history-oder-con" id="history-oder-con"></div>
                 </div>
                 <div class="summ-con" id="summ-con">
                     <hr>
@@ -157,7 +97,6 @@ include "./assets/php/ordering/best_seller.php"
                     <center>
                         <hr size="20px" width="98%">
                     </center>
-
                     <div class="sub-total-con" id="cart-details">
                         <div class="sub-right">
                             <h6>Sub Total:</h6>
@@ -171,22 +110,6 @@ include "./assets/php/ordering/best_seller.php"
                         </div>
                     </div>
                     <button type="button">Check Out</button>
-                </div>
-
-                <div class="history-summ-con" id="history-summ-con">
-                    <div class="history-sub-total-con">
-                        <div class="sub-right">
-                            <h6>Sub Total:</h6>
-                            <h6>Delivery Fee:</h6>
-                            <h6>Total Price:</h6>
-                        </div>
-                        <div class="sub-left">
-                            <h6>300.00</h6>
-                            <h6>50.00</h6>
-                            <h6>350.00</h6>
-                        </div>
-                    </div>
-                    <button type="button">Re-order</button>
                 </div>
             </div>
         </div>
@@ -249,6 +172,78 @@ include "./assets/php/ordering/best_seller.php"
         </div>
     </div>
 
+    <div class="modal fade cart" id="orderHistory" tabindex="-1" aria-labelledby="orderHistoryLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content orderHistory">
+                <div class="modal-header">
+                    <h5 class="modal-title">Order Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div id="order-details-content">
+                    <div class="modal-body">
+                        <div class="history-info-con" id="order-history-info">
+                            <div class="history-date" id="history-date">
+                                <span>Delivery Time:</span>
+                                <span>10:11 AM</span>
+                                <span>Oct 6, 2022</span>
+                            </div>
+                            <div class="history-item-con">
+                                <div class="history-item">
+                                    <div class="history-details">
+                                        <div class="history-item-details">
+                                            <span>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</span>
+                                        </div>
+                                        <span>x2</span>
+                                    </div>
+                                    <div class="history-sub">
+                                        <span>Price:</span>
+                                        <span>100.00</span>
+                                    </div>
+                                </div>
+                                <div class="history-item">
+                                    <div class="history-details">
+                                        <div class="history-item-details">
+                                            <span>maki</span>
+                                        </div>
+                                        <span>x1</span>
+                                    </div>
+                                    <div class="history-sub">
+                                        <span>Price:</span>
+                                        <span>50.00</span>
+                                    </div>
+                                </div>
+                                <div class="history-item">
+                                    <div class="history-details">
+                                        <div class="history-item-details">
+                                            <span>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</span>
+                                        </div>
+                                        <span>x3</span>
+                                    </div>
+                                    <div class="history-sub">
+                                        <span>Price:</span>
+                                        <span>150.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-between" id="order-history-details">
+                        <div>
+                            <h6>Sub Total:</h6>
+                            <h6>Delivery Fee:</h6>
+                            <h6>Total Price:</h6>
+                        </div>
+                        <div>
+                            <h6>300.00</h6>
+                            <h6>50.00</h6>
+                            <h6>350.00</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <?php include "./assets/php/extensions/footer.php" ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
@@ -258,6 +253,7 @@ include "./assets/php/ordering/best_seller.php"
     <script src="./assets/js/ordering/customerAuthentication.js"></script>
     <script src="./assets/js/ordering/productData.js"></script>
     <script src="./assets/js/ordering/cartCustomer.js"></script>
+    <script src="./assets/js/ordering/orderHistory.js"></script>
 </body>
 
 </html>

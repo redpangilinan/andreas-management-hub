@@ -947,7 +947,6 @@ label {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid lightgray;
     margin: 10px 0 0 10px;
 }
 
@@ -1474,7 +1473,6 @@ input:disabled {
     }
 
     .history-con {
-        margin-bottom: 150px;
         padding: 0;
         border: none;
     }
@@ -1497,7 +1495,7 @@ input:disabled {
         position: relative;
         width: 100%;
         padding: 0.625rem 0.75rem;
-        background-coor: #ffffff;
+        background-color: #ffffff;
         border-radius: 5px;
         cursor: pointer;
         box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;

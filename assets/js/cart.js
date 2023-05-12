@@ -4,10 +4,6 @@ const cartCont = document.querySelector('#cart-contt');
 const popupCartCon = document.querySelector('#cart-conn');
 const popupHistoryCon = document.querySelector('#history-conn');
 const sumCon = document.querySelector('#summ-con');
-const hisSumCon = document.querySelector('#history-summ-con');
-const hisItemCon = document.querySelector('#history-item-con');
-const hisDate = document.querySelector('#history-date');
-const hisOrCon = document.querySelector('#history-oder-con');
 
 const cartButton = document.querySelector('#cart-buttonn');
 const historyButton = document.querySelector('#history-buttonn');
@@ -46,10 +42,6 @@ historyButton.addEventListener('click', () => {
         cartButton.style.backgroundColor = 'transparent';
         cartButton.style.color = '#165853';
         sumCon.style.display = 'none';
-        hisSumCon.style.display = 'none';
-        hisItemCon.style.display = 'none';
-        hisDate.style.display = 'none';
-        hisOrCon.style.display = 'block';
     }
 });
 
@@ -62,13 +54,5 @@ cartButton.addEventListener('click', () => {
         cartButton.style.backgroundColor = '#165853';
         cartButton.style.color = '#ffffff';
         sumCon.style.display = 'block';
-        hisSumCon.style.display = 'none';
     }
 });
-
-hisOrCon.addEventListener('click', () => {
-    hisSumCon.style.display = 'block';
-    hisItemCon.style.display = 'block';
-    hisDate.style.display = 'flex';
-    hisOrCon.style.display = 'none';
-})
