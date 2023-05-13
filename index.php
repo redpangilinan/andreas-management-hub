@@ -14,6 +14,7 @@ include "./assets/php/ordering/best_seller.php"
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./assets/js/qrcode.min.js"></script>
     <link rel="icon" type="image/png" href="./assets/images/icon/1x1-logo.png">
     <title>Andrea's Fresh and Greens</title>
 </head>
@@ -110,7 +111,7 @@ include "./assets/php/ordering/best_seller.php"
                             <h6>₱0</h6>
                         </div>
                     </div>
-                    <button type="button">Check Out</button>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#checkOutModal">Check Out</button>
                 </div>
             </div>
         </div>
@@ -131,6 +132,51 @@ include "./assets/php/ordering/best_seller.php"
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div id="product-info"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade cart" id="checkOutModal" tabindex="-1" aria-labelledby="checkOutModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content checkOutModal">
+                <div class="modal-header">
+                    <h5 class="modal-title">Check Out</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="check-out-details">
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="order_date_time" class="form-label">Delivery Date and Time</label>
+                            <input type="datetime-local" class="form-control" name="order_date_time" id="order_date_time" placeholder="Delivery Date and Time" min="<?php echo date('Y-m-d\TH:i'); ?>" required>
+                        </div>
+                        <div class="mb-3 d-flex">
+                            <div class="w-100">
+                                <label for="order_type" class="form-label">Order Type</label>
+                                <select class="form-select" name="order_type" id="order_type" aria-label="Order Type" required>
+                                    <option value="Delivery">Delivery</option>
+                                    <option value="Pick Up">Pick Up</option>
+                                </select>
+                            </div>
+                            <div class="w-100 ms-2">
+                                <label for="mode_of_payment" class="form-label">Mode of Payment</label>
+                                <select class="form-select" name="mode_of_payment" id="mode_of_payment" aria-label="Mode of Payment" required>
+                                    <option value="Cash on Delivery">Cash on Delivery</option>
+                                    <option value="GCash">GCash</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label>Summary</label>
+                            <div class="card">
+                                <div class="card-body d-flex justify-content-center" id="checkout-price"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-success" id="confirmOrderBtn">Confirm Order</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -166,7 +212,7 @@ include "./assets/php/ordering/best_seller.php"
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary" id="customer-submit" style="width: rem;">Save changes</button>
+                        <button type="submit" class="btn btn-success" id="customer-submit">Save changes</button>
                     </div>
                 </form>
             </div>
@@ -182,51 +228,7 @@ include "./assets/php/ordering/best_seller.php"
                 </div>
                 <div id="order-details-content">
                     <div class="modal-body">
-                        <div class="history-info-con" id="order-history-info">
-                            <div class="history-date" id="history-date">
-                                <span>Delivery Time:</span>
-                                <span>10:11 AM</span>
-                                <span>Oct 6, 2022</span>
-                            </div>
-                            <div class="history-item-con">
-                                <div class="history-item">
-                                    <div class="history-details">
-                                        <div class="history-item-details">
-                                            <span>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</span>
-                                        </div>
-                                        <span>x2</span>
-                                    </div>
-                                    <div class="history-sub">
-                                        <span>Price:</span>
-                                        <span>100.00</span>
-                                    </div>
-                                </div>
-                                <div class="history-item">
-                                    <div class="history-details">
-                                        <div class="history-item-details">
-                                            <span>maki</span>
-                                        </div>
-                                        <span>x1</span>
-                                    </div>
-                                    <div class="history-sub">
-                                        <span>Price:</span>
-                                        <span>50.00</span>
-                                    </div>
-                                </div>
-                                <div class="history-item">
-                                    <div class="history-details">
-                                        <div class="history-item-details">
-                                            <span>8x4.5 BAKED CALI SUSHI w/ Nori Sheet Pack</span>
-                                        </div>
-                                        <span>x3</span>
-                                    </div>
-                                    <div class="history-sub">
-                                        <span>Price:</span>
-                                        <span>150.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="history-info-con" id="order-history-info"></div>
                     </div>
                     <div class="modal-footer d-flex justify-content-between" id="order-history-details">
                         <div>
@@ -255,6 +257,7 @@ include "./assets/php/ordering/best_seller.php"
     <script src="./assets/js/ordering/productData.js"></script>
     <script src="./assets/js/ordering/cartCustomer.js"></script>
     <script src="./assets/js/ordering/orderHistory.js"></script>
+    <script src="./assets/js/ordering/checkOut.js"></script>
 </body>
 
 </html>
