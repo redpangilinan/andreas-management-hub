@@ -166,7 +166,7 @@ if (
     $edit_status = $_POST['edit_status'];
 
     // Sanitize the input and insert the data into the database
-    if ($order_details == "[]" || $order_details == "") {
+    if ($edit_order_details == "[]" || $edit_order_details == "") {
         echo "empty_cart";
     } else {
         $stmt = mysqli_prepare($conn, "UPDATE tb_orders SET firstname=?, lastname=?, address=?, contact_no=?, order_details=?, order_date_time=?, order_type=?, mode_of_payment=?, price=?, profit=?, status=? WHERE order_id=?");
