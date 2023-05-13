@@ -39,7 +39,7 @@ const setCustomer = async (firstName, lastName, contactNo, address) => {
 }
 
 const isAuthenticated = () => {
-    if (localStorage.getItem('customerDetails') !== null || JSON.parse(localStorage.getItem('customerDetails')).deliveryFee !== undefined) {
+    if (localStorage.getItem('customerDetails') !== null) {
         return true;
     } else {
         return false;
