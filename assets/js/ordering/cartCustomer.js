@@ -2,9 +2,11 @@
 let customerCart = [];
 const customer = JSON.parse(customerDetails);
 let deliveryFee = null;
+let subTotal = null;
+let totalProfit = null;
 
 // Add a product to the customer cart
-const addToCart = (productName, quantity, price, expense, image) => {
+const addToCart = (productName, quantity, price, expense, image, alert = false) => {
     let existingProductIndex = customerCart.findIndex(item => item.name === productName);
 
     if (existingProductIndex !== -1) {
@@ -24,7 +26,9 @@ const addToCart = (productName, quantity, price, expense, image) => {
 
         customerCart.push(product);
     }
-    customAlert("success", "Added to cart!", "The product has been added to your orders.")
+    if (alert) {
+        customAlert("success", "Added to cart!", "The product has been added to your orders.");
+    }
     updateCart(deliveryFee);
 }
 
@@ -36,6 +40,7 @@ const updateCart = (deliveryFee) => {
     // Reset values
     let cartHTML = '';
     let totalPrice = 0;
+    let totalExpense = 0;
 
     customerCart.forEach((item, index) => {
         cartHTML += `
@@ -56,9 +61,11 @@ const updateCart = (deliveryFee) => {
         </div>
       `;
         totalPrice += item.price;
+        totalExpense += item.expense;
     });
 
-    const subTotal = totalPrice;
+    subTotal = totalPrice;
+    totalProfit = totalPrice - totalExpense;
     const total = totalPrice + deliveryFee;
 
     const cartContainer = document.querySelector('#cart-conn');
@@ -78,7 +85,9 @@ const updateCart = (deliveryFee) => {
     `;
 
     const cartDetails = document.querySelector('#cart-details');
+    const checkoutPrice = document.querySelector('#checkout-price');
     cartDetails.innerHTML = priceDetails;
+    checkoutPrice.innerHTML = priceDetails;
 
     const closeIcons = document.querySelectorAll('.fa-times');
     closeIcons.forEach(icon => {
