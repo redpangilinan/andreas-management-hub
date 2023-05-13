@@ -490,6 +490,7 @@ td {
     font-family: Spartan;
     font-weight: 600;
     font-size: .9em;
+    border-bottom: 3px solid transparent;
 }
 
 .prod-navi a.active,

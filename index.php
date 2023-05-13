@@ -59,10 +59,11 @@ include "./assets/php/ordering/best_seller.php"
                     $product_count = $row['product_count'];
                     ?>
                     <div class="prod-navi">
-                        <a class="category-tab" href="#home" data-category="All" data-count="<?php echo $product_count ?>">
+                        <a class="category-tab w-100" href="#" data-category="All" data-count="<?php echo $product_count ?>">
                             <div class="prod-navi-img">
                                 <div class="circle-bg"><img src="./assets/images/all.png" alt=""></div>
-                            </div>All
+                            </div>
+                            <span class="d-inline-block text-truncate" style="max-width: 100px;">All</span>
                         </a>
                         <?php include "./assets/php/ordering/show_categories.php" ?>
                     </div>

@@ -13,10 +13,11 @@ $result = mysqli_query($conn, $query);
 // Print categories in desired format
 while ($row = mysqli_fetch_assoc($result)) {
     echo '
-    <a class="category-tab" href="#home" data-category="' . $row['category'] . '" data-count="' . $row['product_count'] . '">
+    <a class="category-tab w-100" href="#" data-category="' . $row['category'] . '" data-count="' . $row['product_count'] . '">
         <div class="prod-navi-img">
             <div class="circle-bg"><img src="./assets/images/products/' . $row['image'] . '" alt="" class="rounded-circle"></div>
-        </div>' . $row['category'] . '
+        </div>
+        <span class="d-inline-block text-truncate" style="max-width: 100px;">' . $row['category'] . '</span>
     </a>';
 }
 
