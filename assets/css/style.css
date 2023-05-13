@@ -1485,11 +1485,10 @@ input:disabled {
         background-color: #ffffff;
         border-radius: 5px;
         cursor: pointer;
-        box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
         transition: 0.2s ease;
         display: flex;
         height: 120px;
-        margin: 0 0 20px 0;
+        margin: 0 0 0.5rem 0;
     }
 
     .history-order {
@@ -1502,7 +1501,7 @@ input:disabled {
         box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
         transition: 0.2s ease;
         height: 120px;
-        margin: 0 0 20px 0;
+        margin: 0 0 0.5rem 0;
         display: flex;
         flex-direction: column;
         justify-content: center;
