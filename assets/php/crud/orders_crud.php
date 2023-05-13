@@ -117,13 +117,18 @@ if (
     $deliveryfee = $_POST['deliveryfee'];
 
     // Sanitize the input and insert the data into the database
-    $stmt = mysqli_prepare($conn, "INSERT INTO tb_orders VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'Pending')");
-    mysqli_stmt_bind_param($stmt, "ssssssssddd", $firstname, $lastname, $address, $contact_no, $order_details, $order_date_time, $order_type, $mode_of_payment, $price, $profit, $deliveryfee);
-    if (mysqli_stmt_execute($stmt)) {
-        echo "success";
+    if ($order_details == "[]" || $order_details == "") {
+        echo "empty_cart";
     } else {
-        echo "Error: " . mysqli_stmt_error($stmt);
+        $stmt = mysqli_prepare($conn, "INSERT INTO tb_orders VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'Pending')");
+        mysqli_stmt_bind_param($stmt, "ssssssssddd", $firstname, $lastname, $address, $contact_no, $order_details, $order_date_time, $order_type, $mode_of_payment, $price, $profit, $deliveryfee);
+        if (mysqli_stmt_execute($stmt)) {
+            echo "success";
+        } else {
+            echo "Error: " . mysqli_stmt_error($stmt);
+        }
     }
+
     mysqli_stmt_close($stmt);
     mysqli_close($conn);
 }
@@ -161,15 +166,19 @@ if (
     $edit_status = $_POST['edit_status'];
 
     // Sanitize the input and insert the data into the database
-    $stmt = mysqli_prepare($conn, "UPDATE tb_orders SET firstname=?, lastname=?, address=?, contact_no=?, order_details=?, order_date_time=?, order_type=?, mode_of_payment=?, price=?, profit=?, status=? WHERE order_id=?");
-    mysqli_stmt_bind_param($stmt, "ssssssssddss", $edit_firstname, $edit_lastname, $edit_address, $edit_contact_no, $edit_order_details, $edit_order_date_time, $edit_order_type, $edit_mode_of_payment, $edit_price, $edit_profit, $edit_status, $primary_id);
-    if (mysqli_stmt_execute($stmt)) {
-        echo "success";
+    if ($order_details == "[]" || $order_details == "") {
+        echo "empty_cart";
     } else {
-        echo "Error: " . mysqli_stmt_error($stmt);
+        $stmt = mysqli_prepare($conn, "UPDATE tb_orders SET firstname=?, lastname=?, address=?, contact_no=?, order_details=?, order_date_time=?, order_type=?, mode_of_payment=?, price=?, profit=?, status=? WHERE order_id=?");
+        mysqli_stmt_bind_param($stmt, "ssssssssddss", $edit_firstname, $edit_lastname, $edit_address, $edit_contact_no, $edit_order_details, $edit_order_date_time, $edit_order_type, $edit_mode_of_payment, $edit_price, $edit_profit, $edit_status, $primary_id);
+        if (mysqli_stmt_execute($stmt)) {
+            echo "success";
+        } else {
+            echo "Error: " . mysqli_stmt_error($stmt);
+        }
+        mysqli_stmt_close($stmt);
+        mysqli_close($conn);
     }
-    mysqli_stmt_close($stmt);
-    mysqli_close($conn);
 }
 
 // Deletes an existing data

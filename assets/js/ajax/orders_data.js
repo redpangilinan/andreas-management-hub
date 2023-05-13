@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    addBtnEnable();
     // Calls the respective constants when necessary
     displayTable();
     $("#search_records").keyup(function () {
@@ -184,6 +183,9 @@ const insertData = (formData) => {
 
                 addBtnEnable();
                 addAlert();
+            } else if (data == "empty_cart") {
+                addBtnEnable();
+                customAlert("error", "Empty cart!", "You haven't selected any products!");
             } else {
                 console.log(data);
                 addBtnEnable();
@@ -208,6 +210,8 @@ const updateData = (formData) => {
             $('#form_edit')[0].reset();
             if (data == "success") {
                 editAlert();
+            } else if (data == "empty_cart") {
+                customAlert("error", "Empty cart!", "You haven't selected any products!");
             } else {
                 console.log(data);
                 errorAlert();
