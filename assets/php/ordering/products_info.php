@@ -25,7 +25,7 @@ if ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
             <h6>Quantity:</h6>
             <div class="quantity">
                 <span class="minus">-</span>
-                <input role="textbox" type="number" class="count" name="quantity" id="quantity" value="1">
+                <input role="textbox" type="number" class="count" name="quantity" id="quantity" value="1" readonly>
                 <span class="plus">+</span>
             </div>
         </div>

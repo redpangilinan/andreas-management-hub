@@ -24,6 +24,9 @@ $(document).ready(function () {
     $('.count').prop('disabled', true);
     $(document).on('click', '.plus', function () {
         $('.count').val(parseInt($('.count').val()) + 1);
+        if ($('.count').val() == 11) {
+            $('.count').val(10);
+        }
     });
     $(document).on('click', '.minus', function () {
         $('.count').val(parseInt($('.count').val()) - 1);
