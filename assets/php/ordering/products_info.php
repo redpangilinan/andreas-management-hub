@@ -31,8 +31,8 @@ if ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         </div>
     </div>
     <div class="modal-footer">
-        <button type="button" class="ordr-butn" data-bs-dismiss="modal">Buy Now</button>
-        <button type="button" class="ordr-butn" data-bs-dismiss="modal" onclick="addToCart('<?php echo $row['product'] ?>', parseInt(document.querySelector('#quantity').value), <?php echo $row['price'] ?> * parseInt(document.querySelector('#quantity').value), <?php echo $row['expense'] ?> * parseInt(document.querySelector('#quantity').value), '<?php echo $row['image'] ?>', 'add')">Add to Cart</button>
+        <button type="button" class="ordr-butn" data-bs-toggle="modal" data-bs-target="#checkOutModal" onclick="addToCart('<?php echo $row['product'] ?>', parseInt(document.querySelector('#quantity').value), <?php echo $row['price'] ?> * parseInt(document.querySelector('#quantity').value), <?php echo $row['expense'] ?> * parseInt(document.querySelector('#quantity').value), '<?php echo $row['image'] ?>')">Buy Now</button>
+        <button type="button" class="ordr-butn" data-bs-dismiss="modal" onclick="addToCart('<?php echo $row['product'] ?>', parseInt(document.querySelector('#quantity').value), <?php echo $row['price'] ?> * parseInt(document.querySelector('#quantity').value), <?php echo $row['expense'] ?> * parseInt(document.querySelector('#quantity').value), '<?php echo $row['image'] ?>', true)">Add to Cart</button>
     </div>
 <?php
 }
