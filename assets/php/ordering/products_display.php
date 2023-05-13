@@ -5,9 +5,9 @@ if (isset($_POST['category'])) {
 
     // Query the database for all products
     if ($category == "All") {
-        $query = "SELECT product_id, product, price, image FROM tb_products ORDER BY product_id";
+        $query = "SELECT product_id, product, price, image FROM tb_products WHERE status = 'Available' ORDER BY product_id";
     } else {
-        $query = "SELECT product_id, product, price, image FROM tb_products WHERE category = '$category' ORDER BY product_id";
+        $query = "SELECT product_id, product, price, image FROM tb_products WHERE category = '$category' AND status = 'Available' ORDER BY product_id";
     }
     $result = mysqli_query($conn, $query);
 
