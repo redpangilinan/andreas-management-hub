@@ -20,11 +20,6 @@ $(document).on("click", ".product", function () {
                 <div class="skeleton skeleton-text w-100"></div>
                 <div class="skeleton skeleton-text w-100 ms-2"></div>
             </div>
-            <hr>
-            <div class="d-flex">
-                <div class="skeleton skeleton-text w-100"></div>
-                <div class="skeleton skeleton-text w-100 ms-2"></div>
-            </div>
         </div>
         <div class="modal-footer">
             <button type="button" class="ordr-butn">Buy Now</button>

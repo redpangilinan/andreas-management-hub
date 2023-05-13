@@ -1049,7 +1049,7 @@ label {
     font-size: 1rem;
     text-align: center;
     border-radius: 0 10px 10px 0;
-    background-color: #198754;
+    background-color: #088178;
 }
 
 .quantity .minus {
@@ -1061,7 +1061,7 @@ label {
     font-size: 1rem;
     text-align: center;
     border-radius: 10px 0 0 10px;
-    background-color: #3C6255;
+    background-color: #088178;
 }
 
 .ordr-quantity span {

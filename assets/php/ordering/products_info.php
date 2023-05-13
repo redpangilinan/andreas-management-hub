@@ -2,7 +2,7 @@
 include '../connection.php';
 $primary_id = mysqli_real_escape_string($conn, $_POST["primary_id"]);
 $sql =
-    "SELECT product, expense, price, image
+    "SELECT product, details, expense, price, image
     FROM tb_products
     WHERE product_id = $primary_id";
 $result = mysqli_query($conn, $sql);
@@ -16,17 +16,9 @@ if ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                 <img src="./assets/images/products/<?php echo $row["image"] ?>" alt="">
             </div>
             <div class="order-info">
-                <h5><?php echo $row['product'] ?></h5>
-                <span>Price:</span> <span><?php echo "₱" . $row['price'] ?></span>
+                <h5><?php echo $row['product'] . " - ₱" . $row['price'] ?></h5>
+                <div class="text-secondary"><?php echo $row['details'] ?></div>
             </div>
-        </div>
-        <hr>
-        <div class="del-type">
-            <h6>Delivery Type:</h6>
-            <select class="form-select form-select-sm" id="delivery" name="delivery">
-                <option value="Pick Up">Pick Up</option>
-                <option value="Delivery">Delivery</option>
-            </select>
         </div>
         <hr>
         <div class="ordr-quantity">
