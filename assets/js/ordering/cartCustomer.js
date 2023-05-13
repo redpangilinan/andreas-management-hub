@@ -91,7 +91,7 @@ const updateCart = (deliveryFee) => {
 };
 
 // Set delivery fee and customer cart
-if (customer !== null || customer.deliveryFee !== undefined) {
+if (customer !== null) {
     deliveryFee = customer.deliveryFee;
     document.querySelector("#firstname").value = customer.firstName;
     document.querySelector("#lastname").value = customer.lastName;
