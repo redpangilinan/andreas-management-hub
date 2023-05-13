@@ -1,9 +1,13 @@
 // Creates a custom alert
-function customAlert(icon, title, text) {
+const customAlert = (icon, title, text, reloadPage = false) => {
     Swal.fire({
         icon: icon,
         title: title,
         text: text,
+    }).then(() => {
+        if (reloadPage) {
+            location.reload();
+        }
     });
 }
 

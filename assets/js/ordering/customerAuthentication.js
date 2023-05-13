@@ -19,21 +19,20 @@ const setCustomer = async (firstName, lastName, contactNo, address) => {
                     customerDetails.deliveryFee = data;
                     localStorage.setItem('customerDetails', JSON.stringify(customerDetails));
                     updateCart(customerDetails.deliveryFee);
+                    customAlert("success", "Success!", "Your details have been saved.", true);
                 })
                 .catch((error) => {
                     console.error(error);
                     localStorage.removeItem("customerDetails");
-                    customAlert("error", "There are invalid info in your details!", "Your details are invalid and has been cleared. Please reinput your details.");
+                    customAlert("error", "API Error!", "You have overused the API, please try again later.");
                 });
-            customAlert("success", "Success!", "Your details have been saved.");
             customerInfoModal.hide();
         } else {
             customAlert("error", "Address not found!", "Please enter a proper address.");
             customerInfoModal.hide();
         }
     } catch (error) {
-        localStorage.setItem('customerDetails', JSON.stringify(customerDetails));
-        customAlert("error", "API Error!", "An error occured while API is being called. Your details have been saved anyways.");
+        customAlert("error", "API Error!", "You have overused the API, please try again later.");
         customerInfoModal.hide();
     }
 }
