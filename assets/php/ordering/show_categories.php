@@ -7,7 +7,7 @@ $query =
     FROM tb_products 
     WHERE status = 'Available' 
     GROUP BY category
-    ORDER BY min_product_id ASC";
+    ORDER BY category";
 $result = mysqli_query($conn, $query);
 
 // Print categories in desired format

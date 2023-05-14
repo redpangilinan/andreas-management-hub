@@ -12,7 +12,7 @@ if (isset($_POST['input'])) {
     OR category LIKE '{$input}%'
     OR expense LIKE '{$input}%'
     OR price LIKE '{$input}%')
-    ORDER BY product_id";
+    ORDER BY category, product_id";
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
