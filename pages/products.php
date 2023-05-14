@@ -52,12 +52,12 @@ validateSession();
                         </div>
                         <div class="mb-3 d-flex">
                             <div class="w-100">
-                                <label for="expense" class="form-label">Expense</label>
-                                <input type="number" class="form-control" name="expense" id="expense" placeholder="Expense" required>
-                            </div>
-                            <div class="w-100 ms-2">
                                 <label for="price" class="form-label">Price</label>
                                 <input type="number" class="form-control" name="price" id="price" placeholder="Price" required>
+                            </div>
+                            <div class="w-100 ms-2">
+                                <label for="expense" class="form-label">Expense</label>
+                                <input type="number" class="form-control" name="expense" id="expense" placeholder="Expense" required>
                             </div>
                         </div>
                         <div class="mb-3">
@@ -83,7 +83,6 @@ validateSession();
                                         <th>Product</th>
                                         <th>Category</th>
                                         <th>Details</th>
-                                        <th>Expense</th>
                                         <th>Price</th>
                                         <th>Status</th>
                                         <th>Modify</th>
@@ -104,9 +103,6 @@ validateSession();
                                             </td>
                                             <td>
                                                 <div class='skeleton skeleton-img rounded'></div>
-                                            </td>
-                                            <td>
-                                                <div class='skeleton skeleton-text w-100'></div>
                                             </td>
                                             <td>
                                                 <div class='skeleton skeleton-text w-100'></div>

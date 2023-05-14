@@ -25,12 +25,12 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
     </div>
     <div class="mb-3 d-flex">
         <div class="w-100">
-            <label for="edit_expense" class="form-label">Expense</label>
-            <input type="number" class="form-control" name="edit_expense" id="edit_expense" placeholder="Expense" value="<?php echo $row['expense'] ?>" required>
-        </div>
-        <div class="w-100 ms-2">
             <label for="edit_price" class="form-label">Price</label>
             <input type="number" class="form-control" name="edit_price" id="edit_price" placeholder="Price" value="<?php echo $row['price'] ?>" required>
+        </div>
+        <div class="w-100 ms-2">
+            <label for="edit_expense" class="form-label">Expense</label>
+            <input type="number" class="form-control" name="edit_expense" id="edit_expense" placeholder="Expense" value="<?php echo $row['expense'] ?>" required>
         </div>
     </div>
     <div class="mb-3">

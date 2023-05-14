@@ -96,9 +96,7 @@ include "./assets/php/ordering/best_seller.php"
                 <div class="summ-con" id="summ-con">
                     <hr>
                     <h3>Summary</h3>
-                    <center>
-                        <hr size="20px" width="98%">
-                    </center>
+                    <hr size="20px">
                     <div class="sub-total-con" id="cart-details">
                         <div class="sub-right">
                             <h6>Sub Total:</h6>
