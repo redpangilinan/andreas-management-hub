@@ -25,8 +25,12 @@ if (isset($_POST['input'])) {
             <td><?php echo $row["product"] ?></td>
             <td><?php echo $row["category"] ?></td>
             <td><?php echo $row["details"] ?></td>
-            <td><?php echo "₱" . $row["expense"] ?></td>
-            <td><?php echo "₱" . $row["price"] ?></td>
+            <td>
+                <?php
+                echo "₱" . $row["price"] . "<span class='text-danger'> (" . "₱" . $row["expense"] . ")</span><br>";
+                echo "<span class='text-success'>+₱" . ($row["price"] - $row["expense"]) . "</span>";
+                ?>
+            </td>
             <td>
                 <button data-id="<?php echo $row["product_id"] ?>" class="availability btn btn-secondary" style="width: 7rem;"><?php echo $row["status"] ?></button>
             </td>
