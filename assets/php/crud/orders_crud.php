@@ -52,7 +52,14 @@ if (isset($_POST['input']) && isset($_POST['filter_status'])) {
                     </ul>
                 </div>
             </td>
-            <td><?php echo date("Y-m-d h:i A", strtotime($row["order_date_time"])); ?></td>
+            <td>
+                <?php
+                $date_str = $row["order_date_time"];
+                $date = strtotime($date_str);
+                $formatted_date = date("F j, Y (h:iA)", $date);
+                echo $formatted_date;
+                ?>
+            </td>
             <td><?php echo $row["order_type"] ?></td>
             <td><?php echo $row["mode_of_payment"] ?></td>
             <td><?php echo "₱" . $row["price"] . " <span class='text-success'>(" . "₱" . $row["profit"] . ")</span>
