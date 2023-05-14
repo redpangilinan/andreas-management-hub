@@ -47,17 +47,6 @@ $("#check-out-details").submit(function (e) {
     });
 });
 
-// Button modification
-const addBtnDisable = () => {
-    document.querySelector("#confirmOrderBtn").innerHTML = "Uploading...";
-    document.querySelector("#confirmOrderBtn").disabled = true;
-}
-
-const addBtnEnable = () => {
-    document.querySelector("#confirmOrderBtn").innerHTML = "Add Order";
-    document.querySelector("#confirmOrderBtn").disabled = false;
-}
-
 const showQRCodeAlert = () => {
     checkOutModal.hide();
 
@@ -97,4 +86,15 @@ const showQRCodeAlert = () => {
             });
         }
     });
+}
+
+// Button modification
+const addBtnDisable = () => {
+    document.querySelector("#confirmOrderBtn").innerHTML = "Confirming...";
+    document.querySelector("#confirmOrderBtn").disabled = true;
+}
+
+const addBtnEnable = () => {
+    document.querySelector("#confirmOrderBtn").innerHTML = "Confirm Order";
+    document.querySelector("#confirmOrderBtn").disabled = false;
 }
