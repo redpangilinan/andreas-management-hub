@@ -77,7 +77,7 @@ if (isset($_POST['input']) && isset($_POST['filter_status'])) {
                 <div class="btn-group" role="group" aria-label="modify">
                     <!-- <button data-id="<?php // echo $row["order_id"] 
                                             ?>" class="view-data btn btn-primary" data-bs-toggle="modal" data-bs-target="#viewModal"><i class="fas fa-eye"></i></button> -->
-                    <button data-id="<?php echo $row["order_id"] ?>" class="edit-data btn btn-success" data-bs-toggle="modal" data-bs-target="#editModal"><i class="fas fa-edit"></i></button>
+                    <button data-id="<?php echo $row["order_id"] ?>" class="view-data btn btn-success" data-bs-toggle="modal" data-bs-target="#orderHistory"><i class="fas fa-eye"></i></button>
                     <button data-id="<?php echo $row["order_id"] ?>" class="delete-data btn btn-danger"><i class="fas fa-trash"></i></button>
                 </div>
             </td>

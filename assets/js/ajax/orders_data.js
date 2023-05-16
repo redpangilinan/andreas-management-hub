@@ -8,88 +8,79 @@ $(document).ready(function () {
         displayTable();
     });
 
-    $(document).on("click", ".edit-data", function () {
-        // Initialize Skeleton Loader
-        $(".modal-body").html(`
-        <div class="d-flex">
-            <div class="skeleton skeleton-text w-100"></div>
-            <div class="skeleton skeleton-text w-100 ms-2"></div>
-        </div>
-        <div class="mb-3 d-flex">
-            <div class="skeleton skeleton-input w-100"></div>
-            <div class="skeleton skeleton-input w-100 ms-2"></div>
-        </div>
-        <div class="mb-3">
-            <div class="skeleton skeleton-text w-50"></div>
-            <div class="skeleton skeleton-input w-100"></div>
-        </div>
-        <div class="mb-3">
-            <div class="skeleton skeleton-text w-50"></div>
-            <div class="skeleton skeleton-input w-100"></div>
-        </div>
-        <div class="mb-3">
-            <div class="skeleton skeleton-text w-50"></div>
-            <div class="skeleton skeleton-input w-100"></div>
-        </div>
-        <div class="mb-3">
-            <div class="skeleton skeleton-input w-100"></div>
-            <div class="skeleton skeleton-rich-input w-100"></div>
-        </div>
-        <div class="mb-3">
-            <div class="skeleton skeleton-text w-50"></div>
-            <div class="skeleton skeleton-input w-100"></div>
-        </div>
-        <div class="d-flex">
-            <div class="skeleton skeleton-text w-100"></div>
-            <div class="skeleton skeleton-text w-100 ms-2"></div>
-        </div>
-        <div class="mb-3 d-flex">
-            <div class="skeleton skeleton-input w-100"></div>
-            <div class="skeleton skeleton-input w-100 ms-2"></div>
-        </div>
-        <div class="mb-3">
-            <div class="skeleton skeleton-text w-50"></div>
-            <div class="skeleton skeleton-input w-100"></div>
-        </div>
-        `);
-
-        let primary_id = $(this).data('id');
-        displayEdit(primary_id);
-    });
-
     $("#form_add").submit(function (e) {
         e.preventDefault();
         addBtnDisable();
 
         // Get the input elements
-        const deliveryFeeInput = document.getElementById("deliveryfee");
-        const addressInput = document.getElementById("address");
+        const deliveryFeeInput = document.querySelector("#deliveryfee");
+        const orderTypeInput = document.querySelector("#order_type");
+        const mopInput = document.querySelector("#mode_of_payment");
+        const addressInput = document.querySelector("#address");
 
-        // Call the calculateDeliveryFee function with start and end addresses
-        calculateDeliveryFee("1 Woodlands Drive, Malanday, Valenzuela", addressInput.value)
-            .then((deliveryFee) => {
-                deliveryFeeInput.value = deliveryFee;
-                const formData = new FormData(this);
-                insertData(formData);
-            })
-            .catch((error) => {
-                console.error(error);
-                addBtnEnable();
-                customAlert("error", "Invalid address!", "The address you input does not exist!");
-            });
-    });
-
-    $("#form_edit").submit(function (e) {
-        e.preventDefault();
-        editBtnDisable();
-        const formData = new FormData(this);
-        updateData(formData);
+        if ($("#order_type").val() == "Pick Up") {
+            deliveryFeeInput.value = 0;
+            if (orderTypeInput.value == "Pick Up") {
+                mopInput.querySelectorAll("option").forEach((option) => {
+                    if (option.textContent.includes("Cash on Delivery/Pickup")) {
+                        option.value = "Cash on Pickup";
+                        option.selected = true;
+                    }
+                });
+            } else if (orderTypeInput.value == "Delivery") {
+                mopInput.querySelectorAll("option").forEach((option) => {
+                    if (option.textContent.includes("Cash on Delivery/Pickup")) {
+                        option.value = "Cash on Delivery";
+                        option.selected = true;
+                    }
+                });
+            }
+            const formData = new FormData(this);
+            insertData(formData);
+        } else {
+            // Call the calculateDeliveryFee function with start and end addresses
+            calculateDeliveryFee("1 Woodlands Drive, Malanday, Valenzuela", addressInput.value)
+                .then((deliveryFee) => {
+                    deliveryFeeInput.value = deliveryFee;
+                    const formData = new FormData(this);
+                    insertData(formData);
+                })
+                .catch((error) => {
+                    console.error(error);
+                    addBtnEnable();
+                    customAlert("error", "Invalid address!", "The address you input does not exist!");
+                });
+        }
     });
 
     // Show confirmation first before deleting data
     $(document).on("click", ".delete-data", function () {
         let delete_id = $(this).data('id');
         deleteConfirmation(delete_id);
+    });
+
+    // View order details
+    $(document).on("click", ".view-data", function () {
+        $("#order-details-content").html(`
+            <div class="modal-body">
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </div>`);
+
+        const primary_id = $(this).data('id');
+        $.ajax({
+            url: "../assets/php/ordering/order_details.php",
+            method: "POST",
+            data: {
+                primary_id: primary_id,
+            },
+            success: function (data) {
+                $("#order-details-content").html(data);
+            }
+        });
     });
 
     // Update order status
@@ -134,37 +125,6 @@ const displayTable = () => {
     });
 }
 
-// Displays data in edit modal
-const displayEdit = (primary_id) => {
-    $.ajax({
-        url: "../assets/php/modals/orders_modal.php",
-        method: "POST",
-        data: {
-            primary_id: primary_id
-        },
-        success: function (data) {
-            $(".modal-body").html(data);
-
-            // Load Order Details
-            editCart = JSON.parse(document.querySelector('#edit_order_details').value);
-            showCartItems("edit");
-
-            // Enables the button to add products to the cart
-            let editAddProductBtn = document.querySelector('#editAddProduct');
-            editAddProductBtn.addEventListener('click', () => {
-                let productValue = document.querySelector('#edit_products').value;
-                let splitProduct = productValue.split(",,,");
-                let productName = splitProduct[0];
-                let price = parseInt(splitProduct[1]);
-                let expense = parseInt(splitProduct[2]);
-                let quantity = 1;
-                addToCart(productName, quantity, price, expense, "edit");
-                showCartItems("edit");
-            });
-        }
-    });
-}
-
 // Adds a new data
 const insertData = (formData) => {
     $.ajax({
@@ -189,31 +149,6 @@ const insertData = (formData) => {
             } else {
                 console.log(data);
                 addBtnEnable();
-                errorAlert();
-            }
-        }
-    });
-}
-
-// Updates the data
-const updateData = (formData) => {
-    $.ajax({
-        url: "../assets/php/crud/orders_crud.php",
-        method: "POST",
-        data: formData,
-        processData: false,
-        contentType: false,
-        success: function (data) {
-            displayTable();
-            editBtnEnable();
-            $('#editModal').modal('hide');
-            $('#form_edit')[0].reset();
-            if (data == "success") {
-                editAlert();
-            } else if (data == "empty_cart") {
-                customAlert("error", "Empty cart!", "You haven't selected any products!");
-            } else {
-                console.log(data);
                 errorAlert();
             }
         }
