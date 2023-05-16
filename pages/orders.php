@@ -101,7 +101,7 @@ validateSession();
                             <div class="w-100 ms-2">
                                 <label for="mode_of_payment" class="form-label">Mode of Payment</label>
                                 <select class="form-select" name="mode_of_payment" id="mode_of_payment" aria-label="Mode of Payment" required>
-                                    <option value="Cash on Delivery">Cash on Delivery</option>
+                                    <option value="Cash on Delivery">Cash on Delivery/Pickup</option>
                                     <option value="GCash">GCash</option>
                                 </select>
                             </div>
@@ -191,22 +191,19 @@ validateSession();
         </div>
     </main>
 
-    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-        <!-- Edit Modal -->
+    <div class="modal fade cart" id="orderHistory" tabindex="-1" aria-labelledby="orderHistoryLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content orderHistory">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="editModalLabel">Edit Order</h1>
+                    <h5 class="modal-title">Order Details</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <!-- Edit Form -->
-                <form id="form_edit">
-                    <div class="modal-body"></div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="edit-confirm btn btn-primary" id="editButton">Save changes</button>
+                <div id="order-details-content">
+                    <div class="modal-body">
+                        <div class="history-info-con" id="order-history-info"></div>
                     </div>
-                </form>
+                    <div class="modal-footer d-flex justify-content-between" id="order-history-details"></div>
+                </div>
             </div>
         </div>
     </div>
