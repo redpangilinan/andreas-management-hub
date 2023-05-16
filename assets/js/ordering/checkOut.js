@@ -88,6 +88,19 @@ const showQRCodeAlert = () => {
     });
 }
 
+$('#order_type').on('change', function () {
+    if (customer !== null) {
+        if ($('#order_type').val() == "Pick Up") {
+            deliveryFee = 0;
+            $('#mode_of_payment option[value="Cash on Delivery"]').val('Cash on Pickup').text('Cash on Pickup');
+        } else {
+            deliveryFee = customer.deliveryFee;
+            $('#mode_of_payment option[value="Cash on Pickup"]').val('Cash on Delivery').text('Cash on Delivery');
+        }
+        updateCart(deliveryFee);
+    }
+});
+
 // Button modification
 const addBtnDisable = () => {
     document.querySelector("#confirmOrderBtn").innerHTML = "Confirming...";

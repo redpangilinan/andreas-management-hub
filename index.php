@@ -228,18 +228,7 @@ include "./assets/php/ordering/best_seller.php"
                     <div class="modal-body">
                         <div class="history-info-con" id="order-history-info"></div>
                     </div>
-                    <div class="modal-footer d-flex justify-content-between" id="order-history-details">
-                        <div>
-                            <h6>Sub Total:</h6>
-                            <h6>Delivery Fee:</h6>
-                            <h6>Total Price:</h6>
-                        </div>
-                        <div>
-                            <h6>300.00</h6>
-                            <h6>50.00</h6>
-                            <h6>350.00</h6>
-                        </div>
-                    </div>
+                    <div class="modal-footer d-flex justify-content-between" id="order-history-details"></div>
                 </div>
             </div>
         </div>
