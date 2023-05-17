@@ -87,7 +87,6 @@ $(document).ready(function () {
     $(document).on("change", ".status-select", function () {
         let primary_id = $(this).data('id');
         let status = $(this).val();
-        console.log(primary_id + " " + status);
         $.ajax({
             url: '../assets/php/crud/update_order_status.php',
             method: 'POST',
