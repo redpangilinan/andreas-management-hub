@@ -85,9 +85,11 @@ $(document).ready(function () {
 
     // Update order status
     $(document).on("change", ".status-select", function () {
+        let primary_id = $(this).data('id');
+        let status = $(this).val();
         Swal.fire({
             title: 'Are you sure?',
-            text: "Do you want to update the order status to " + $(this).val() + "?",
+            text: "Do you want to update the order status to " + status + "?",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -95,8 +97,6 @@ $(document).ready(function () {
             confirmButtonText: 'Yes'
         }).then((result) => {
             if (result.isConfirmed) {
-                let primary_id = $(this).data('id');
-                let status = $(this).val();
                 $.ajax({
                     url: '../assets/php/crud/update_order_status.php',
                     method: 'POST',
@@ -108,9 +108,12 @@ $(document).ready(function () {
                         displayTable();
                         if (data == "success") {
                             editAlert();
-                        } if (data == "order_complete_update") {
+                        } else if (data == "order_complete_update") {
                             customAlert("error", "Order is complete!", "You can't change the status of complete orders!");
+                        } else if (data == "order_approved") {
+                            customAlert("error", "Something went wrong!", "You can't change an order status to Approval!");
                         } else {
+                            console.log(data);
                             errorAlert();
                         }
                     }
@@ -180,9 +183,6 @@ const deleteData = (delete_id) => {
             displayTable();
             if (data == "success") {
                 deleteAlert();
-            }
-            else if (data == "owner_account") {
-                customAlert("error", "Owner Account!", "You can't delete the owner account!");
             } else if (data == "order_complete_delete") {
                 customAlert("error", "Order is complete!", "You can't delete complete orders!");
             } else {
