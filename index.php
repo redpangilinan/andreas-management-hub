@@ -209,7 +209,7 @@ include "./assets/php/ordering/best_seller.php"
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" id="clear-details">Sign out</button>
                         <button type="submit" class="btn btn-success" id="customer-submit">Save changes</button>
                     </div>
                 </form>

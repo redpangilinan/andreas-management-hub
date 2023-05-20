@@ -71,3 +71,28 @@ $("#customer-form").submit(function (e) {
             customerSubmit.disabled = false;
         });
 });
+
+// Clear customer details
+$("#clear-details").click(function () {
+    const customerDetails = localStorage.getItem("customerDetails");
+
+    if (customerDetails) {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "Do you want to sign out and clear your customer details?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                customerInfoModal.hide();
+                localStorage.removeItem("customerDetails");
+                customAlert("success", "Success!", "Your details have been cleared!", true);
+            }
+        });
+    } else {
+        customAlert("error", "No Customer Details!", "There are no customer details saved currently.");
+    }
+});
