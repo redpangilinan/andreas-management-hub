@@ -85,22 +85,36 @@ $(document).ready(function () {
 
     // Update order status
     $(document).on("change", ".status-select", function () {
-        let primary_id = $(this).data('id');
-        let status = $(this).val();
-        $.ajax({
-            url: '../assets/php/crud/update_order_status.php',
-            method: 'POST',
-            data: {
-                primary_id: primary_id,
-                status: status
-            },
-            success: function (data) {
-                displayTable();
-                if (data == "success") {
-                    editAlert();
-                } else {
-                    errorAlert();
-                }
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "Do you want to update the order status to " + $(this).val() + "?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                let primary_id = $(this).data('id');
+                let status = $(this).val();
+                $.ajax({
+                    url: '../assets/php/crud/update_order_status.php',
+                    method: 'POST',
+                    data: {
+                        primary_id: primary_id,
+                        status: status
+                    },
+                    success: function (data) {
+                        displayTable();
+                        if (data == "success") {
+                            editAlert();
+                        } if (data == "order_complete_update") {
+                            customAlert("error", "Order is complete!", "You can't change the status of complete orders!");
+                        } else {
+                            errorAlert();
+                        }
+                    }
+                });
             }
         });
     });
@@ -169,6 +183,8 @@ const deleteData = (delete_id) => {
             }
             else if (data == "owner_account") {
                 customAlert("error", "Owner Account!", "You can't delete the owner account!");
+            } else if (data == "order_complete_delete") {
+                customAlert("error", "Order is complete!", "You can't delete complete orders!");
             } else {
                 console.log(data);
                 errorAlert();

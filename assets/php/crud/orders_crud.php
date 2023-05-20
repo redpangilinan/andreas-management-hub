@@ -191,14 +191,35 @@ if (
 // Deletes an existing data
 if (isset($_POST['delete_id'])) {
     include '../connection.php';
+
     $primary_id = $_POST['delete_id'];
-    $stmt = mysqli_prepare($conn, "DELETE FROM tb_orders WHERE order_id = ?");
+
+    // Check the status of the order
+    $stmt = mysqli_prepare($conn, "SELECT status FROM tb_orders WHERE order_id = ?");
     mysqli_stmt_bind_param($stmt, 's', $primary_id);
-    if (mysqli_stmt_execute($stmt)) {
-        echo "success";
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_bind_result($stmt, $status);
+
+    if (mysqli_stmt_fetch($stmt)) {
+        if ($status !== "Complete") {
+            // Delete the order if it's not complete
+            $deleteStmt = mysqli_prepare($conn, "DELETE FROM tb_orders WHERE order_id = ?");
+            mysqli_stmt_bind_param($deleteStmt, 's', $primary_id);
+
+            if (mysqli_stmt_execute($deleteStmt)) {
+                echo "success";
+            } else {
+                echo "Error: " . mysqli_stmt_error($deleteStmt);
+            }
+
+            mysqli_stmt_close($deleteStmt);
+        } else {
+            echo "order_complete_delete";
+        }
     } else {
-        echo "Error: " . mysqli_stmt_error($stmt);
+        echo "Error: Order not found";
     }
+
     mysqli_stmt_close($stmt);
     mysqli_close($conn);
 }
