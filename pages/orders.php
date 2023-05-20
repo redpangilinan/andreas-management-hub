@@ -121,6 +121,7 @@ validateSession();
                                 <option value="Pending">Pending</option>
                                 <option value="Complete">Complete</option>
                                 <option value="Canceled">Canceled</option>
+                                <option value="Approval">Approval</option>
                             </select>
                         </div>
                         <div class="table-responsive">
