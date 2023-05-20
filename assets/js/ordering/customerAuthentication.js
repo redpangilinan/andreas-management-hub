@@ -49,27 +49,31 @@ const isAuthenticated = () => {
 // Enables customer form to be submitted
 $("#customer-form").submit(function (e) {
     e.preventDefault();
-    customerSubmit.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-    Loading...`;
-    customerSubmit.disabled = true;
+    if (validateForm("#customer-form")) {
+        customerSubmit.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        Loading...`;
+        customerSubmit.disabled = true;
 
-    const form = document.getElementById('customer-form');
-    const firstName = form.firstname.value;
-    const lastName = form.lastname.value;
-    const address = form.address.value;
-    const contactNo = form.contact_no.value;
+        const form = document.getElementById('customer-form');
+        const firstName = form.firstname.value.trim();
+        const lastName = form.lastname.value.trim();
+        const address = form.address.value.trim();
+        const contactNo = form.contact_no.value.trim();
 
-    setCustomer(firstName, lastName, contactNo, address)
-        .then(() => {
-            console.log('Customer details saved successfully');
-            $("#customer-submit").html(`Save changes`);
-            customerSubmit.disabled = false;
-        })
-        .catch((error) => {
-            console.error('Error while saving customer details', error);
-            $("#customer-submit").html(`Save changes`);
-            customerSubmit.disabled = false;
-        });
+        setCustomer(firstName, lastName, contactNo, address)
+            .then(() => {
+                console.log('Customer details saved successfully');
+                $("#customer-submit").html(`Save changes`);
+                customerSubmit.disabled = false;
+            })
+            .catch((error) => {
+                console.error('Error while saving customer details', error);
+                $("#customer-submit").html(`Save changes`);
+                customerSubmit.disabled = false;
+            });
+    } else {
+        customAlert("error", "Invalid input!", "Please do not leave blank spaces on your input.");
+    }
 });
 
 // Clear customer details

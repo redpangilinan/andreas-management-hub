@@ -237,6 +237,7 @@ include "./assets/php/ordering/best_seller.php"
     <?php include "./assets/php/extensions/footer.php" ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+    <script src="./assets/js/formValidation.js"></script>
     <script src="./assets/js/alerts.js"></script>
     <script src="./assets/js/cart.js"></script>
     <script src="./assets/js/deliveryFee.js"></script>
