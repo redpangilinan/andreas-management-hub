@@ -71,6 +71,7 @@ if (isset($_POST['input']) && isset($_POST['filter_status'])) {
                     <option value="Pending" <?php if ($row["status"] == "Pending") echo "selected" ?>>Pending</option>
                     <option value="Complete" <?php if ($row["status"] == "Complete") echo "selected" ?>>Complete</option>
                     <option value="Canceled" <?php if ($row["status"] == "Canceled") echo "selected" ?>>Canceled</option>
+                    <option value="Approval" <?php if ($row["status"] == "Approval") echo "selected" ?>>Approval</option>
                 </select>
             </td>
             <td>
@@ -122,13 +123,21 @@ if (
     $price = $_POST['price'];
     $profit = $_POST['profit'];
     $deliveryfee = $_POST['deliveryfee'];
+    $status = "Pending";
+
+    // Check if order_date_time is longer than 7 days from today
+    $today = date('Y-m-d H:i:s');
+    $sevenDaysLater = date('Y-m-d H:i:s', strtotime('+7 days'));
+    if ($order_date_time > $sevenDaysLater) {
+        $status = "Approval";
+    }
 
     // Sanitize the input and insert the data into the database
     if ($order_details == "[]" || $order_details == "") {
         echo "empty_cart";
     } else {
-        $stmt = mysqli_prepare($conn, "INSERT INTO tb_orders VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'Pending')");
-        mysqli_stmt_bind_param($stmt, "ssssssssddd", $firstname, $lastname, $address, $contact_no, $order_details, $order_date_time, $order_type, $mode_of_payment, $price, $profit, $deliveryfee);
+        $stmt = mysqli_prepare($conn, "INSERT INTO tb_orders VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        mysqli_stmt_bind_param($stmt, "ssssssssddds", $firstname, $lastname, $address, $contact_no, $order_details, $order_date_time, $order_type, $mode_of_payment, $price, $profit, $deliveryfee, $status);
         if (mysqli_stmt_execute($stmt)) {
             echo "success";
         } else {
@@ -194,30 +203,28 @@ if (isset($_POST['delete_id'])) {
 
     $primary_id = $_POST['delete_id'];
 
-    // Check the status of the order
+    // Retrieve the current status of the order_id
     $stmt = mysqli_prepare($conn, "SELECT status FROM tb_orders WHERE order_id = ?");
-    mysqli_stmt_bind_param($stmt, 's', $primary_id);
+    mysqli_stmt_bind_param($stmt, "s", $primary_id);
     mysqli_stmt_execute($stmt);
-    mysqli_stmt_bind_result($stmt, $status);
+    mysqli_stmt_bind_result($stmt, $currentStatus);
+    mysqli_stmt_fetch($stmt);
+    mysqli_stmt_close($stmt);
 
-    if (mysqli_stmt_fetch($stmt)) {
-        if ($status !== "Complete") {
-            // Delete the order if it's not complete
-            $deleteStmt = mysqli_prepare($conn, "DELETE FROM tb_orders WHERE order_id = ?");
-            mysqli_stmt_bind_param($deleteStmt, 's', $primary_id);
+    if ($currentStatus && $currentStatus !== 'Complete') {
+        // Delete the order if it's not complete
+        $deleteStmt = mysqli_prepare($conn, "DELETE FROM tb_orders WHERE order_id = ?");
+        mysqli_stmt_bind_param($deleteStmt, 's', $primary_id);
 
-            if (mysqli_stmt_execute($deleteStmt)) {
-                echo "success";
-            } else {
-                echo "Error: " . mysqli_stmt_error($deleteStmt);
-            }
-
-            mysqli_stmt_close($deleteStmt);
+        if (mysqli_stmt_execute($deleteStmt)) {
+            echo "success";
         } else {
-            echo "order_complete_delete";
+            echo "Error: " . $primary_id;
         }
+
+        mysqli_stmt_close($deleteStmt);
     } else {
-        echo "Error: Order not found";
+        echo "order_complete_delete";
     }
 
     mysqli_stmt_close($stmt);
