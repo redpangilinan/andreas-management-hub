@@ -22,7 +22,7 @@ async function calculateDeliveryFee(startAddress, endAddress) {
     const distanceInKm = R * c;
 
     // Calculate the delivery fee
-    const deliveryFee = 49 + (distanceInKm * 5);
+    const deliveryFee = 44 + (distanceInKm * 4);
 
     // Return the delivery fee
     return Math.round(deliveryFee);
